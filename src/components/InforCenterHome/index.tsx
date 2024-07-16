@@ -4,8 +4,8 @@ const InforCenterHome = () => {
     return(
         <Flex flexDirection={"column"} width={"376px"} alignItems={"center"} gap={"40px"}>
             <Flex flexDirection={"column"} gap={"10px"}>
-                <Flex fontWeight={700} fontSize={"64px"} lineHeight={"70.4px"} textTransform={"uppercase"}>Starkcity</Flex>
-                <Flex fontWeight={400} fontSize={"16px"} textAlign={"center"} lineHeight={"20.8px"}>Welcome to the virtual world’s one-stop-shop for the very best digital assets.</Flex>
+                <Flex fontWeight={700} fontSize={"64px"} lineHeight={"70.4px"} fontFamily={"sora"} textTransform={"uppercase"}>Starkcity</Flex>
+                <Flex fontWeight={400} fontSize={"16px"} textAlign={"center"} fontFamily={"Mulish"}  lineHeight={"20.8px"}>Welcome to the virtual world’s one-stop-shop for the very best digital assets.</Flex>
             </Flex>
             <Image w="260px" height="42px" src="/assets/images/logo_citiverse.png" alt="icon_city" />
             <Flex gap={"16px"} alignItems={"center"}>

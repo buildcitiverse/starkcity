@@ -2,8 +2,8 @@ import { Flex,Box,Image } from "@chakra-ui/react";
 
 const Footer = () => {
     return (
-        <Flex height="80px" justifyContent="center" alignItems="center" bg="#04041B">
-            <Box width="100%" maxWidth="1440px" height="100%">
+        <Flex height="80px" padding={"0 80px"} bg="#04041B" w={"100%"} zIndex={3} position={"absolute"} bottom={"0"}>
+            <Box width="100%" height="100%">
                 <Flex height="100%" alignItems="center" justifyContent="space-between">
                     <Flex gap={"40px"}>
                         <Image src="/assets/images/icon_discord.png" alt="" w={"24px"} h={"24px"}/>
