@@ -9,6 +9,7 @@ const InforMeta = () => {
       p={"24px"}
       flexDirection={"column"}
       gap={"40px"}
+      style={{ backdropFilter: "blur(10px)" }}
     >
       <Flex flexDirection={"column"} gap={"8px"}>
         <Image src="/assets/images/subtitle.png" alt="" w={"48px"} h={"20px"} />
