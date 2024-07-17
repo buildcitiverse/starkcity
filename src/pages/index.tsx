@@ -1,4 +1,3 @@
-
 import { ReactNode } from "react";
 import Header from "../components/Header";
 import { Layout } from "../layouts";
@@ -23,19 +22,42 @@ const Index = () => {
       backgroundPosition="center"
     >
       <Header />
-         <Flex position="relative" width="100%" mt={"80px"} flexDirection={"column"} display={displayResponesive} height="100%" justifyContent={"center"} alignItems="center" >
-          <Flex mb={"40px"} justifyContent={"center"}><InforCenterHome /></Flex>
-          <Flex justifyContent={"center"}><InforMeta /></Flex>
-          <Image
-            mt={"-235px"}
-            src={"/assets/images/bgMapRes.png"}
-            alt=""
-            width={"100%"}
-            objectFit={"cover"}
-            zIndex="1"
-          />
-      </Flex> 
-      <Flex position="relative" width="100%" height="100%" alignItems="center" display={displayDesktop}>
+      
+      {/* For smaller screens (displayResponesive) */}
+      <Flex
+        position="relative"
+        width="100%"
+        mt={"80px"}
+        flexDirection={"column"}
+        display={displayResponesive}
+        height="100%"
+        justifyContent={"center"}
+        alignItems="center"
+      >
+        <Flex mb={"40px"} justifyContent={"center"}>
+          <InforCenterHome />
+        </Flex>
+        <Flex justifyContent={"center"}>
+          <InforMeta />
+        </Flex>
+        <Image
+          mt={"-235px"}
+          src={"/assets/images/bgMapRes.png"}
+          alt=""
+          width={"100%"}
+          objectFit={"cover"}
+          zIndex="1"
+        />
+      </Flex>
+      
+      {/* For larger screens (displayDesktop) */}
+      <Flex
+        position="relative"
+        width="100%"
+        height="100%"
+        alignItems="center"
+        display={displayDesktop}
+      >
         <Image
           src={"/assets/images/bgleft.png"}
           alt=""
@@ -60,16 +82,18 @@ const Index = () => {
         </Box>
         <Box
           position={"absolute"}
-          left={"50%"}
-          top={"46%"}
+          right={"0"}
+          top={"50%"}
+          transform={"translateY(-50%)"}
           zIndex="2"
           pr={"0px"}
-          transform={"translate(-50%, -50%)"}
-          display={displayResponesive}
+          display={displayDesktop}
+          paddingRight={"80px"}
         >
           <InforMeta />
         </Box>
       </Flex>
+      
       <Footer />
     </Flex>
   );
