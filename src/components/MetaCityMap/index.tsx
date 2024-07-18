@@ -8,6 +8,7 @@ import { listMetaCityMap } from "./config";
 import { selectedItemData, setSelectedItem } from "@/src/redux/slices/selectedItemSlice";
 import CanvasWithImageAndIcon from "./CanvasWithImageAndIcon";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const MetaCityMap: React.FC = () => {
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -27,7 +28,7 @@ const MetaCityMap: React.FC = () => {
     );
 
     return (
-        <Flex w="100%" justifyContent={"center"} height={"100vh"} bg="rgba(4, 4, 27, 1)">
+        <Flex w="100%" justifyContent={"center"} height={"100vh"} bg="rgba(4, 4, 27, 1)" overflow={"hidden"}>
             <Flex bg="white" height={"100%"} w="100%">
                 <Flex
                     minW={"334px"}
@@ -112,37 +113,44 @@ const MetaCityMap: React.FC = () => {
                 </Flex>
                 <Flex w="100%" position={"relative"}>
                     {dataSelectedItem && (
-                        <Flex zIndex={99} position={"absolute"} flexDirection={"column"} right={0} top="14%" p='16px' borderTopLeftRadius={"16px"} borderBottomLeftRadius={"16px"} bg="rgba(10, 10, 32, 0.6)" maxWidth={"288px"} maxH={"614px"} w="100%">
-                            <>
-                                <Image width={256} height={160} src="/assets/images/view_house_full.png" alt="" />
-                                <Text mt="16px" fontWeight={700} fontSize={"20px"} lineHeight={"30px"}>{dataSelectedItem.name}</Text>
-                                <Flex my="16px">
-                                    <Text fontWeight={800} fontSize={"14px"} lineHeight={"21px"}>Symbol</Text>
-                                </Flex>
-                                <Flex>
+                        <motion.div
+                            initial={{ x: '100%' }}
+                            animate={{ x: 0 }}
+                            transition={{ type: 'spring', stiffness: 100, damping: 30 }}
+                            style={{ position: 'absolute', right: 0, top: '14%', zIndex: 99, maxWidth: '288px', width: '100%' }}
+                        >
+                            <Flex flexDirection={"column"} p='16px' borderTopLeftRadius={"16px"} borderBottomLeftRadius={"16px"} bg="rgba(10, 10, 32, 0.6)" maxH={"614px"}>
+                                <>
+                                    <Image width={256} height={160} src="/assets/images/view_house_full.png" alt="" />
+                                    <Text mt="16px" fontWeight={700} fontSize={"20px"} lineHeight={"30px"}>{dataSelectedItem.name}</Text>
+                                    <Flex my="16px">
+                                        <Text fontWeight={800} fontSize={"14px"} lineHeight={"21px"}>Symbol</Text>
+                                    </Flex>
                                     <Flex>
-                                        <Text color="rgba(156, 156, 156, 1)" fontWeight={400} fontSize={"12px"} lineHeight={"18px"}>Token ID:</Text>
-                                        <Text color="rgba(236, 121, 107, 1)" fontWeight={700} fontSize={"12px"} lineHeight={"18px"}>#{dataSelectedItem.id}</Text>
+                                        <Flex>
+                                            <Text color="rgba(156, 156, 156, 1)" fontWeight={400} fontSize={"12px"} lineHeight={"18px"}>Token ID:</Text>
+                                            <Text color="rgba(236, 121, 107, 1)" fontWeight={700} fontSize={"12px"} lineHeight={"18px"}>#{dataSelectedItem.id}</Text>
+                                        </Flex>
+                                        <Flex ml="24px">
+                                            <Text color="rgba(156, 156, 156, 1)" fontWeight={400} fontSize={"12px"} lineHeight={"18px"}>Price:</Text>
+                                            <Text color="rgba(236, 121, 107, 1)" fontWeight={700} fontSize={"12px"} lineHeight={"18px"}>{dataSelectedItem.price} {dataSelectedItem.symbol}</Text>
+                                        </Flex>
                                     </Flex>
-                                    <Flex ml="24px">
-                                        <Text color="rgba(156, 156, 156, 1)" fontWeight={400} fontSize={"12px"} lineHeight={"18px"}>Price:</Text>
-                                        <Text color="rgba(236, 121, 107, 1)" fontWeight={700} fontSize={"12px"} lineHeight={"18px"}>{dataSelectedItem.price} {dataSelectedItem.symbol}</Text>
-                                    </Flex>
-                                </Flex>
-                                <Text mt="16px" fontWeight={600} fontSize={"14px"} lineHeight={"21px"}>Owner</Text>
-                                <Text color="rgba(156, 156, 156, 1)" fontWeight={400} fontSize={"12px"} lineHeight={"18px"}>{dataSelectedItem.address}</Text>
-                                <Text mt='16px' fontWeight={600} fontSize={"14px"} lineHeight={"21px"}>Blockchain Network</Text>
-                                <Text color="rgba(156, 156, 156, 1)" fontWeight={400} fontSize={"12px"} lineHeight={"18px"}>{dataSelectedItem.network}</Text>
-                                <Text mt="16px" fontWeight={600} fontSize={"14px"} lineHeight={"21px"}>Description</Text>
-                                <Text color="rgba(156, 156, 156, 1)" fontWeight={400} fontSize={"12px"} lineHeight={"18px"}>{dataSelectedItem.description}</Text>
-                                <Link href={dataSelectedItem.urlShowCase3D} passHref target="_blank">
-                                    <Button mt="16px" bg="rgba(10, 10, 32, 1)" height={"51px"} w="100%" borderRadius={"51px"}>
-                                        <Image style={{ marginRight: "8px" }} width={20} height={20} src="/assets/icons/show_case.png" alt="" />
-                                        3D SHOWCASE
-                                    </Button>
-                                </Link>
-                            </>
-                        </Flex>
+                                    <Text mt="16px" fontWeight={600} fontSize={"14px"} lineHeight={"21px"}>Owner</Text>
+                                    <Text color="rgba(156, 156, 156, 1)" fontWeight={400} fontSize={"12px"} lineHeight={"18px"}>{dataSelectedItem.address}</Text>
+                                    <Text mt='16px' fontWeight={600} fontSize={"14px"} lineHeight={"21px"}>Blockchain Network</Text>
+                                    <Text color="rgba(156, 156, 156, 1)" fontWeight={400} fontSize={"12px"} lineHeight={"18px"}>{dataSelectedItem.network}</Text>
+                                    <Text mt="16px" fontWeight={600} fontSize={"14px"} lineHeight={"21px"}>Description</Text>
+                                    <Text color="rgba(156, 156, 156, 1)" fontWeight={400} fontSize={"12px"} lineHeight={"18px"}>{dataSelectedItem.description}</Text>
+                                    <Link href={dataSelectedItem.urlShowCase3D} passHref target="_blank">
+                                        <Button mt="16px" bg="rgba(10, 10, 32, 1)" height={"51px"} w="100%" borderRadius={"51px"}>
+                                            <Image style={{ marginRight: "8px" }} width={20} height={20} src="/assets/icons/show_case.png" alt="" />
+                                            3D SHOWCASE
+                                        </Button>
+                                    </Link>
+                                </>
+                            </Flex>
+                        </motion.div>
                     )}
                     <CanvasWithImageAndIcon />
                 </Flex>
