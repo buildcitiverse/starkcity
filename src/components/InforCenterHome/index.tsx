@@ -1,4 +1,5 @@
 import { Flex, Image, useBreakpointValue } from "@chakra-ui/react";
+import Link from "next/link";
 
 const InforCenterHome = () => {
     const fontSizeValue = useBreakpointValue({ base: "56px", lg: "64px" });
@@ -30,8 +31,11 @@ const InforCenterHome = () => {
                 )}
             </Flex>
             <Flex maxW={"196px"} _hover={{ bg: "#EC796B" }} height={"51px"} w={"100%"} bg={"#0A0A20"} gap={"8px"} cursor={"pointer"} border={"1px solid #C1C1C14D"} borderRadius={"51px"} justifyContent={"center"} align={"center"}>
-                <Image alt="" src="/assets/images/icon_btn_view.png" w={"20px"} height={"20px"} />
-                <Flex fontWeight={800} fontSize={"14px"}>VIEW CITY</Flex>
+                <Link style={{display:'flex'}} href={"/metacity"}>
+                    <Image alt="" src="/assets/images/icon_btn_view.png" w={"20px"} height={"20px"} />
+                    <Flex fontWeight={800} fontSize={"14px"} ml="8px">VIEW CITY</Flex>
+                </Link>
+
             </Flex>
         </Flex>
     );
