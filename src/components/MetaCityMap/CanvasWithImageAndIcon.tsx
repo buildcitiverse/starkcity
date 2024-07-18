@@ -31,11 +31,12 @@ const CanvasWithImageAndIcon: React.FC = () => {
 
   useEffect(() => {
     const iconImg = new Image();
-    iconImg.src = "/assets/icons/drone_1.png";
+    iconImg.src = "/assets/gif/Layer_1.svg";
     iconImg.onload = () => {
       iconRef.current = iconImg;
     };
   }, []);
+
 
   const calculatePointPosition = (point: Point) => {
     return {
@@ -95,8 +96,8 @@ const CanvasWithImageAndIcon: React.FC = () => {
 
   const drawIcon = (ctx: CanvasRenderingContext2D, position: Point) => {
     if (iconRef.current) {
-      const iconWidth = 57;
-      const iconHeight = 57;
+      const iconWidth = 72;
+      const iconHeight = 49;
       ctx.drawImage(iconRef.current, position.x - iconWidth / 2, position.y - iconHeight / 2, iconWidth, iconHeight);
     }
   };
@@ -166,7 +167,6 @@ const CanvasWithImageAndIcon: React.FC = () => {
     requestRef.current = requestAnimationFrame(step);
   };
 
-  console.log('canvasSize.width :>> ', canvasSize.height);
   return (
     <Box position="relative" width="100%" height="100%" overflow="hidden">
       <canvas
