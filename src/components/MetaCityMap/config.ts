@@ -102,7 +102,7 @@ export const listMetaCityMap = [
     price: 300,
     location: 7,
     symbol: "STRK",
-    imgSymbol: "",
+    imgSymbol: "https://static.citiverse.io/public/gallery/vlu/2175801080051/index.html#autoplay",
     address:
       "0x000D07b7F51a8Ac4c0D59e69e37226eA5530FeBc8F916D52b026319F696Ffc66",
     network: "Starknet",
@@ -126,7 +126,7 @@ export const listMetaCityMap = [
       "The land was taken over by outlaws. The police here are corrupt and ignore the looting and misery that happens every day",
     x: 0.683,
     y: 0.27,
-    urlShowCase3D: "",
+    urlShowCase3D: "https://static.citiverse.io/public/gallery/vlu/2175801080078/index.html#autoplay",
   },
   {
     id: 109,
@@ -142,7 +142,7 @@ export const listMetaCityMap = [
       "The land was taken over by outlaws. The police here are corrupt and ignore the looting and misery that happens every day",
     x: 0.683,
     y: 0.27,
-    urlShowCase3D: "",
+    urlShowCase3D: "https://static.citiverse.io/public/gallery/vlu/2175801080145/index.html#autoplay",
   },
   {
     id: 110,
@@ -158,7 +158,7 @@ export const listMetaCityMap = [
       "The land was taken over by outlaws. The police here are corrupt and ignore the looting and misery that happens every day",
     x: 0.683,
     y: 0.27,
-    urlShowCase3D: "",
+    urlShowCase3D: "https://static.citiverse.io/public/gallery/vlu/2175801080281/index.html#autoplay",
   },
   {
     id: 111,
@@ -174,7 +174,7 @@ export const listMetaCityMap = [
       "The land was taken over by outlaws. The police here are corrupt and ignore the looting and misery that happens every day",
     x: 0.683,
     y: 0.27,
-    urlShowCase3D: "",
+    urlShowCase3D: "https://static.citiverse.io/public/gallery/vlu/2175801080041/index.html#autoplay",
   },
   {
     id: 112,
@@ -190,7 +190,7 @@ export const listMetaCityMap = [
       "The land was taken over by outlaws. The police here are corrupt and ignore the looting and misery that happens every day",
     x: 0.683,
     y: 0.27,
-    urlShowCase3D: "",
+    urlShowCase3D: "https://static.citiverse.io/public/gallery/vlu/2175801080041/index.html#autoplay",
   },
   {
     id: 113,
@@ -206,7 +206,7 @@ export const listMetaCityMap = [
       "The land was taken over by outlaws. The police here are corrupt and ignore the looting and misery that happens every day",
     x: 0.683,
     y: 0.27,
-    urlShowCase3D: "",
+    urlShowCase3D: "https://static.citiverse.io/public/gallery/vlu/2175801080053/index.html#autoplay",
   },
   {
     id: 114,
@@ -222,7 +222,7 @@ export const listMetaCityMap = [
       "The land was taken over by outlaws. The police here are corrupt and ignore the looting and misery that happens every day",
     x: 0.683,
     y: 0.27,
-    urlShowCase3D: "",
+    urlShowCase3D: "https://static.citiverse.io/public/frank-house/index.html#autoplay",
   },
   {
     id: 115,
@@ -238,7 +238,7 @@ export const listMetaCityMap = [
       "The land was taken over by outlaws. The police here are corrupt and ignore the looting and misery that happens every day",
     x: 0.683,
     y: 0.27,
-    urlShowCase3D: "",
+    urlShowCase3D: "https://static.citiverse.io/public/gallery/vlu/2175801080245/index.html#autoplay",
   },
   {
     id: 116,
@@ -254,7 +254,7 @@ export const listMetaCityMap = [
       "The land was taken over by outlaws. The police here are corrupt and ignore the looting and misery that happens every day",
     x: 0.683,
     y: 0.27,
-    urlShowCase3D: "",
+    urlShowCase3D: "https://static.citiverse.io/public/gallery/vlu/2175801080252/index.html#autoplay",
   },
   {
     id: 117,
@@ -270,7 +270,7 @@ export const listMetaCityMap = [
       "The land was taken over by outlaws. The police here are corrupt and ignore the looting and misery that happens every day",
     x: 0.683,
     y: 0.27,
-    urlShowCase3D: "",
+    urlShowCase3D: "https://static.citiverse.io/public/gallery/vlu/2175801080075/index.html#autoplay",
   },
   {
     id: 118,
@@ -286,7 +286,7 @@ export const listMetaCityMap = [
       "The land was taken over by outlaws. The police here are corrupt and ignore the looting and misery that happens every day",
     x: 0.683,
     y: 0.27,
-    urlShowCase3D: "",
+    urlShowCase3D: "https://static.citiverse.io/public/gallery/vlu/2175801080233/index.html#autoplay",
   },
   {
     id: 119,
@@ -302,7 +302,7 @@ export const listMetaCityMap = [
       "The land was taken over by outlaws. The police here are corrupt and ignore the looting and misery that happens every day",
     x: 0.683,
     y: 0.27,
-    urlShowCase3D: "",
+    urlShowCase3D: "https://static.citiverse.io/public/gallery/vlu/2175801080251/index.html#autoplay",
   },
   {
     id: 120,
@@ -318,7 +318,7 @@ export const listMetaCityMap = [
       "The land was taken over by outlaws. The police here are corrupt and ignore the looting and misery that happens every day",
     x: 0.683,
     y: 0.27,
-    urlShowCase3D: "",
+    urlShowCase3D: "https://static.citiverse.io/public/gallery/vlu/2175801080243/index.html#autoplay",
   },
   {
     id: 121,
@@ -334,7 +334,7 @@ export const listMetaCityMap = [
       "The land was taken over by outlaws. The police here are corrupt and ignore the looting and misery that happens every day",
     x: 0.683,
     y: 0.27,
-    urlShowCase3D: "",
+    urlShowCase3D: "https://static.citiverse.io/public/gallery/vlu/2175801080064/index.html#autoplay",
   },
   {
     id: 122,
@@ -350,7 +350,7 @@ export const listMetaCityMap = [
       "The land was taken over by outlaws. The police here are corrupt and ignore the looting and misery that happens every day",
     x: 0.683,
     y: 0.27,
-    urlShowCase3D: "",
+    urlShowCase3D: "https://static.citiverse.io/public/gallery/vlu/2175801080121/index.html#autoplay",
   },
   {
     id: 123,
@@ -366,7 +366,7 @@ export const listMetaCityMap = [
       "The land was taken over by outlaws. The police here are corrupt and ignore the looting and misery that happens every day",
     x: 0.683,
     y: 0.27,
-    urlShowCase3D: "",
+    urlShowCase3D: "https://static.citiverse.io/public/gallery/vlu/2175801080246/index.html#autoplay",
   },
   {
     id: 124,
@@ -382,7 +382,7 @@ export const listMetaCityMap = [
       "The land was taken over by outlaws. The police here are corrupt and ignore the looting and misery that happens every day",
     x: 0.683,
     y: 0.27,
-    urlShowCase3D: "",
+    urlShowCase3D: "https://static.citiverse.io/public/gallery/vlu/2175801080016/index.html#autoplay",
   },
   {
     id: 125,
@@ -398,7 +398,7 @@ export const listMetaCityMap = [
       "The land was taken over by outlaws. The police here are corrupt and ignore the looting and misery that happens every day",
     x: 0.683,
     y: 0.27,
-    urlShowCase3D: "",
+    urlShowCase3D: "https://static.citiverse.io/public/gallery/vlu/2175801080282/index.html#autoplay",
   },
   {
     id: 126,
@@ -414,7 +414,7 @@ export const listMetaCityMap = [
       "The land was taken over by outlaws. The police here are corrupt and ignore the looting and misery that happens every day",
     x: 0.683,
     y: 0.27,
-    urlShowCase3D: "",
+    urlShowCase3D: "https://static.citiverse.io/public/gallery/vlu/2175801080166/index.html#autoplay",
   },
   {
     id: 127,
@@ -430,7 +430,7 @@ export const listMetaCityMap = [
       "The land was taken over by outlaws. The police here are corrupt and ignore the looting and misery that happens every day",
     x: 0.683,
     y: 0.27,
-    urlShowCase3D: "",
+    urlShowCase3D: "https://static.citiverse.io/public/gallery/vlu/2175801080255/index.html#autoplay",
   },
   {
     id: 128,
@@ -446,7 +446,7 @@ export const listMetaCityMap = [
       "The land was taken over by outlaws. The police here are corrupt and ignore the looting and misery that happens every day",
     x: 0.683,
     y: 0.27,
-    urlShowCase3D: "",
+    urlShowCase3D: "https://static.citiverse.io/public/gallery/vlu/2175801080287/index.html#autoplay",
   },
   {
     id: 129,
@@ -462,7 +462,7 @@ export const listMetaCityMap = [
       "The land was taken over by outlaws. The police here are corrupt and ignore the looting and misery that happens every day",
     x: 0.683,
     y: 0.27,
-    urlShowCase3D: "",
+    urlShowCase3D: "https://static.citiverse.io/public/gallery/vlu/2175801080082/index.html#autoplay",
   },
   {
     id: 130,
@@ -478,7 +478,7 @@ export const listMetaCityMap = [
       "The land was taken over by outlaws. The police here are corrupt and ignore the looting and misery that happens every day",
     x: 0.683,
     y: 0.27,
-    urlShowCase3D: "",
+    urlShowCase3D: "https://static.citiverse.io/public/gallery/vlu/2175801080112/index.html#autoplay",
   },
   {
     id: 131,
@@ -494,7 +494,7 @@ export const listMetaCityMap = [
       "The land was taken over by outlaws. The police here are corrupt and ignore the looting and misery that happens every day",
     x: 0.683,
     y: 0.27,
-    urlShowCase3D: "",
+    urlShowCase3D: "https://static.citiverse.io/public/gallery/vlu/2175801080259/index.html#autoplay",
   },
   {
     id: 132,
@@ -510,7 +510,7 @@ export const listMetaCityMap = [
       "The land was taken over by outlaws. The police here are corrupt and ignore the looting and misery that happens every day",
     x: 0.683,
     y: 0.27,
-    urlShowCase3D: "",
+    urlShowCase3D: "https://static.citiverse.io/public/gallery/vlu/2175801080062/index.html#autoplay",
   },
   {
     id: 133,
@@ -526,7 +526,7 @@ export const listMetaCityMap = [
       "The land was taken over by outlaws. The police here are corrupt and ignore the looting and misery that happens every day",
     x: 0.683,
     y: 0.27,
-    urlShowCase3D: "",
+    urlShowCase3D: "https://static.citiverse.io/public/gallery/vlu/2175801080132/index.html#autoplay",
   },
   {
     id: 134,
@@ -542,7 +542,7 @@ export const listMetaCityMap = [
       "The land was taken over by outlaws. The police here are corrupt and ignore the looting and misery that happens every day",
     x: 0.683,
     y: 0.27,
-    urlShowCase3D: "",
+    urlShowCase3D: "https://static.citiverse.io/public/gallery/vlu/2175801080138/index.html#autoplay",
   },
   {
     id: 135,
@@ -558,7 +558,7 @@ export const listMetaCityMap = [
       "The land was taken over by outlaws. The police here are corrupt and ignore the looting and misery that happens every day",
     x: 0.683,
     y: 0.27,
-    urlShowCase3D: "",
+    urlShowCase3D: "https://static.citiverse.io/public/gallery/vlu/2175801080147/index.html#autoplay",
   },
   {
     id: 136,
@@ -574,7 +574,7 @@ export const listMetaCityMap = [
       "The land was taken over by outlaws. The police here are corrupt and ignore the looting and misery that happens every day",
     x: 0.683,
     y: 0.27,
-    urlShowCase3D: "",
+    urlShowCase3D: "https://static.citiverse.io/public/gallery/vlu/2175801080152/index.html#autoplay",
   },
   {
     id: 137,
@@ -590,7 +590,7 @@ export const listMetaCityMap = [
       "The land was taken over by outlaws. The police here are corrupt and ignore the looting and misery that happens every day",
     x: 0.683,
     y: 0.27,
-    urlShowCase3D: "",
+    urlShowCase3D: "https://static.citiverse.io/public/gallery/vlu/2175801080165/index.html#autoplay",
   },
   {
     id: 138,
@@ -606,7 +606,7 @@ export const listMetaCityMap = [
       "The land was taken over by outlaws. The police here are corrupt and ignore the looting and misery that happens every day",
     x: 0.683,
     y: 0.27,
-    urlShowCase3D: "",
+    urlShowCase3D: "https://static.citiverse.io/public/gallery/vlu/2175801080167/index.html#autoplay",
   },
   {
     id: 139,
@@ -622,7 +622,7 @@ export const listMetaCityMap = [
       "The land was taken over by outlaws. The police here are corrupt and ignore the looting and misery that happens every day",
     x: 0.683,
     y: 0.27,
-    urlShowCase3D: "",
+    urlShowCase3D: "https://static.citiverse.io/public/gallery/vlu/2175801080168/index.html#autoplay",
   },
   {
     id: 140,
@@ -638,7 +638,7 @@ export const listMetaCityMap = [
       "The land was taken over by outlaws. The police here are corrupt and ignore the looting and misery that happens every day",
     x: 0.683,
     y: 0.27,
-    urlShowCase3D: "",
+    urlShowCase3D: "https://static.citiverse.io/public/gallery/vlu/2175801080169/index.html#autoplay",
   },
   {
     id: 141,
@@ -654,7 +654,7 @@ export const listMetaCityMap = [
       "The land was taken over by outlaws. The police here are corrupt and ignore the looting and misery that happens every day",
     x: 0.683,
     y: 0.27,
-    urlShowCase3D: "",
+    urlShowCase3D: "https://static.citiverse.io/public/gallery/vlu/2175801080182/index.html#autoplay",
   },
   {
     id: 142,
@@ -670,7 +670,7 @@ export const listMetaCityMap = [
       "The land was taken over by outlaws. The police here are corrupt and ignore the looting and misery that happens every day",
     x: 0.683,
     y: 0.27,
-    urlShowCase3D: "",
+    urlShowCase3D: "https://static.citiverse.io/public/gallery/vlu/2175801080190/index.html#autoplay",
   },
   {
     id: 143,
@@ -686,7 +686,7 @@ export const listMetaCityMap = [
       "The land was taken over by outlaws. The police here are corrupt and ignore the looting and misery that happens every day",
     x: 0.683,
     y: 0.27,
-    urlShowCase3D: "",
+    urlShowCase3D: "https://static.citiverse.io/public/gallery/vlu/2175801080197/index.html#autoplay",
   },
   {
     id: 144,
@@ -702,7 +702,7 @@ export const listMetaCityMap = [
       "The land was taken over by outlaws. The police here are corrupt and ignore the looting and misery that happens every day",
     x: 0.683,
     y: 0.27,
-    urlShowCase3D: "",
+    urlShowCase3D: "https://static.citiverse.io/public/gallery/vlu/2175801080202/index.html#autoplay",
   },
   {
     id: 145,
@@ -718,7 +718,7 @@ export const listMetaCityMap = [
       "The land was taken over by outlaws. The police here are corrupt and ignore the looting and misery that happens every day",
     x: 0.683,
     y: 0.27,
-    urlShowCase3D: "",
+    urlShowCase3D: "https://static.citiverse.io/public/gallery/vlu/2175801080203/index.html#autoplay",
   },
   {
     id: 146,
@@ -734,7 +734,7 @@ export const listMetaCityMap = [
       "The land was taken over by outlaws. The police here are corrupt and ignore the looting and misery that happens every day",
     x: 0.683,
     y: 0.27,
-    urlShowCase3D: "",
+    urlShowCase3D: "https://static.citiverse.io/public/gallery/vlu/2175801080217/index.html#autoplay",
   },
   {
     id: 147,
@@ -750,7 +750,7 @@ export const listMetaCityMap = [
       "The land was taken over by outlaws. The police here are corrupt and ignore the looting and misery that happens every day",
     x: 0.683,
     y: 0.27,
-    urlShowCase3D: "",
+    urlShowCase3D: "https://static.citiverse.io/public/gallery/vlu/2175801080218/index.html#autoplay",
   },
   {
     id: 148,
@@ -766,7 +766,7 @@ export const listMetaCityMap = [
       "The land was taken over by outlaws. The police here are corrupt and ignore the looting and misery that happens every day",
     x: 0.683,
     y: 0.27,
-    urlShowCase3D: "",
+    urlShowCase3D: "https://static.citiverse.io/public/gallery/vlu/2175801080257/index.html#autoplay",
   },
   {
     id: 149,
@@ -782,7 +782,7 @@ export const listMetaCityMap = [
       "The land was taken over by outlaws. The police here are corrupt and ignore the looting and misery that happens every day",
     x: 0.683,
     y: 0.27,
-    urlShowCase3D: "",
+    urlShowCase3D: "https://static.citiverse.io/public/gallery/vlu/2175801080260/index.html#autoplay",
   },
   {
     id: 150,
@@ -798,7 +798,7 @@ export const listMetaCityMap = [
       "The land was taken over by outlaws. The police here are corrupt and ignore the looting and misery that happens every day",
     x: 0.683,
     y: 0.27,
-    urlShowCase3D: "",
+    urlShowCase3D: "https://static.citiverse.io/public/gallery/vlu/2175801080262/index.html#autoplay",
   },
   {
     id: 151,
@@ -814,7 +814,7 @@ export const listMetaCityMap = [
       "The land was taken over by outlaws. The police here are corrupt and ignore the looting and misery that happens every day",
     x: 0.683,
     y: 0.27,
-    urlShowCase3D: "",
+    urlShowCase3D: "https://static.citiverse.io/public/gallery/vlu/2175801080264/index.html#autoplay",
   },
   {
     id: 152,
@@ -830,7 +830,7 @@ export const listMetaCityMap = [
       "The land was taken over by outlaws. The police here are corrupt and ignore the looting and misery that happens every day",
     x: 0.683,
     y: 0.27,
-    urlShowCase3D: "",
+    urlShowCase3D: "https://static.citiverse.io/public/gallery/vlu/2175801080265/index.html#autoplay",
   },
   {
     id: 153,
@@ -846,7 +846,7 @@ export const listMetaCityMap = [
       "The land was taken over by outlaws. The police here are corrupt and ignore the looting and misery that happens every day",
     x: 0.683,
     y: 0.27,
-    urlShowCase3D: "",
+    urlShowCase3D: "https://static.citiverse.io/public/gallery/vlu/2175801080270/index.html#autoplay",
   },
   {
     id: 150,
@@ -862,7 +862,7 @@ export const listMetaCityMap = [
       "The land was taken over by outlaws. The police here are corrupt and ignore the looting and misery that happens every day",
     x: 0.683,
     y: 0.27,
-    urlShowCase3D: "",
+    urlShowCase3D: "https://static.citiverse.io/public/gallery/vlu/2175801080279/index.html#autoplay",
   },
   {
     id: 155,
@@ -878,7 +878,7 @@ export const listMetaCityMap = [
       "The land was taken over by outlaws. The police here are corrupt and ignore the looting and misery that happens every day",
     x: 0.683,
     y: 0.27,
-    urlShowCase3D: "",
+    urlShowCase3D: "https://static.citiverse.io/public/gallery/vlu/2175801080286/index.html#autoplay",
   },
   {
     id: 156,
