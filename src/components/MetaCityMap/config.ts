@@ -913,10 +913,10 @@ export const listMetaCityMap = [
     urlShowCase3D: "",
   },
   {
-    id: 157,
+    id: 158,
     name: "Happy Coffee House 58",
     price: 300,
-    location: 57,
+    location: 58,
     symbol: "STRK",
     imgSymbol: "",
     address:

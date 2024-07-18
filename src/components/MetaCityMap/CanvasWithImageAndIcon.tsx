@@ -1,11 +1,9 @@
-// eslint-disable-next-line react-hooks/exhaustive-deps
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { Box, Button, Flex } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
 import { selectedItemData } from "@/src/redux/slices/selectedItemSlice";
 import ButtonMap from "./ButtonMap";
-
 
 interface Point {
   x: number;
@@ -26,7 +24,6 @@ const CanvasWithImageAndIcon: React.FC = () => {
 
   const selectedItem = useSelector(selectedItemData);
   const dataSelectedItem = selectedItem.selectedItem;
-
 
   const [zoomLevel, setZoomLevel] = useState<number>(0.64);
   const [panPosition, setPanPosition] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
@@ -96,8 +93,17 @@ const CanvasWithImageAndIcon: React.FC = () => {
     { x: 0.634, y: 0.578 }, // 60
   ];
 
-
   const [iconPosition, setIconPosition] = useState<Point>(originalPoints[0]);
+  const iconRef = useRef<HTMLImageElement | null>(null);
+  const requestRef = useRef<number>();
+
+  useEffect(() => {
+    const iconImg = new Image();
+    iconImg.src = "/assets/icons/drone_1.png";
+    iconImg.onload = () => {
+      iconRef.current = iconImg;
+    };
+  }, []);
 
   const calculatePointPosition = (point: Point) => {
     return {
@@ -110,15 +116,12 @@ const CanvasWithImageAndIcon: React.FC = () => {
     const handleResize = () => {
       const parent = canvasRef.current?.parentElement;
       if (parent) {
-        // Calculate canvas size to fit the parent element
         const canvasWidth = parent.clientWidth;
         const canvasHeight = parent.clientHeight;
 
-        // Calculate image size considering zoom level
         const imageWidth = imageSize.width * zoomLevel;
         const imageHeight = imageSize.height * zoomLevel;
 
-        // Adjust pan position to ensure image remains within canvas boundaries
         const maxPanX = Math.max(canvasWidth - imageWidth, 0);
         const maxPanY = Math.max(canvasHeight - imageHeight, 0);
         setPanPosition((prevPosition) => ({
@@ -150,31 +153,21 @@ const CanvasWithImageAndIcon: React.FC = () => {
           setImageLoaded(true);
           ctx.clearRect(0, 0, canvas.width, canvas.height);
           ctx.drawImage(img, panPosition.x, panPosition.y, imageSize.width * zoomLevel, imageSize.height * zoomLevel);
-          drawIcon(ctx, calculatePointPosition(iconPosition));
+          if (iconRef.current) {
+            drawIcon(ctx, calculatePointPosition(iconPosition));
+          }
         };
       }
     }
-  }, [canvasSize, imageSize, zoomLevel, panPosition, iconPosition]);
+  }, [canvasSize, imageSize, zoomLevel, panPosition]);
 
   const drawIcon = (ctx: CanvasRenderingContext2D, position: Point) => {
-    ctx.beginPath();
-    ctx.arc(position.x, position.y, 10, 0, 2 * Math.PI, false);
-    ctx.fillStyle = "red";
-    ctx.fill();
-    ctx.lineWidth = 2;
-    ctx.strokeStyle = "#003300";
-    ctx.stroke();
+    if (iconRef.current) {
+      const iconWidth = 57;
+      const iconHeight = 57;
+      ctx.drawImage(iconRef.current, position.x - iconWidth / 2, position.y - iconHeight / 2, iconWidth, iconHeight);
+    }
   };
-
-  // const drawIcon = (ctx: CanvasRenderingContext2D, position: Point) => {
-  //   const iconImg = new Image();
-  //   iconImg.src = "/assets/gif/f038e447d4da414485dd0c5f1356b911.gif";
-  //   iconImg.onload = () => {
-  //     const iconWidth = 57;
-  //     const iconHeight = 57;
-  //     ctx.drawImage(iconImg, position.x - iconWidth / 2, position.y - iconHeight / 2, iconWidth, iconHeight);
-  //   };
-  // };
 
   const handleZoomIn = () => {
     setZoomLevel((prevZoom) => Math.min(prevZoom + 0.1, 2)); // Increase zoom level by 0.1 up to a maximum of 2
@@ -214,9 +207,32 @@ const CanvasWithImageAndIcon: React.FC = () => {
   };
 
   useEffect(() => {
-    const index = Number(dataSelectedItem?.location || 1)
-    setIconPosition(originalPoints[index - 1]);
-  }, [dataSelectedItem?.location])
+    const index = Number(dataSelectedItem?.location || 1);
+    animateIcon(originalPoints[index - 1]);
+  }, [dataSelectedItem?.location]);
+
+  const animateIcon = (newPosition: Point) => {
+    const duration = 500; // Duration of the animation in milliseconds
+    const startTime = performance.now();
+    const startPosition = iconPosition;
+    const deltaX = newPosition.x - startPosition.x;
+    const deltaY = newPosition.y - startPosition.y;
+
+    const step = (currentTime: number) => {
+      const elapsedTime = currentTime - startTime;
+      const progress = Math.min(elapsedTime / duration, 1);
+
+      const interpolatedX = startPosition.x + deltaX * progress;
+      const interpolatedY = startPosition.y + deltaY * progress;
+      setIconPosition({ x: interpolatedX, y: interpolatedY });
+
+      if (progress < 1) {
+        requestRef.current = requestAnimationFrame(step);
+      }
+    };
+
+    requestRef.current = requestAnimationFrame(step);
+  };
 
   return (
     <Box position="relative" width="100%" height="100%" overflow="hidden">
@@ -230,7 +246,7 @@ const CanvasWithImageAndIcon: React.FC = () => {
         onMouseLeave={handleMouseUp}
         style={{ cursor: isDragging ? "grabbing" : "grab", display: imageLoaded ? "block" : "none" }}
       />
-    <ButtonMap handleZoomIn={handleZoomIn} handleZoomOut={handleZoomOut}/>
+      <ButtonMap handleZoomIn={handleZoomIn} handleZoomOut={handleZoomOut} />
     </Box>
   );
 };

@@ -94,7 +94,7 @@ const MetaCityMap: React.FC = () => {
                                     >
                                         <Image width={64} height={64} src="/assets/images/view_house.png" alt="" />
                                         <Flex flexDirection={"column"} w="100%" ml="8px">
-                                            <Text lineHeight={"28px"}>{e.name}</Text>
+                                            <Text lineHeight={"28px"} fontWeight={700} fontStyle={"normal"}>{e.name}</Text>
                                             <Flex lineHeight={"normal"} justifyContent={"space-between"} w="100%">
                                                 <Text color={isActive ? "white" : "#9C9C9C"} fontWeight={400} fontSize={"12px"} lineHeight={"18px"}>Price:</Text>
                                                 <Text color={isActive ? "white" : "#EC796B"} fontWeight={700} fontSize={"12px"} lineHeight={"18px"}>{e.price} {e.symbol}</Text>
