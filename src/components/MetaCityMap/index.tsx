@@ -49,7 +49,21 @@ const MetaCityMap: React.FC = () => {
                     >
                         <Image width={175} height={38} src="/assets/icons/logo_meta_city.svg" alt="" />
                     </Flex>
-                    <Flex m="16px">
+                    <Flex justifyContent={"space-between"} m="16px">
+                        <Flex fontWeight={700} fontSize={"16px"}>Starkcity</Flex>
+                        <Flex
+                            fontWeight={400}
+                            lineHeight={"21px"}
+                            fontSize={"14px"}
+                        >
+                            <Flex>
+                                <Text color="#9C9C9C" mr="4px">Available</Text>
+                                <Text color="#EC796B">{listMetaCityMap?.length}</Text>
+                                <Text>/{listMetaCityMap?.length}</Text>
+                            </Flex>
+                        </Flex>
+                    </Flex>
+                    <Flex mx="16px">
                         <InputGroup>
                             <InputLeftElement pointerEvents='none' ml="8px">
                                 <Image width={22} height={22} src="/assets/icons/search-icon.svg" alt="" />
@@ -62,20 +76,6 @@ const MetaCityMap: React.FC = () => {
                                 onChange={(e) => setSearchQuery(e.target.value)}
                             />
                         </InputGroup>
-                    </Flex>
-                    <Flex justifyContent={"space-between"} mx="16px">
-                        <Flex>Starkcity</Flex>
-                        <Flex
-                            fontWeight={400}
-                            lineHeight={"21px"}
-                            fontSize={"14px"}
-                        >
-                            <Flex>
-                                <Text color="#9C9C9C" mr="4px">Available</Text>
-                                <Text color="#EC796B">{listMetaCityMap?.length}</Text>
-                                <Text>/{listMetaCityMap?.length}</Text>
-                            </Flex>
-                        </Flex>
                     </Flex>
                     <Flex px="16px" mt="16px" flexDirection={"column"} overflowY="auto" className="scroll-style" height="calc(100% - 139px)">
                         <Flex flexDirection={"column"}>
