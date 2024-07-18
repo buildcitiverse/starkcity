@@ -13,22 +13,22 @@ const InforMeta = () => {
     >
       <Flex flexDirection={"column"} gap={"8px"}>
         <Image src="/assets/images/subtitle.png" alt="" w={"48px"} h={"20px"} />
-        <Flex fontWeight={600} fontSize={"20px"} lineHeight={"24px"}>Metaverse & Gaming City</Flex>
+        <Flex fontWeight={600} fontSize={"20px"} lineHeight={"24px"}>Metaverse &amp; Gaming City</Flex>
         <Flex ml={"25px"}>
           <ul className="red-ul">
-            <li className="red-li">No-code VR apps & contents</li>
+            <li className="red-li">No-code VR apps &amp; contents</li>
             <li className="red-li">Co-creation between casual players and professional artists</li>
-            <li className="red-li">Stunning & immersive metaverse experience.</li>
+            <li className="red-li">Stunning &amp; immersive metaverse experience.</li>
           </ul>
         </Flex>
       </Flex>
       <Flex flexDirection={"column"} gap={"8px"}>
         <Image src="/assets/images/subtitle2.png" alt="" w={"48px"} h={"20px"} />
-        <Flex fontWeight={600} fontSize={"20px"} lineHeight={"24px"}>Co-creation & City builder</Flex>
+        <Flex fontWeight={600} fontSize={"20px"} lineHeight={"24px"}>Co-creation &amp; City builder</Flex>
         <Flex ml={"25px"}>
           <ul className="red-ul">
             <li className="red-li">
-              City's master plan is created under DAO process by Citiverse's
+              City&apos;s master plan is created under DAO process by Citiverse&apos;s
               Professional Network.
             </li>
             <li className="red-li">
@@ -44,12 +44,12 @@ const InforMeta = () => {
         <Flex ml={"25px"}>
           <ul className="red-ul">
             <li className="red-li">
-              Beautiful city creation by Citiverse's Professional Network. 50+
-              NFTs of 3D/VR buiding and landscape deployed on Starknet
+              Beautiful city creation by Citiverse&apos;s Professional Network. 50+
+              NFTs of 3D/VR building and landscape deployed on Starknet
               blockchain.
             </li>
-            <li className="red-li">Beautiful city creation by Citiverse's Professional Network.
-                50+ NFTs of 3D/VR buiding and landscape deployed on Starknet blockchain.</li>
+            <li className="red-li">Beautiful city creation by Citiverse&apos;s Professional Network.
+                50+ NFTs of 3D/VR building and landscape deployed on Starknet blockchain.</li>
           </ul>
         </Flex>
       </Flex>
