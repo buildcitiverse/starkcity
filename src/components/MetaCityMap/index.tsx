@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { listMetaCityMap } from "./config";
 import { selectedItemData, setSelectedItem } from "@/src/redux/slices/selectedItemSlice";
 import CanvasWithImageAndIcon from "./CanvasWithImageAndIcon";
+import Link from "next/link";
 
 const MetaCityMap: React.FC = () => {
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -46,7 +47,7 @@ const MetaCityMap: React.FC = () => {
                         fontWeight={700}
                     >
                         <Image width={175} height={38} src="/assets/icons/logo_meta_city.svg" alt="" />
-                    </Flex>               
+                    </Flex>
                     <Flex m="16px">
                         <InputGroup>
                             <InputLeftElement pointerEvents='none' ml="8px">
@@ -70,8 +71,8 @@ const MetaCityMap: React.FC = () => {
                         >
                             <Flex>
                                 <Text color="#9C9C9C" mr="4px">Available</Text>
-                                <Text color="#EC796B">42</Text>
-                                <Text>/56</Text>
+                                <Text color="#EC796B">{listMetaCityMap?.length}</Text>
+                                <Text>/{listMetaCityMap?.length}</Text>
                             </Flex>
                         </Flex>
                     </Flex>
@@ -111,7 +112,7 @@ const MetaCityMap: React.FC = () => {
                 </Flex>
                 <Flex w="100%" position={"relative"}>
                     {dataSelectedItem && (
-                        <Flex zIndex={99} position={"absolute"} flexDirection={"column"} right={0} top="20%" p='16px' borderTopLeftRadius={"16px"} borderBottomLeftRadius={"16px"} bg="rgba(10, 10, 32, 0.6)" maxWidth={"288px"} maxH={"614px"} w="100%">
+                        <Flex zIndex={99} position={"absolute"} flexDirection={"column"} right={0} top="14%" p='16px' borderTopLeftRadius={"16px"} borderBottomLeftRadius={"16px"} bg="rgba(10, 10, 32, 0.6)" maxWidth={"288px"} maxH={"614px"} w="100%">
                             <>
                                 <Image width={256} height={160} src="/assets/images/view_house_full.png" alt="" />
                                 <Text mt="16px" fontWeight={700} fontSize={"20px"} lineHeight={"30px"}>{dataSelectedItem.name}</Text>
@@ -134,10 +135,12 @@ const MetaCityMap: React.FC = () => {
                                 <Text color="rgba(156, 156, 156, 1)" fontWeight={400} fontSize={"12px"} lineHeight={"18px"}>{dataSelectedItem.network}</Text>
                                 <Text mt="16px" fontWeight={600} fontSize={"14px"} lineHeight={"21px"}>Description</Text>
                                 <Text color="rgba(156, 156, 156, 1)" fontWeight={400} fontSize={"12px"} lineHeight={"18px"}>{dataSelectedItem.description}</Text>
-                                <Button mt="16px" bg="rgba(10, 10, 32, 1)" height={"51px"} w="100%" borderRadius={"51px"}>
-                                    <Image style={{marginRight:"8px"}} width={20} height={20} src="/assets/icons/show_case.png" alt="" />
-                                    3D SHOWCASE
-                                </Button>
+                                <Link href={dataSelectedItem.urlShowCase3D} passHref target="_blank">
+                                    <Button mt="16px" bg="rgba(10, 10, 32, 1)" height={"51px"} w="100%" borderRadius={"51px"}>
+                                        <Image style={{ marginRight: "8px" }} width={20} height={20} src="/assets/icons/show_case.png" alt="" />
+                                        3D SHOWCASE
+                                    </Button>
+                                </Link>
                             </>
                         </Flex>
                     )}
