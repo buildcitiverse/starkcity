@@ -3,6 +3,8 @@
 import { ChakraProvider } from "@chakra-ui/react";
 import { ReactNode } from "react";
 import theme from "../config/theme"
+import { store } from "../redux/store";
+import { Provider } from "react-redux";
 
 interface ProvidersProps {
   children: ReactNode;
@@ -10,6 +12,8 @@ interface ProvidersProps {
 
 export function Providers({ children }: ProvidersProps) {
   return (
-      <ChakraProvider theme={theme}>{children}</ChakraProvider>
+      <Provider store={store}>
+        <ChakraProvider theme={theme}>{children}</ChakraProvider>
+      </Provider>
   );
 }
