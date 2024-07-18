@@ -22,3 +22,24 @@ body {
 .red-ul{
   font-family: sora;
 }
+
+.scroll-style::-webkit-scrollbar-thumb:hover {
+  background-color: #EC796B;
+}
+
+.scroll-style::-webkit-scrollbar-thumb:active {
+  background-color: #EC796B;
+}
+
+.scroll-style::-webkit-scrollbar-track {
+  background-color: #04041B;
+}
+
+.scroll-style::-webkit-scrollbar-thumb {
+  background: #EC796B;
+}
+
+.scroll-style::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
