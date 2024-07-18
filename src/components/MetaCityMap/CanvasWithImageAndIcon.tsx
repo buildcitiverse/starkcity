@@ -1,12 +1,9 @@
-"use client";
 import { useEffect, useRef, useState } from "react";
-import { Box, Button, Flex } from "@chakra-ui/react";
+import { Box, Button } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
 import { selectedItemData } from "@/src/redux/slices/selectedItemSlice";
 import ButtonMap from "./ButtonMap";
 import { Point, originalPoints } from "./configMapCity";
-
-
 
 const CanvasWithImageAndIcon: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -23,7 +20,7 @@ const CanvasWithImageAndIcon: React.FC = () => {
   const selectedItem = useSelector(selectedItemData);
   const dataSelectedItem = selectedItem.selectedItem;
 
-  const [zoomLevel, setZoomLevel] = useState<number>(0.64);
+  const [zoomLevel, setZoomLevel] = useState<number>(0.75);
   const [panPosition, setPanPosition] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
   const [dragStart, setDragStart] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
@@ -169,6 +166,7 @@ const CanvasWithImageAndIcon: React.FC = () => {
     requestRef.current = requestAnimationFrame(step);
   };
 
+  console.log('canvasSize.width :>> ', canvasSize.height);
   return (
     <Box position="relative" width="100%" height="100%" overflow="hidden">
       <canvas
