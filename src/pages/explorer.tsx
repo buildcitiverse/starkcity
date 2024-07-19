@@ -1,11 +1,13 @@
 import { Flex } from "@chakra-ui/react";
 import { ReactNode } from "react";
 import MetaCityMap from "../components/MetaCityMap";
+import { Meta } from "../containers/Meta";
 
 
 const MetaCity = () => {
     return (
         <Flex>
+            <Meta title={"City Explorer"} description={""}/>
             <MetaCityMap />
         </Flex>
     );
