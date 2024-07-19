@@ -27,7 +27,7 @@ const Index = () => {
       <Flex
         position="relative"
         width="100%"
-        mt={"80px"}
+        mt={"81px"}
         flexDirection={"column"}
         display={displayResponesive}
         height="100%"
@@ -37,7 +37,7 @@ const Index = () => {
         <Flex mb={"40px"} justifyContent={"center"}>
           <InforCenterHome />
         </Flex>
-        <Flex justifyContent={"center"}>
+        <Flex justifyContent={"center"} >
           <InforMeta />
         </Flex>
         <Image
@@ -46,6 +46,7 @@ const Index = () => {
           alt=""
           width={"100%"}
           objectFit={"cover"}
+          position={"relative"}
           zIndex="1"
         />
       </Flex>
@@ -59,7 +60,7 @@ const Index = () => {
         display={displayDesktop}
       >
         <Image
-          src={"/assets/images/bgleft.png"}
+          src={"/assets/images/bgMapDes.svg"}
           alt=""
           position="absolute"
           left="0"

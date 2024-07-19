@@ -13,7 +13,7 @@ const InforCenterHome = () => {
 
     return (
         <Flex flexDirection={"column"} width={"376px"} alignItems={"center"} gap={gapWrapper}>
-            <Flex flexDirection={"column"} gap={"10px"} alignItems={"center"}>
+            <Flex flexDirection={"column"} alignItems={"center"}>
                 <Flex fontWeight={700} fontSize={fontSizeValue} lineHeight={"70.4px"} fontFamily={"sora"} textTransform={"uppercase"}>
                     Starkcity
                 </Flex>
@@ -25,15 +25,15 @@ const InforCenterHome = () => {
             <Flex gap={"16px"} alignItems={"center"}>
                 <Flex fontWeight={400} fontFamily={"Sora"} fontSize={textBuildOn} >Build on</Flex>
                 {isSmallScreen ? (
-                    <Image alt="" src="/assets/images/logo_res_starknet.png" w={"174px"} height={"39px"} />
+                    <Image alt="" src="/assets/icons/icon_stark_res.svg" w={"174px"} height={"39px"} />
                 ) : (
                     <Image alt="" src="/assets/images/logo_starknet.png" w={"211px"} height={"48px"} />
                 )}
             </Flex>
             <Flex maxW={"196px"} _hover={{ bg: "#EC796B" }} height={"51px"} w={"100%"} bg={"#0A0A20"} gap={"8px"} cursor={"pointer"} border={"1px solid #C1C1C14D"} borderRadius={"51px"} justifyContent={"center"} align={"center"}>
-                <Link style={{display:'flex'}} href={"/metacity"}>
+                <Link style={{display:'flex'}} href={"/explorer"}>
                     <Image alt="" src="/assets/images/icon_btn_view.png" w={"20px"} height={"20px"} />
-                    <Flex fontWeight={800} fontSize={"14px"} ml="8px">VIEW CITY</Flex>
+                    <Flex fontWeight={800} fontSize={"14px"} textTransform={"uppercase"} ml="8px">Explore City</Flex>
                 </Link>
 
             </Flex>
