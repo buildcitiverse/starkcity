@@ -14,7 +14,7 @@ const Meta = (props: IMetaProps) => {
   const router = useRouter();
   const fullUrl = props.canonical || (typeof window !== "undefined" ? window.location.href : '');
 
-  const imageUrl = "https://dev-stark.citiverse.io/assets/images/thumbnail_1.jpg";
+  const imageUrl = "https://dev-stark.citiverse.io/assets/images/starkCity_thumbnail.jpg";
 
   return (
     <>

@@ -10,6 +10,7 @@ const Index = () => {
   const displayResponesive = useBreakpointValue({ base: "block", sm: "none" });
   const displayDesktop = useBreakpointValue({ base: "none", sm: "block" });
   const heightWrapper = useBreakpointValue({ base: "auto", sm: "100vh" });
+  const mtRes = useBreakpointValue({ base: "110px", sm: "81px" });
 
   return (
     <Flex
@@ -27,7 +28,7 @@ const Index = () => {
       <Flex
         position="relative"
         width="100%"
-        mt={"81px"}
+        mt={mtRes}
         flexDirection={"column"}
         display={displayResponesive}
         height="100%"

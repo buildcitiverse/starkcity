@@ -34,7 +34,7 @@ const Footer = () => {
                         <Image src="/assets/images/icon_tele.png" onClick={handleClickTele} alt="" w={"24px"} h={"24px"} cursor="pointer" />
                         <Image src="/assets/images/icon_twr.png" onClick={handleClickTwitter} alt="" w={"24px"} h={"24px"} cursor="pointer" />
                     </Flex>
-                    <Flex display={displayFooter} fontWeight={500} fontSize={"14px"} lineHeight={"18px"} opacity={"60%"}>© 2024 CITI VERSE. All rights reserved.</Flex>
+                    <Flex display={displayFooter} position={"absolute"} cursor={"pointer"} bottom={"21px"} transform={"translate(-50%, -50%)"} left={"50%"} fontWeight={500} fontSize={"14px"} lineHeight={"18px"} opacity={"60%"}>© 2024 CITIVERSE. All rights reserved</Flex>
                     <Flex display={displayFooter} gap={"24px"}>
                         <Flex fontWeight={400} fontSize={"14px"} lineHeight={"26px"} cursor={"pointer"} onClick={handleClickTerms}  opacity={"60%"}>Terms and Conditions</Flex>
                         <Flex w={"1px"} height={"18px"} bg={"#FFFFFF"} opacity={"60%"}></Flex>
