@@ -12,6 +12,7 @@ export interface MetaCityItem {
     x: number;
     y: number;
     urlShowCase3D:string;
+    sample: number;
 }
 
 export interface MetaCityState {
