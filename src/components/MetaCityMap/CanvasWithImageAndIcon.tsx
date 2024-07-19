@@ -32,7 +32,7 @@ const CanvasWithImageAndIcon: React.FC = () => {
 
   useEffect(() => {
     const iconImg = new Image();
-    iconImg.src = "/assets/gif/ef6ca2026744bdead4ee6c58999c8bca.gif";
+    iconImg.src = "/assets/gif/Layer_1.svg";
     iconImg.onload = () => {
       iconRef.current = iconImg;
       setImageLoaded(true);
@@ -104,8 +104,8 @@ const CanvasWithImageAndIcon: React.FC = () => {
   }, [canvasSize, imageSize, zoomLevel, panPosition, iconPosition, imageLoaded, canvasSize.width, canvasSize.height]);
 
   const drawIcon = (ctx: CanvasRenderingContext2D, position: Point) => {
-    const iconWidth = 57;
-    const iconHeight = 57;
+    const iconWidth = 71;
+    const iconHeight = 49;
     ctx.drawImage(iconRef.current!, position.x - iconWidth / 2, position.y - iconHeight / 2, iconWidth, iconHeight);
   };
 
