@@ -60,7 +60,7 @@ const Index = () => {
         display={displayDesktop}
       >
         <Image
-          src={"/assets/images/bgMapDes.svg"}
+          src={"/assets/images/bgleft.png"}
           alt=""
           position="absolute"
           left="0"
