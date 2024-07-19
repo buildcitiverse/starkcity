@@ -385,7 +385,7 @@ const MapMobile: React.FC = () => {
                                                     src="/assets/icons/show_case.png"
                                                     alt=""
                                                 />
-                                                3D SHOWCASE
+                                                3D/VR PLAY
                                             </Button>
                                         </Link>
                                     </>
