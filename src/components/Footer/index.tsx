@@ -9,9 +9,9 @@ const Footer = () => {
         window.open('/terms-and-conditions', '_blank');
     };
 
-    // const handleClickPrivacy = () => {
-    //     window.open('https://actif3d.com/privacy-policy', '_blank');
-    // };
+    const handleClickPrivacy = () => {
+        window.open('/privacy-policy', '_blank');
+    };
 
     const handleClickTwitter = () => {
         window.open('https://x.com/buildcitiverse', '_blank');
@@ -38,7 +38,7 @@ const Footer = () => {
                     <Flex display={displayFooter} gap={"24px"}>
                         <Flex fontWeight={400} fontSize={"14px"} lineHeight={"26px"} cursor={"pointer"} onClick={handleClickTerms}  opacity={"60%"}>Terms and Conditions</Flex>
                         <Flex w={"1px"} height={"18px"} bg={"#FFFFFF"} opacity={"60%"}></Flex>
-                        <Flex fontWeight={400} fontSize={"14px"} lineHeight={"26px"} cursor={"pointer"}  opacity={"60%"}>Privacy Policy</Flex>
+                        <Flex fontWeight={400} fontSize={"14px"} onClick={handleClickPrivacy} lineHeight={"26px"} cursor={"pointer"}  opacity={"60%"}>Privacy Policy</Flex>
                     </Flex>
                 </Flex>
             </Box>

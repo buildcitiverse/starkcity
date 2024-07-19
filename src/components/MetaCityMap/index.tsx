@@ -1,6 +1,6 @@
 import { Button, Flex, Input, InputGroup, InputLeftElement, Text } from "@chakra-ui/react";
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { listMetaCityMap } from "./config";
 import { Image as ImageChakra } from '@chakra-ui/react';
@@ -8,9 +8,6 @@ import { selectedItemData, setSelectedItem } from "@/src/redux/slices/selectedIt
 import CanvasWithImageAndIcon from "./CanvasWithImageAndIcon";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { getTruncateHash } from "@/src/utils/getTruncateHash";
-import ModalNoti from "../ModalNoti";
-import { useConnect, useAccount, useDisconnect } from "@starknet-react/core";
 
 const MetaCityMap: React.FC = () => {
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -19,8 +16,6 @@ const MetaCityMap: React.FC = () => {
     const dispatch = useDispatch();
     const selectedItem = useSelector(selectedItemData);
     const dataSelectedItem = selectedItem.selectedItem;
-    const [showModal, setShowModal] = useState(false);
-    const { address, isConnected, chainId } = useAccount();
 
     const handleItemClick = (item: any, index: number) => {
         setActiveIndex(index);
@@ -56,7 +51,7 @@ const MetaCityMap: React.FC = () => {
     };
 
     return (
-        <>
+       <>
             <Flex w="100%" justifyContent={"center"} height={"100vh"} bg="rgba(4, 4, 27, 1)" overflow={"hidden"}>
                 <Flex bg="white" height={"100%"} w="100%">
                     <Flex
@@ -65,22 +60,19 @@ const MetaCityMap: React.FC = () => {
                         flexDirection={"column"}
                         color="white"
                     >
-                        <Link href="/">
-                            <Flex
-                                bg="#EC796B"
-                                height={"46px"}
-                                p="4px 24px 4px 24px"
-                                w="100%"
-                                align={"center"}
-                                justifyContent={"center"}
-                                color="white"
-                                lineHeight={"24px"}
-                                fontWeight={700}
-                            >
-                                <Image width={175} height={38} src="/assets/icons/logo_meta_city.svg" alt="" />
-                            </Flex>
-                        </Link>
-
+                        <Flex
+                            bg="#EC796B"
+                            height={"46px"}
+                            p="4px 24px 4px 24px"
+                            w="100%"
+                            align={"center"}
+                            justifyContent={"center"}
+                            color="white"
+                            lineHeight={"24px"}
+                            fontWeight={700}
+                        >
+                            <Image width={175} height={38} src="/assets/icons/logo_meta_city.svg" alt="" />
+                        </Flex>
                         <Flex justifyContent={"space-between"} m="16px">
                             <Flex fontWeight={700} fontSize={"16px"}>Starkcity</Flex>
                             <Flex
@@ -98,15 +90,14 @@ const MetaCityMap: React.FC = () => {
                         <Flex mx="16px">
                             <InputGroup>
                                 <InputLeftElement pointerEvents='none' ml="8px">
-                                    <Image style={{marginRight:"8px"}} width={22} height={22} src="/assets/icons/search-icon.svg" alt="" />
+                                    <Image width={22} height={22} src="/assets/icons/search-icon.svg" alt="" />
                                 </InputLeftElement>
                                 <Input
                                     type='tel'
-                                    placeholder='Search'
+                                    placeholder='Search by name or ID'
                                     borderRadius={"40px"}
                                     value={searchQuery}
                                     onChange={(e) => setSearchQuery(e.target.value)}
-                                    _placeholder={{fontSize:"14px", fontWeight: 400, color: "#9C9C9C"}}
                                 />
                             </InputGroup>
                         </Flex>
@@ -114,35 +105,32 @@ const MetaCityMap: React.FC = () => {
                             <Flex flexDirection={"column"}>
                                 {filteredList.map((e: any, index: any) => {
                                     const isActive = index === activeIndex;
-                                    const isHovered = index === hoveredIndex;
                                     return (
                                         <Flex
                                             key={index}
                                             borderRadius={"8px"}
                                             height={"80px"}
                                             padding={"8px"}
-                                            bg={(isActive || isHovered) ? "#EC796B" : "#0A0A20"}
+                                            bg={isActive ? "#EC796B" : "#0A0A20"}
                                             w="100%"
                                             mb="8px"
                                             onClick={() => handleItemClick(e, index)}
                                             cursor="pointer"
-                                            onMouseEnter={() => setHoveredIndex(index)}
-                                            onMouseLeave={() => setHoveredIndex(null)}
                                         >
-                                            <ImageChakra borderRadius={"4px"} width={"64px"} height={"64px"} src={e.imgHouse} alt="" />
+                                            <Image width={64} height={64} src="/assets/images/view_house.png" alt="" />
                                             <Flex flexDirection={"column"} w="100%" ml="8px">
                                                 <Text lineHeight={"28px"} fontWeight={700} fontStyle={"normal"}>{e.name}</Text>
                                                 <Flex lineHeight={"normal"} justifyContent={"space-between"} w="100%">
-                                                    <Text color={(isActive || isHovered) ? "white" : "#9C9C9C"} fontWeight={400} fontSize={"12px"} lineHeight={"18px"}>Price:</Text>
-                                                    <Text color={(isActive || isHovered) ? "white" : "#EC796B"} fontWeight={700} fontSize={"12px"} lineHeight={"18px"}>{e.price} {e.symbol}</Text>
+                                                    <Text color={isActive ? "white" : "#9C9C9C"} fontWeight={400} fontSize={"12px"} lineHeight={"18px"}>Price:</Text>
+                                                    <Text color={isActive ? "white" : "#EC796B"} fontWeight={700} fontSize={"12px"} lineHeight={"18px"}>{e.price} {e.symbol}</Text>
                                                 </Flex>
                                                 <Flex lineHeight={"normal"} justifyContent={"space-between"} w="100%">
-                                                    <Text color={isActive || isHovered ? "white" : "#9C9C9C"} fontWeight={400} fontSize={"12px"} lineHeight={"18px"}>ID:</Text>
+                                                    <Text color={isActive ? "white" : "#9C9C9C"} fontWeight={400} fontSize={"12px"} lineHeight={"18px"}>ID:</Text>
                                                     <Text fontWeight={400} fontSize={"12px"} lineHeight={"18px"}>#{e.id}</Text>
                                                 </Flex>
                                             </Flex>
                                         </Flex>
-                                    );
+                                    )
                                 })}
                             </Flex>
                         </Flex>
@@ -157,11 +145,10 @@ const MetaCityMap: React.FC = () => {
                             >
                                 <Flex flexDirection={"column"} p='16px' borderTopLeftRadius={"16px"} borderBottomLeftRadius={"16px"} bg="rgba(10, 10, 32, 0.6)" maxH={"614px"}>
                                     <>
-                                        <ImageChakra borderRadius={"8px"} width={256} height={160} src={dataSelectedItem.imgHouse} alt="" />
+                                        <Image width={256} height={160} src="/assets/images/view_house_full.png" alt="" />
                                         <Text mt="16px" fontWeight={700} fontSize={"20px"} lineHeight={"30px"}>{dataSelectedItem.name}</Text>
-                                        <Flex my="16px" align={"center"}>
-                                            <Text mr="16px" fontWeight={800} fontSize={"14px"} lineHeight={"21px"}>Symbol</Text>
-                                            <ImageChakra height={"28px"} src={`/assets/images/house_sample_${numberToTextMap[dataSelectedItem.sample]}.png`} alt="" />
+                                        <Flex my="16px">
+                                            <Text fontWeight={800} fontSize={"14px"} lineHeight={"21px"}>Symbol</Text>
                                         </Flex>
                                         <Flex>
                                             <Flex>
@@ -174,13 +161,13 @@ const MetaCityMap: React.FC = () => {
                                             </Flex>
                                         </Flex>
                                         <Text mt="16px" fontWeight={600} fontSize={"14px"} lineHeight={"21px"}>Owner</Text>
-                                        <Text color="rgba(156, 156, 156, 1)" fontWeight={400} fontSize={"12px"} lineHeight={"18px"}>{getTruncateHash(dataSelectedItem.address, 6, 4)}</Text>
+                                        <Text color="rgba(156, 156, 156, 1)" fontWeight={400} fontSize={"12px"} lineHeight={"18px"}>{dataSelectedItem.address}</Text>
                                         <Text mt='16px' fontWeight={600} fontSize={"14px"} lineHeight={"21px"}>Blockchain Network</Text>
                                         <Text color="rgba(156, 156, 156, 1)" fontWeight={400} fontSize={"12px"} lineHeight={"18px"}>{dataSelectedItem.network}</Text>
                                         <Text mt="16px" fontWeight={600} fontSize={"14px"} lineHeight={"21px"}>Description</Text>
                                         <Text color="rgba(156, 156, 156, 1)" fontWeight={400} fontSize={"12px"} lineHeight={"18px"}>{dataSelectedItem.description}</Text>
                                         <Link href={dataSelectedItem.urlShowCase3D} passHref target="_blank">
-                                            <Button mt="16px" bg="rgba(10, 10, 32, 1)" height={"51px"} w="100%" borderRadius={"51px"} fontSize={"14px"}>
+                                            <Button mt="16px" bg="rgba(10, 10, 32, 1)" height={"51px"} w="100%" borderRadius={"51px"}>
                                                 <Image style={{ marginRight: "8px" }} width={20} height={20} src="/assets/icons/show_case.png" alt="" />
                                                 3D SHOWCASE
                                             </Button>
@@ -194,9 +181,9 @@ const MetaCityMap: React.FC = () => {
                 </Flex>
             </Flex>
             {showModal && (
-        <ModalNoti message={"Please switch to NetWork Sepolia"} />
-      )}
-        </>
+             <ModalNoti message={"Please switch to NetWork Sepolia"} />
+             )}
+       </> 
     );
 };
 
