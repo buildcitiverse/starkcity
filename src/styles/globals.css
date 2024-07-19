@@ -41,3 +41,25 @@ body {
   width: 5px;
   height: 5px;
 }
+
+
+.scroll-none::-webkit-scrollbar-thumb:hover {
+  background-color: transparent;
+}
+
+.scroll-none::-webkit-scrollbar-thumb:active {
+  background-color: transparent;
+}
+
+.scroll-none::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.scroll-none::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+.scroll-none::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}

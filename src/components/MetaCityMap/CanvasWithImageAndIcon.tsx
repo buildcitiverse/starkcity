@@ -1,11 +1,12 @@
 import { useEffect, useRef, useState } from "react";
-import { Box } from "@chakra-ui/react";
+import { Box, useMediaQuery } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectedItemData, setSelectedItem } from "@/src/redux/slices/selectedItemSlice";
 import ButtonMap from "./ButtonMap";
 import { Point, originalPoints } from "./configMapCity";
 
 const CanvasWithImageAndIcon: React.FC = () => {
+  const [isLargerThan1200] = useMediaQuery('(min-width: 1200px)')
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const [canvasSize, setCanvasSize] = useState<{ width: number; height: number }>({
     width: 0,
@@ -114,7 +115,7 @@ const CanvasWithImageAndIcon: React.FC = () => {
   };
 
   const handleZoomOut = () => {
-    setZoomLevel((prevZoom) => Math.max(prevZoom - 0.1, 0.64));
+    setZoomLevel((prevZoom) => Math.max(prevZoom - 0.1, 0.14));
   };
 
   const handleMouseDown = (event: React.MouseEvent<HTMLCanvasElement, MouseEvent>) => {
@@ -212,7 +213,7 @@ const CanvasWithImageAndIcon: React.FC = () => {
         // onClick={handleClick}
         style={{ cursor: isDragging ? "grabbing" : "grab", display: imageLoaded ? "block" : "none" }}
       />
-      <ButtonMap handleZoomIn={handleZoomIn} handleZoomOut={handleZoomOut} />
+      {isLargerThan1200 && <ButtonMap handleZoomIn={handleZoomIn} handleZoomOut={handleZoomOut} />}
     </Box>
   );
 };
