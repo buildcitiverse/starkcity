@@ -5,13 +5,13 @@ const Footer = () => {
     const justifyContentValue = useBreakpointValue({ base: "center", md: "space-between" });
     const height = useBreakpointValue({ base: "40px", md: "80px" });
     
-    const handleClickTerms = () => {
-        window.open('https://actif3d.com/terms-of-service', '_blank');
-    };
+    // const handleClickTerms = () => {
+    //     window.open('https://actif3d.com/terms-of-service', '_blank');
+    // };
 
-    const handleClickPrivacy = () => {
-        window.open('https://actif3d.com/privacy-policy', '_blank');
-    };
+    // const handleClickPrivacy = () => {
+    //     window.open('https://actif3d.com/privacy-policy', '_blank');
+    // };
 
     const handleClickTwitter = () => {
         window.open('https://x.com/buildcitiverse', '_blank');
@@ -36,9 +36,9 @@ const Footer = () => {
                     </Flex>
                     <Flex display={displayFooter} fontWeight={500} fontSize={"14px"} lineHeight={"18px"} opacity={"60%"}>© 2024 CITI VERSE. All rights reserved.</Flex>
                     <Flex display={displayFooter} gap={"24px"}>
-                        <Flex fontWeight={400} fontSize={"14px"} lineHeight={"26px"} cursor={"pointer"} onClick={handleClickTerms} opacity={"60%"}>Terms and Conditions</Flex>
+                        <Flex fontWeight={400} fontSize={"14px"} lineHeight={"26px"} cursor={"pointer"}  opacity={"60%"}>Terms and Conditions</Flex>
                         <Flex w={"1px"} height={"18px"} bg={"#FFFFFF"} opacity={"60%"}></Flex>
-                        <Flex fontWeight={400} fontSize={"14px"} lineHeight={"26px"} cursor={"pointer"} onClick={handleClickPrivacy} opacity={"60%"}>Privacy Policy</Flex>
+                        <Flex fontWeight={400} fontSize={"14px"} lineHeight={"26px"} cursor={"pointer"}  opacity={"60%"}>Privacy Policy</Flex>
                     </Flex>
                 </Flex>
             </Box>
