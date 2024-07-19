@@ -13,7 +13,7 @@ const InforCenterHome = () => {
 
     return (
         <Flex flexDirection={"column"} width={"376px"} alignItems={"center"} gap={gapWrapper}>
-            <Flex flexDirection={"column"} gap={"10px"} alignItems={"center"}>
+            <Flex flexDirection={"column"} alignItems={"center"}>
                 <Flex fontWeight={700} fontSize={fontSizeValue} lineHeight={"70.4px"} fontFamily={"sora"} textTransform={"uppercase"}>
                     Starkcity
                 </Flex>
@@ -25,7 +25,7 @@ const InforCenterHome = () => {
             <Flex gap={"16px"} alignItems={"center"}>
                 <Flex fontWeight={400} fontFamily={"Sora"} fontSize={textBuildOn} >Build on</Flex>
                 {isSmallScreen ? (
-                    <Image alt="" src="/assets/images/logo_res_starknet.png" w={"174px"} height={"39px"} />
+                    <Image alt="" src="/assets/icons/icon_stark_res.svg" w={"174px"} height={"39px"} />
                 ) : (
                     <Image alt="" src="/assets/images/logo_starknet.png" w={"211px"} height={"48px"} />
                 )}
