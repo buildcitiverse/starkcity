@@ -37,7 +37,6 @@ const CanvasWithImageAndIcon: React.FC = () => {
     };
   }, []);
 
-
   const calculatePointPosition = (point: Point) => {
     return {
       x: point.x * imageSize.width * zoomLevel + panPosition.x,
@@ -84,6 +83,17 @@ const CanvasWithImageAndIcon: React.FC = () => {
         img.onload = () => {
           setImageSize({ width: img.width, height: img.height });
           setImageLoaded(true);
+          // // Center the initial point
+          // const initialPoint = originalPoints[0];
+          // const pointPosition = calculatePointPosition(initialPoint);
+          // const canvasCenterX = canvasSize.width / 2;
+          // const canvasCenterY = canvasSize.height / 2;
+
+          // setPanPosition({
+          //   x: canvasCenterX - pointPosition.x,
+          //   y: canvasCenterY - pointPosition.y
+          // });
+
           ctx.clearRect(0, 0, canvas.width, canvas.height);
           ctx.drawImage(img, panPosition.x, panPosition.y, imageSize.width * zoomLevel, imageSize.height * zoomLevel);
           if (iconRef.current) {
@@ -107,7 +117,7 @@ const CanvasWithImageAndIcon: React.FC = () => {
   };
 
   const handleZoomOut = () => {
-    setZoomLevel((prevZoom) => Math.max(prevZoom - 0.1, 0.75)); // Decrease zoom level by 0.1 down to a minimum of 0.63 (initial zoom)
+    setZoomLevel((prevZoom) => Math.max(prevZoom - 0.1, 0.75)); // Decrease zoom level by 0.1 down to a minimum of 0.75
   };
 
   const handleMouseDown = (event: React.MouseEvent<HTMLCanvasElement, MouseEvent>) => {

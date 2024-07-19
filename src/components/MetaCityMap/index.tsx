@@ -58,12 +58,17 @@ const MetaCityMap: React.FC = () => {
     return (
         <>
             <Flex w="100%" justifyContent={"center"} height={"100vh"} bg="rgba(4, 4, 27, 1)" overflow={"hidden"}>
-                <Flex bg="white" height={"100%"} w="100%">
+                <Flex bg="white" height={"100%"} w="100%" position={"relative"}>
                     <Flex
                         minW={"334px"}
                         bg="#04041B"
                         flexDirection={"column"}
                         color="white"
+                        position={"absolute"}
+                        top={0}
+                        left={0}
+                        zIndex={99}
+                        maxH={"100vh"}
                     >
                         <Link href="/">
                             <Flex
