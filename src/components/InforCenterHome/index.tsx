@@ -31,9 +31,9 @@ const InforCenterHome = () => {
                 )}
             </Flex>
             <Flex maxW={"196px"} _hover={{ bg: "#EC796B" }} height={"51px"} w={"100%"} bg={"#0A0A20"} gap={"8px"} cursor={"pointer"} border={"1px solid #C1C1C14D"} borderRadius={"51px"} justifyContent={"center"} align={"center"}>
-                <Link style={{display:'flex'}} href={"/metacity"}>
+                <Link style={{display:'flex'}} href={"/explorer"}>
                     <Image alt="" src="/assets/images/icon_btn_view.png" w={"20px"} height={"20px"} />
-                    <Flex fontWeight={800} fontSize={"14px"} ml="8px">VIEW CITY</Flex>
+                    <Flex fontWeight={800} fontSize={"14px"} textTransform={"uppercase"} ml="8px">Explore City</Flex>
                 </Link>
 
             </Flex>
