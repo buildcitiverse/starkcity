@@ -8,6 +8,7 @@ import { selectedItemData, setSelectedItem } from "@/src/redux/slices/selectedIt
 import CanvasWithImageAndIcon from "./CanvasWithImageAndIcon";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { getTruncateHash } from "@/src/utils/getTruncateHash";
 
 const MetaCityMap: React.FC = () => {
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -157,7 +158,7 @@ const MetaCityMap: React.FC = () => {
                                         </Flex>
                                     </Flex>
                                     <Text mt="16px" fontWeight={600} fontSize={"14px"} lineHeight={"21px"}>Owner</Text>
-                                    <Text color="rgba(156, 156, 156, 1)" fontWeight={400} fontSize={"12px"} lineHeight={"18px"}>{dataSelectedItem.address}</Text>
+                                    <Text color="rgba(156, 156, 156, 1)" fontWeight={400} fontSize={"12px"} lineHeight={"18px"}>{getTruncateHash(dataSelectedItem.address, 6, 4)}</Text>
                                     <Text mt='16px' fontWeight={600} fontSize={"14px"} lineHeight={"21px"}>Blockchain Network</Text>
                                     <Text color="rgba(156, 156, 156, 1)" fontWeight={400} fontSize={"12px"} lineHeight={"18px"}>{dataSelectedItem.network}</Text>
                                     <Text mt="16px" fontWeight={600} fontSize={"14px"} lineHeight={"21px"}>Description</Text>
