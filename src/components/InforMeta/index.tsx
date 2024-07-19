@@ -9,11 +9,17 @@ const InforMeta = () => {
       p={"24px"}
       flexDirection={"column"}
       gap={"40px"}
+      position={"relative"}
+      zIndex={2}
       style={{ backdropFilter: "blur(10px)" }}
     >
       <Flex flexDirection={"column"} gap={"8px"}>
-        <Image src="/assets/images/subtitle.png" alt="" w={"48px"} h={"20px"} />
-        <Flex fontWeight={600} fontSize={"20px"} lineHeight={"24px"}>Metaverse &amp; Gaming City</Flex>
+        <Flex gap= {"10px"} alignItems={"center"}>
+          <Image src="/assets/icons/left_element.svg" alt="" w={"5px"} h={"20px"} />
+          <Flex fontSize={"13px"} fontFamily={"Mulish"} fontWeight={700} mt={"1px"} lineHeight={"17.57px"}>01</Flex>
+          <Image src="/assets/icons/right_element.svg" alt="" w={"5px"} h={"20px"} />
+        </Flex>
+        <Flex fontWeight={600} fontSize={"20px"} fontFamily={"Sora"} lineHeight={"24px"}>Metaverse &amp; Gaming City</Flex>
         <Flex ml={"25px"}>
           <ul className="red-ul">
             <li className="red-li">No-code VR apps &amp; contents</li>
@@ -23,8 +29,12 @@ const InforMeta = () => {
         </Flex>
       </Flex>
       <Flex flexDirection={"column"} gap={"8px"}>
-        <Image src="/assets/images/subtitle2.png" alt="" w={"48px"} h={"20px"} />
-        <Flex fontWeight={600} fontSize={"20px"} lineHeight={"24px"}>Co-creation &amp; City builder</Flex>
+      <Flex gap= {"10px"} alignItems={"center"}>
+          <Image src="/assets/icons/left_element.svg" alt="" w={"5px"} h={"20px"} />
+          <Flex fontSize={"13px"} fontFamily={"Mulish"} fontWeight={700} mt={"1px"} lineHeight={"17.57px"}>02</Flex>
+          <Image src="/assets/icons/right_element.svg" alt="" w={"5px"} h={"20px"} />
+        </Flex>
+        <Flex fontWeight={600} fontFamily={"Sora"} fontSize={"20px"} lineHeight={"24px"}>Co-Creation &amp; City Builder</Flex>
         <Flex ml={"25px"}>
           <ul className="red-ul">
             <li className="red-li">
@@ -39,17 +49,18 @@ const InforMeta = () => {
         </Flex>
       </Flex>
       <Flex flexDirection={"column"} gap={"8px"}>
-        <Image src="/assets/images/subtitle3.png" alt="" w={"48px"} h={"20px"} />
-        <Flex fontWeight={600} fontSize={"20px"} lineHeight={"24px"}>StarkCity NFT Collection</Flex>
+      <Flex gap= {"10px"} alignItems={"center"}>
+          <Image src="/assets/icons/left_element.svg" alt="" w={"5px"} h={"20px"} />
+          <Flex fontSize={"13px"} fontFamily={"Mulish"} fontWeight={700} mt={"1px"} lineHeight={"17.57px"}>03</Flex>
+          <Image src="/assets/icons/right_element.svg" alt="" w={"5px"} h={"20px"} />
+        </Flex>
+        <Flex fontWeight={600} fontSize={"20px"} fontFamily={"Sora"} lineHeight={"24px"}>StarkCity NFT Collection</Flex>
         <Flex ml={"25px"}>
           <ul className="red-ul">
             <li className="red-li">
-              Beautiful city creation by Citiverse&apos;s Professional Network. 50+
-              NFTs of 3D/VR building and landscape deployed on Starknet
-              blockchain.
+            Beautiful city creation by Citiverse&apos;s Professional Network.
             </li>
-            <li className="red-li">Beautiful city creation by Citiverse&apos;s Professional Network.
-                50+ NFTs of 3D/VR building and landscape deployed on Starknet blockchain.</li>
+            <li className="red-li">50+ NFTs of 3D/VR buiding and landscape deployed on Starknet blockchain.</li>
           </ul>
         </Flex>
       </Flex>
