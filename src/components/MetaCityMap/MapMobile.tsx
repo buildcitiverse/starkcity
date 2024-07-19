@@ -153,6 +153,7 @@ const MapMobile: React.FC = () => {
                                             height={"64px"}
                                             src={e?.imgHouse}
                                             alt=""
+                                            borderRadius={"4px"}
                                         />
                                         <Flex flexDirection={"column"} w="100%" ml="8px">
                                             <Text
@@ -248,6 +249,7 @@ const MapMobile: React.FC = () => {
                                     </Flex>
                                     <>
                                         <ImageChakra
+                                            borderRadius={"8px"}
                                             width={"343px"}
                                             height={"160px"}
                                             src={dataSelectedItem.imgHouse}

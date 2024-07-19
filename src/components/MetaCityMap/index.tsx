@@ -129,7 +129,7 @@ const MetaCityMap: React.FC = () => {
                                             onMouseEnter={() => setHoveredIndex(index)}
                                             onMouseLeave={() => setHoveredIndex(null)}
                                         >
-                                            <ImageChakra width={"64px"} height={"64px"} src={e.imgHouse} alt="" />
+                                            <ImageChakra borderRadius={"4px"} width={"64px"} height={"64px"} src={e.imgHouse} alt="" />
                                             <Flex flexDirection={"column"} w="100%" ml="8px">
                                                 <Text lineHeight={"28px"} fontWeight={700} fontStyle={"normal"}>{e.name}</Text>
                                                 <Flex lineHeight={"normal"} justifyContent={"space-between"} w="100%">
@@ -157,7 +157,7 @@ const MetaCityMap: React.FC = () => {
                             >
                                 <Flex flexDirection={"column"} p='16px' borderTopLeftRadius={"16px"} borderBottomLeftRadius={"16px"} bg="rgba(10, 10, 32, 0.6)" maxH={"614px"}>
                                     <>
-                                        <ImageChakra width={256} height={160} src={dataSelectedItem.imgHouse} alt="" />
+                                        <ImageChakra borderRadius={"8px"} width={256} height={160} src={dataSelectedItem.imgHouse} alt="" />
                                         <Text mt="16px" fontWeight={700} fontSize={"20px"} lineHeight={"30px"}>{dataSelectedItem.name}</Text>
                                         <Flex my="16px" align={"center"}>
                                             <Text mr="16px" fontWeight={800} fontSize={"14px"} lineHeight={"21px"}>Symbol</Text>
