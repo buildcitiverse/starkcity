@@ -1,5 +1,6 @@
 import Document, { Head, Html, Main, NextScript } from "next/document";
 import { AppConfig } from "../utils/AppConfig";
+import { Metadata } from "next";
 
 
 // Need to create a custom _document because i18n support is not compatible with `next export`.

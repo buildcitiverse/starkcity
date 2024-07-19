@@ -105,8 +105,8 @@ const CanvasWithImageAndIcon: React.FC = () => {
   }, [canvasSize, imageSize, zoomLevel, panPosition, iconPosition, imageLoaded, canvasSize.width, canvasSize.height]);
 
   const drawIcon = (ctx: CanvasRenderingContext2D, position: Point) => {
-    const iconWidth = 71;
-    const iconHeight = 49;
+    const iconWidth = 72;
+    const iconHeight = 81;
     ctx.drawImage(iconRef.current!, position.x - iconWidth / 2, position.y - iconHeight / 2, iconWidth, iconHeight);
   };
 

@@ -148,10 +148,10 @@ const MapMobile: React.FC = () => {
                                         onMouseLeave={() => setHoveredIndex(null)}
                                         mr="8px"
                                     >
-                                        <Image
-                                            width={64}
-                                            height={64}
-                                            src="/assets/images/view_house.png"
+                                        <ImageChakra
+                                            width={"64px"}
+                                            height={"64px"}
+                                            src={e?.imgHouse}
                                             alt=""
                                         />
                                         <Flex flexDirection={"column"} w="100%" ml="8px">
@@ -247,10 +247,10 @@ const MapMobile: React.FC = () => {
                                         ></Flex>
                                     </Flex>
                                     <>
-                                        <Image
-                                            width={343}
-                                            height={160}
-                                            src="/assets/images/view_house_full.png"
+                                        <ImageChakra
+                                            width={"343px"}
+                                            height={"160px"}
+                                            src={dataSelectedItem.imgHouse}
                                             alt=""
                                         />
                                         <Text

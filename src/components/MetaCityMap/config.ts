@@ -6,6 +6,7 @@ export const listMetaCityMap = [
     location: 1,
     symbol: "STRK",
     imgSymbol: "",
+    imgHouse: "https://static.citiverse.io/public/gallery/vlu/2175801080181/2023-07-07-20-39-32/cover.jpg",
     address:
       "0x000D07b7F51a8Ac4c0D59e69e37226eA5530FeBc8F916D52b026319F696Ffc66",
     network: "Starknet",
@@ -24,6 +25,7 @@ export const listMetaCityMap = [
     location: 2,
     symbol: "STRK",
     imgSymbol: "",
+    imgHouse:"https://static.citiverse.io/public/gallery/vlu/2175801080070/2023-07-07-17-51-50/cover.jpg",
     address:
       "0x000D07b7F51a8Ac4c0D59e69e37226eA5530FeBc8F916D52b026319F696Ffc66",
     network: "Starknet",
@@ -41,6 +43,7 @@ export const listMetaCityMap = [
     location: 3,
     symbol: "STRK",
     imgSymbol: "",
+    imgHouse:"https://static.citiverse.io/public/gallery/vlu/2175801080238/2023-07-08-12-07-26/cover.jpg",
     address:
       "0x000D07b7F51a8Ac4c0D59e69e37226eA5530FeBc8F916D52b026319F696Ffc66",
     network: "Starknet",
@@ -58,6 +61,7 @@ export const listMetaCityMap = [
     location: 4,
     symbol: "STRK",
     imgSymbol: "",
+    imgHouse:"https://static.citiverse.io/public/gallery/vlu/2175801080171/2023-07-07-20-32-23/cover.jpg",
     address:
       "0x000D07b7F51a8Ac4c0D59e69e37226eA5530FeBc8F916D52b026319F696Ffc66",
     network: "Starknet",
@@ -75,6 +79,7 @@ export const listMetaCityMap = [
     location: 5,
     symbol: "STRK",
     imgSymbol: "",
+    imgHouse:"https://static.citiverse.io/public/gallery/vlu/2175801080226/2023-07-07-20-41-01/cover.jpg",
     address:
       "0x000D07b7F51a8Ac4c0D59e69e37226eA5530FeBc8F916D52b026319F696Ffc66",
     network: "Starknet",
@@ -92,6 +97,7 @@ export const listMetaCityMap = [
     location: 6,
     symbol: "STRK",
     imgSymbol: "",
+    imgHouse:"https://static.citiverse.io/public/gallery/vlu/2175801080059/2023-07-07-17-49-04/cover.jpg",
     address:
       "0x000D07b7F51a8Ac4c0D59e69e37226eA5530FeBc8F916D52b026319F696Ffc66",
     network: "Starknet",
@@ -108,7 +114,8 @@ export const listMetaCityMap = [
     price: 300,
     location: 7,
     symbol: "STRK",
-    imgSymbol: "https://static.citiverse.io/public/gallery/vlu/2175801080051/index.html#autoplay",
+    imgSymbol: "",
+    imgHouse:"https://static.citiverse.io/public/gallery/vlu/2175801080051/2023-07-07-17-30-24/cover.jpg",
     address:
       "0x000D07b7F51a8Ac4c0D59e69e37226eA5530FeBc8F916D52b026319F696Ffc66",
     network: "Starknet",
@@ -116,7 +123,7 @@ export const listMetaCityMap = [
       "The land was taken over by outlaws. The police here are corrupt and ignore the looting and misery that happens every day",
     x: 0.683,
     y: 0.27,
-    urlShowCase3D: "",
+    urlShowCase3D: "https://static.citiverse.io/public/gallery/vlu/2175801080051/index.html#autoplay",
     sample: 4,
   },
   {
@@ -126,6 +133,7 @@ export const listMetaCityMap = [
     location: 8,
     symbol: "STRK",
     imgSymbol: "",
+    imgHouse:"https://static.citiverse.io/public/gallery/vlu/2175801080078/2023-07-07-17-57-34/cover.jpg",
     address:
       "0x000D07b7F51a8Ac4c0D59e69e37226eA5530FeBc8F916D52b026319F696Ffc66",
     network: "Starknet",
@@ -143,6 +151,7 @@ export const listMetaCityMap = [
     location: 9,
     symbol: "STRK",
     imgSymbol: "",
+    imgHouse:"https://static.citiverse.io/public/gallery/vlu/2175801080145/2023-07-07-20-26-00/cover.jpg",
     address:
       "0x000D07b7F51a8Ac4c0D59e69e37226eA5530FeBc8F916D52b026319F696Ffc66",
     network: "Starknet",
@@ -160,6 +169,7 @@ export const listMetaCityMap = [
     location: 10,
     symbol: "STRK",
     imgSymbol: "",
+    imgHouse:"https://static.citiverse.io/public/gallery/vlu/2175801080281/2023-07-08-12-31-17/cover.jpg",
     address:
       "0x000D07b7F51a8Ac4c0D59e69e37226eA5530FeBc8F916D52b026319F696Ffc66",
     network: "Starknet",
@@ -177,6 +187,7 @@ export const listMetaCityMap = [
     location: 11,
     symbol: "STRK",
     imgSymbol: "",
+    imgHouse:"https://static.citiverse.io/public/gallery/vlu/2175801080040/2023-07-07-17-26-47/cover.jpg",
     address:
       "0x000D07b7F51a8Ac4c0D59e69e37226eA5530FeBc8F916D52b026319F696Ffc66",
     network: "Starknet",
@@ -194,6 +205,7 @@ export const listMetaCityMap = [
     location: 12,
     symbol: "STRK",
     imgSymbol: "",
+    imgHouse:"https://static.citiverse.io/public/gallery/vlu/2175801080041/2023-07-07-17-29-00/cover.jpg",
     address:
       "0x000D07b7F51a8Ac4c0D59e69e37226eA5530FeBc8F916D52b026319F696Ffc66",
     network: "Starknet",
@@ -211,6 +223,7 @@ export const listMetaCityMap = [
     location: 13,
     symbol: "STRK",
     imgSymbol: "",
+    imgHouse:"https://static.citiverse.io/public/gallery/vlu/2175801080053/2023-07-07-17-31-55/cover.jpg",
     address:
       "0x000D07b7F51a8Ac4c0D59e69e37226eA5530FeBc8F916D52b026319F696Ffc66",
     network: "Starknet",
@@ -228,6 +241,7 @@ export const listMetaCityMap = [
     location: 14,
     symbol: "STRK",
     imgSymbol: "",
+    imgHouse:"https://static.citiverse.io/public/frank-house/2023-07-04-17-33-04/cover.jpg",
     address:
       "0x000D07b7F51a8Ac4c0D59e69e37226eA5530FeBc8F916D52b026319F696Ffc66",
     network: "Starknet",
@@ -245,6 +259,7 @@ export const listMetaCityMap = [
     location: 15,
     symbol: "STRK",
     imgSymbol: "",
+    imgHouse:"https://static.citiverse.io/public/gallery/vlu/2175801080245/2023-07-08-12-11-25/cover.jpg",
     address:
       "0x000D07b7F51a8Ac4c0D59e69e37226eA5530FeBc8F916D52b026319F696Ffc66",
     network: "Starknet",
@@ -262,6 +277,7 @@ export const listMetaCityMap = [
     location: 16,
     symbol: "STRK",
     imgSymbol: "",
+    imgHouse:"https://static.citiverse.io/public/gallery/vlu/2175801080252/2023-07-08-12-20-56/cover.jpg",
     address:
       "0x000D07b7F51a8Ac4c0D59e69e37226eA5530FeBc8F916D52b026319F696Ffc66",
     network: "Starknet",
@@ -279,6 +295,7 @@ export const listMetaCityMap = [
     location: 17,
     symbol: "STRK",
     imgSymbol: "",
+    imgHouse:"https://static.citiverse.io/public/gallery/vlu/2175801080075/2023-07-07-17-53-19/cover.jpg",
     address:
       "0x000D07b7F51a8Ac4c0D59e69e37226eA5530FeBc8F916D52b026319F696Ffc66",
     network: "Starknet",
@@ -296,6 +313,7 @@ export const listMetaCityMap = [
     location: 18,
     symbol: "STRK",
     imgSymbol: "",
+    imgHouse:"https://static.citiverse.io/public/gallery/vlu/2175801080233/2023-07-08-12-05-14/cover.jpg",
     address:
       "0x000D07b7F51a8Ac4c0D59e69e37226eA5530FeBc8F916D52b026319F696Ffc66",
     network: "Starknet",
@@ -313,6 +331,7 @@ export const listMetaCityMap = [
     location: 19,
     symbol: "STRK",
     imgSymbol: "",
+    imgHouse:"https://static.citiverse.io/public/gallery/vlu/2175801080251/2023-07-08-12-17-48/cover.jpg",
     address:
       "0x000D07b7F51a8Ac4c0D59e69e37226eA5530FeBc8F916D52b026319F696Ffc66",
     network: "Starknet",
@@ -330,6 +349,7 @@ export const listMetaCityMap = [
     location: 20,
     symbol: "STRK",
     imgSymbol: "",
+    imgHouse:"https://static.citiverse.io/public/gallery/vlu/2175801080243/2023-07-08-12-09-50/cover.jpg",
     address:
       "0x000D07b7F51a8Ac4c0D59e69e37226eA5530FeBc8F916D52b026319F696Ffc66",
     network: "Starknet",
@@ -347,6 +367,7 @@ export const listMetaCityMap = [
     location: 21,
     symbol: "STRK",
     imgSymbol: "",
+    imgHouse:"https://static.citiverse.io/public/gallery/vlu/2175801080064/2023-07-07-17-50-00/cover.jpg",
     address:
       "0x000D07b7F51a8Ac4c0D59e69e37226eA5530FeBc8F916D52b026319F696Ffc66",
     network: "Starknet",
@@ -364,6 +385,7 @@ export const listMetaCityMap = [
     location: 22,
     symbol: "STRK",
     imgSymbol: "",
+    imgHouse:"https://static.citiverse.io/public/gallery/vlu/2175801080121/2023-07-07-19-49-57/cover.jpg",
     address:
       "0x000D07b7F51a8Ac4c0D59e69e37226eA5530FeBc8F916D52b026319F696Ffc66",
     network: "Starknet",
@@ -381,6 +403,7 @@ export const listMetaCityMap = [
     location: 23,
     symbol: "STRK",
     imgSymbol: "",
+    imgHouse:"https://static.citiverse.io/public/gallery/vlu/2175801080246/2023-07-08-12-14-23/cover.jpg",
     address:
       "0x000D07b7F51a8Ac4c0D59e69e37226eA5530FeBc8F916D52b026319F696Ffc66",
     network: "Starknet",
@@ -398,6 +421,7 @@ export const listMetaCityMap = [
     location: 24,
     symbol: "STRK",
     imgSymbol: "",
+    imgHouse:"https://static.citiverse.io/public/gallery/vlu/2175801080016/2023-07-07-17-08-55/cover.jpg",
     address:
       "0x000D07b7F51a8Ac4c0D59e69e37226eA5530FeBc8F916D52b026319F696Ffc66",
     network: "Starknet",
@@ -415,6 +439,7 @@ export const listMetaCityMap = [
     location: 25,
     symbol: "STRK",
     imgSymbol: "",
+    imgHouse:"https://static.citiverse.io/public/gallery/vlu/2175801080282/2023-07-08-12-32-50/cover.jpg",
     address:
       "0x000D07b7F51a8Ac4c0D59e69e37226eA5530FeBc8F916D52b026319F696Ffc66",
     network: "Starknet",
@@ -432,6 +457,7 @@ export const listMetaCityMap = [
     location: 26,
     symbol: "STRK",
     imgSymbol: "",
+    imgHouse:"https://static.citiverse.io/public/gallery/vlu/2175801080166/2023-07-07-20-27-29/cover.jpg",
     address:
       "0x000D07b7F51a8Ac4c0D59e69e37226eA5530FeBc8F916D52b026319F696Ffc66",
     network: "Starknet",
@@ -449,6 +475,7 @@ export const listMetaCityMap = [
     location: 27,
     symbol: "STRK",
     imgSymbol: "",
+    imgHouse:"https://static.citiverse.io/public/gallery/vlu/2175801080255/2023-07-08-12-28-06/cover.jpg",
     address:
       "0x000D07b7F51a8Ac4c0D59e69e37226eA5530FeBc8F916D52b026319F696Ffc66",
     network: "Starknet",
@@ -466,6 +493,7 @@ export const listMetaCityMap = [
     location: 28,
     symbol: "STRK",
     imgSymbol: "",
+    imgHouse:"https://static.citiverse.io/public/gallery/vlu/2175801080287/2023-07-08-12-34-24/cover.jpg",
     address:
       "0x000D07b7F51a8Ac4c0D59e69e37226eA5530FeBc8F916D52b026319F696Ffc66",
     network: "Starknet",
@@ -483,6 +511,7 @@ export const listMetaCityMap = [
     location: 29,
     symbol: "STRK",
     imgSymbol: "",
+    imgHouse:"https://static.citiverse.io/public/gallery/vlu/2175801080082/2023-07-07-18-04-11/cover.jpg",
     address:
       "0x000D07b7F51a8Ac4c0D59e69e37226eA5530FeBc8F916D52b026319F696Ffc66",
     network: "Starknet",
@@ -500,6 +529,7 @@ export const listMetaCityMap = [
     location: 30,
     symbol: "STRK",
     imgSymbol: "",
+    imgHouse:"https://static.citiverse.io/public/gallery/vlu/2175801080112/2023-07-07-18-16-59/cover.jpg",
     address:
       "0x000D07b7F51a8Ac4c0D59e69e37226eA5530FeBc8F916D52b026319F696Ffc66",
     network: "Starknet",
@@ -517,6 +547,7 @@ export const listMetaCityMap = [
     location: 31,
     symbol: "STRK",
     imgSymbol: "",
+    imgHouse:"https://static.citiverse.io/public/gallery/vlu/2175801080259/2023-07-08-12-28-43/cover.jpg",
     address:
       "0x000D07b7F51a8Ac4c0D59e69e37226eA5530FeBc8F916D52b026319F696Ffc66",
     network: "Starknet",
@@ -533,6 +564,7 @@ export const listMetaCityMap = [
     price: 300,
     location: 32,
     symbol: "STRK",
+    imgHouse:"https://static.citiverse.io/public/gallery/vlu/2175801080062/2023-09-13-09-24-36/cover.jpg",
     imgSymbol: "",
     address:
       "0x000D07b7F51a8Ac4c0D59e69e37226eA5530FeBc8F916D52b026319F696Ffc66",
@@ -551,6 +583,7 @@ export const listMetaCityMap = [
     location: 33,
     symbol: "STRK",
     imgSymbol: "",
+    imgHouse:"https://static.citiverse.io/public/gallery/vlu/2175801080132/2023-09-14-11-19-11/cover.jpg",
     address:
       "0x000D07b7F51a8Ac4c0D59e69e37226eA5530FeBc8F916D52b026319F696Ffc66",
     network: "Starknet",
@@ -568,6 +601,7 @@ export const listMetaCityMap = [
     location: 34,
     symbol: "STRK",
     imgSymbol: "",
+    imgHouse:"https://static.citiverse.io/public/gallery/vlu/2175801080138/2023-09-13-09-47-22/cover.jpg",
     address:
       "0x000D07b7F51a8Ac4c0D59e69e37226eA5530FeBc8F916D52b026319F696Ffc66",
     network: "Starknet",
@@ -585,6 +619,7 @@ export const listMetaCityMap = [
     location: 35,
     symbol: "STRK",
     imgSymbol: "",
+    imgHouse:"https://static.citiverse.io/public/gallery/vlu/2175801080147/2023-09-13-09-14-15/cover.jpg",
     address:
       "0x000D07b7F51a8Ac4c0D59e69e37226eA5530FeBc8F916D52b026319F696Ffc66",
     network: "Starknet",
@@ -602,6 +637,7 @@ export const listMetaCityMap = [
     location: 36,
     symbol: "STRK",
     imgSymbol: "",
+    imgHouse:"https://static.citiverse.io/public/gallery/vlu/2175801080152/2023-09-13-09-52-17/cover.jpg",
     address:
       "0x000D07b7F51a8Ac4c0D59e69e37226eA5530FeBc8F916D52b026319F696Ffc66",
     network: "Starknet",
@@ -619,6 +655,7 @@ export const listMetaCityMap = [
     location: 37,
     symbol: "STRK",
     imgSymbol: "",
+    imgHouse:"https://static.citiverse.io/public/gallery/vlu/2175801080165/2023-09-13-09-37-26/cover.jpg",
     address:
       "0x000D07b7F51a8Ac4c0D59e69e37226eA5530FeBc8F916D52b026319F696Ffc66",
     network: "Starknet",
@@ -636,6 +673,7 @@ export const listMetaCityMap = [
     location: 38,
     symbol: "STRK",
     imgSymbol: "",
+    imgHouse:"https://static.citiverse.io/public/gallery/vlu/2175801080167/2023-08-15-02-11-37/cover.jpg",
     address:
       "0x000D07b7F51a8Ac4c0D59e69e37226eA5530FeBc8F916D52b026319F696Ffc66",
     network: "Starknet",
@@ -653,6 +691,7 @@ export const listMetaCityMap = [
     location: 39,
     symbol: "STRK",
     imgSymbol: "",
+    imgHouse:"https://static.citiverse.io/public/gallery/vlu/2175801080168/2023-09-13-09-49-24/cover.jpg",
     address:
       "0x000D07b7F51a8Ac4c0D59e69e37226eA5530FeBc8F916D52b026319F696Ffc66",
     network: "Starknet",
@@ -670,6 +709,7 @@ export const listMetaCityMap = [
     location: 40,
     symbol: "STRK",
     imgSymbol: "",
+    imgHouse:"https://static.citiverse.io/public/gallery/vlu/2175801080169/2023-09-13-09-35-40/cover.jpg",
     address:
       "0x000D07b7F51a8Ac4c0D59e69e37226eA5530FeBc8F916D52b026319F696Ffc66",
     network: "Starknet",
@@ -687,6 +727,7 @@ export const listMetaCityMap = [
     location: 41,
     symbol: "STRK",
     imgSymbol: "",
+    imgHouse:"https://static.citiverse.io/public/gallery/vlu/2175801080182/2023-09-13-09-59-52/cover.jpg",
     address:
       "0x000D07b7F51a8Ac4c0D59e69e37226eA5530FeBc8F916D52b026319F696Ffc66",
     network: "Starknet",
@@ -704,6 +745,7 @@ export const listMetaCityMap = [
     location: 42,
     symbol: "STRK",
     imgSymbol: "",
+    imgHouse:"https://static.citiverse.io/public/gallery/vlu/2175801080190/2023-09-13-10-46-12/cover.jpg",
     address:
       "0x000D07b7F51a8Ac4c0D59e69e37226eA5530FeBc8F916D52b026319F696Ffc66",
     network: "Starknet",
@@ -721,6 +763,7 @@ export const listMetaCityMap = [
     location: 43,
     symbol: "STRK",
     imgSymbol: "",
+    imgHouse:"https://static.citiverse.io/public/gallery/vlu/2175801080197/2023-08-14-22-33-40/cover.jpg",
     address:
       "0x000D07b7F51a8Ac4c0D59e69e37226eA5530FeBc8F916D52b026319F696Ffc66",
     network: "Starknet",
@@ -738,6 +781,7 @@ export const listMetaCityMap = [
     location: 44,
     symbol: "STRK",
     imgSymbol: "",
+    imgHouse:"https://static.citiverse.io/public/gallery/vlu/2175801080202/2023-09-13-15-20-23/cover.jpg",
     address:
       "0x000D07b7F51a8Ac4c0D59e69e37226eA5530FeBc8F916D52b026319F696Ffc66",
     network: "Starknet",
@@ -755,6 +799,7 @@ export const listMetaCityMap = [
     location: 45,
     symbol: "STRK",
     imgSymbol: "",
+    imgHouse:"https://static.citiverse.io/public/gallery/vlu/2175801080203/2023-09-13-09-22-41/cover.jpg",
     address:
       "0x000D07b7F51a8Ac4c0D59e69e37226eA5530FeBc8F916D52b026319F696Ffc66",
     network: "Starknet",
@@ -772,6 +817,7 @@ export const listMetaCityMap = [
     location: 46,
     symbol: "STRK",
     imgSymbol: "",
+    imgHouse:"https://static.citiverse.io/public/gallery/vlu/2175801080217/2023-09-13-14-58-16/cover.jpg",
     address:
       "0x000D07b7F51a8Ac4c0D59e69e37226eA5530FeBc8F916D52b026319F696Ffc66",
     network: "Starknet",
@@ -789,6 +835,7 @@ export const listMetaCityMap = [
     location: 47,
     symbol: "STRK",
     imgSymbol: "",
+    imgHouse:"https://static.citiverse.io/public/gallery/vlu/2175801080218/2023-09-13-10-06-27/cover.jpg",
     address:
       "0x000D07b7F51a8Ac4c0D59e69e37226eA5530FeBc8F916D52b026319F696Ffc66",
     network: "Starknet",
@@ -806,6 +853,7 @@ export const listMetaCityMap = [
     location: 48,
     symbol: "STRK",
     imgSymbol: "",
+    imgHouse:"https://static.citiverse.io/public/gallery/vlu/2175801080257/2023-09-13-09-50-58/cover.jpg",
     address:
       "0x000D07b7F51a8Ac4c0D59e69e37226eA5530FeBc8F916D52b026319F696Ffc66",
     network: "Starknet",
@@ -823,6 +871,7 @@ export const listMetaCityMap = [
     location: 49,
     symbol: "STRK",
     imgSymbol: "",
+    imgHouse:"https://static.citiverse.io/public/gallery/vlu/2175801080260/2023-09-13-10-03-46/cover.jpg",
     address:
       "0x000D07b7F51a8Ac4c0D59e69e37226eA5530FeBc8F916D52b026319F696Ffc66",
     network: "Starknet",
@@ -840,6 +889,7 @@ export const listMetaCityMap = [
     location: 50,
     symbol: "STRK",
     imgSymbol: "",
+    imgHouse:"https://static.citiverse.io/public/gallery/vlu/2175801080262/2023-09-13-10-02-24/cover.jpg",
     address:
       "0x000D07b7F51a8Ac4c0D59e69e37226eA5530FeBc8F916D52b026319F696Ffc66",
     network: "Starknet",
@@ -857,6 +907,7 @@ export const listMetaCityMap = [
     location: 51,
     symbol: "STRK",
     imgSymbol: "",
+    imgHouse:"https://static.citiverse.io/public/gallery/vlu/2175801080264/2023-09-13-15-00-07/cover.jpg",
     address:
       "0x000D07b7F51a8Ac4c0D59e69e37226eA5530FeBc8F916D52b026319F696Ffc66",
     network: "Starknet",
@@ -874,6 +925,7 @@ export const listMetaCityMap = [
     location: 52,
     symbol: "STRK",
     imgSymbol: "",
+    imgHouse:"https://static.citiverse.io/public/gallery/vlu/2175801080265/2023-09-14-11-32-35/cover.jpg",
     address:
       "0x000D07b7F51a8Ac4c0D59e69e37226eA5530FeBc8F916D52b026319F696Ffc66",
     network: "Starknet",
@@ -891,6 +943,7 @@ export const listMetaCityMap = [
     location: 53,
     symbol: "STRK",
     imgSymbol: "",
+    imgHouse:"https://static.citiverse.io/public/gallery/vlu/2175801080270/2023-09-13-09-39-09/cover.jpg",
     address:
       "0x000D07b7F51a8Ac4c0D59e69e37226eA5530FeBc8F916D52b026319F696Ffc66",
     network: "Starknet",
@@ -908,6 +961,7 @@ export const listMetaCityMap = [
     location: 54,
     symbol: "STRK",
     imgSymbol: "",
+    imgHouse:"https://static.citiverse.io/public/gallery/vlu/2175801080279/2023-09-13-09-54-57/cover.jpg",
     address:
       "0x000D07b7F51a8Ac4c0D59e69e37226eA5530FeBc8F916D52b026319F696Ffc66",
     network: "Starknet",
@@ -925,6 +979,7 @@ export const listMetaCityMap = [
     location: 55,
     symbol: "STRK",
     imgSymbol: "",
+    imgHouse:"https://static.citiverse.io/public/gallery/vlu/2175801080286/2023-09-13-14-56-57/cover.jpg",
     address:
       "0x000D07b7F51a8Ac4c0D59e69e37226eA5530FeBc8F916D52b026319F696Ffc66",
     network: "Starknet",
@@ -935,55 +990,58 @@ export const listMetaCityMap = [
     urlShowCase3D: "https://static.citiverse.io/public/gallery/vlu/2175801080286/index.html#autoplay",
     sample: 3,
   },
-  {
-    id: 156,
-    name: "Happy Coffee House 56",
-    price: 300,
-    location: 56,
-    symbol: "STRK",
-    imgSymbol: "",
-    address:
-      "0x000D07b7F51a8Ac4c0D59e69e37226eA5530FeBc8F916D52b026319F696Ffc66",
-    network: "Starknet",
-    description:
-      "The land was taken over by outlaws. The police here are corrupt and ignore the looting and misery that happens every day",
-    x: 0.683,
-    y: 0.27,
-    urlShowCase3D: "",
-    sample: 3,
-  },
-  {
-    id: 157,
-    name: "Happy Coffee House 57",
-    price: 300,
-    location: 57,
-    symbol: "STRK",
-    imgSymbol: "",
-    address:
-      "0x000D07b7F51a8Ac4c0D59e69e37226eA5530FeBc8F916D52b026319F696Ffc66",
-    network: "Starknet",
-    description:
-      "The land was taken over by outlaws. The police here are corrupt and ignore the looting and misery that happens every day",
-    x: 0.683,
-    y: 0.27,
-    urlShowCase3D: "",
-    sample: 3,
-  },
-  {
-    id: 158,
-    name: "Happy Coffee House 58",
-    price: 300,
-    location: 58,
-    symbol: "STRK",
-    imgSymbol: "",
-    address:
-      "0x000D07b7F51a8Ac4c0D59e69e37226eA5530FeBc8F916D52b026319F696Ffc66",
-    network: "Starknet",
-    description:
-      "The land was taken over by outlaws. The police here are corrupt and ignore the looting and misery that happens every day",
-    x: 0.683,
-    y: 0.27,
-    urlShowCase3D: "",
-    sample: 3,
-  },
+  // {
+  //   id: 156,
+  //   name: "Happy Coffee House 56",
+  //   price: 300,
+  //   location: 56,
+  //   symbol: "STRK",
+  //   imgSymbol: "",
+  //   imgHouse:"",
+  //   address:
+  //     "0x000D07b7F51a8Ac4c0D59e69e37226eA5530FeBc8F916D52b026319F696Ffc66",
+  //   network: "Starknet",
+  //   description:
+  //     "The land was taken over by outlaws. The police here are corrupt and ignore the looting and misery that happens every day",
+  //   x: 0.683,
+  //   y: 0.27,
+  //   urlShowCase3D: "",
+  //   sample: 3,
+  // },
+  // {
+  //   id: 157,
+  //   name: "Happy Coffee House 57",
+  //   price: 300,
+  //   location: 57,
+  //   symbol: "STRK",
+  //   imgSymbol: "",
+  //   imgHouse:"",
+  //   address:
+  //     "0x000D07b7F51a8Ac4c0D59e69e37226eA5530FeBc8F916D52b026319F696Ffc66",
+  //   network: "Starknet",
+  //   description:
+  //     "The land was taken over by outlaws. The police here are corrupt and ignore the looting and misery that happens every day",
+  //   x: 0.683,
+  //   y: 0.27,
+  //   urlShowCase3D: "",
+  //   sample: 3,
+  // },
+  // {
+  //   id: 158,
+  //   name: "Happy Coffee House 58",
+  //   price: 300,
+  //   location: 58,
+  //   symbol: "STRK",
+  //   imgSymbol: "",
+  //   imgHouse:"",
+  //   address:
+  //     "0x000D07b7F51a8Ac4c0D59e69e37226eA5530FeBc8F916D52b026319F696Ffc66",
+  //   network: "Starknet",
+  //   description:
+  //     "The land was taken over by outlaws. The police here are corrupt and ignore the looting and misery that happens every day",
+  //   x: 0.683,
+  //   y: 0.27,
+  //   urlShowCase3D: "",
+  //   sample: 3,
+  // },
 ];

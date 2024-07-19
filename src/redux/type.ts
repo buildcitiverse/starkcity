@@ -6,6 +6,7 @@ export interface MetaCityItem {
     location: number,
     symbol: string;
     imgSymbol: string;
+    imgHouse: string;
     address: string;
     network: string;
     description: string;

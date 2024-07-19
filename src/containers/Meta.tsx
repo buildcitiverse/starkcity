@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 import { NextSeo } from "next-seo";
 import { AppConfig } from "../utils/AppConfig";
 
-
 type IMetaProps = {
   title: string;
   description: string;
@@ -13,6 +12,9 @@ type IMetaProps = {
 
 const Meta = (props: IMetaProps) => {
   const router = useRouter();
+  const fullUrl = props.canonical || (typeof window !== "undefined" ? window.location.href : '');
+
+  const imageUrl = "https://dev-stark.citiverse.io/assets/images/thumbnail_1.jpg";
 
   return (
     <>
@@ -21,9 +23,10 @@ const Meta = (props: IMetaProps) => {
         <link rel="icon" href="/favicon.ico" />
         <meta
           name="viewport"
-          content="width=device-width,initial-scale=1"
+          content="width=device-width, initial-scale=1"
           key="viewport"
         />
+        <meta property="og:image" content={imageUrl} />
         <link
           rel="apple-touch-icon"
           href={`${router.basePath}/apple-touch-icon.png`}
@@ -52,13 +55,21 @@ const Meta = (props: IMetaProps) => {
       <NextSeo
         title={props.title}
         description={props.description}
-        canonical={props.canonical}
+        canonical={fullUrl}
         openGraph={{
           title: props.title,
           description: props.description,
-          url: props.canonical,
+          url: fullUrl,
           locale: AppConfig.locale,
           site_name: AppConfig.site_name,
+          images: [
+            {
+              url: imageUrl,
+              width: 1200,
+              height: 630,
+              alt: '',
+            },
+          ],
         }}
       />
     </>
