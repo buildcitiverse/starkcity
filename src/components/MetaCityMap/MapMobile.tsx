@@ -30,6 +30,11 @@ const MapMobile: React.FC = () => {
         setIsModalVisible(true);
     };
 
+
+    useEffect(() => {
+            setIsModalVisible(true);
+      }, [dataSelectedItem?.location]);
+
     const filteredList = listMetaCityMap.filter(
         (item) =>
             item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -244,9 +249,9 @@ const MapMobile: React.FC = () => {
                                     maxH={"614px"}
                                     position={"relative"}
                                 >
-                                    <Flex justifyContent={"center"} left={"33%"} position={"absolute"} top={0}>
+                                    <Flex justifyContent={"center"} left={"33%"} onClick={() => setIsModalVisible(false)} height={"30px"} position={"absolute"} top={0}>
                                         <Flex
-                                            onClick={() => setIsModalVisible(false)}
+                                            
                                             height={"3px"}
                                             w="131px"
                                             bg="rgba(217, 217, 217, 1)"
