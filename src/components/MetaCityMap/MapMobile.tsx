@@ -1,4 +1,4 @@
-import { Button, Flex, Text } from "@chakra-ui/react";
+import { Button, Flex, Text, useMediaQuery } from "@chakra-ui/react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -23,12 +23,12 @@ enum colorRank {
 }
 
 const MapMobile: React.FC = () => {
+    const [isLargerThan400] = useMediaQuery('(min-width: 400px)');
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
     const [searchQuery, setSearchQuery] = useState<string>("");
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
     const [isMapView, setIsMapView] = useState<boolean>(false);
     const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
-    console.log("isModalVisible :>> ", isModalVisible);
     const dispatch = useDispatch();
     const selectedItem = useSelector(selectedItemData);
     const dataSelectedItem = selectedItem.selectedItem;
@@ -299,13 +299,13 @@ const MapMobile: React.FC = () => {
                                         ></Flex>
                                     </Flex>
                                     <>
-                                        <ImageChakra
+                                        {isLargerThan400 && <ImageChakra
                                             borderRadius={"8px"}
                                             width={"343px"}
                                             height={"160px"}
                                             src={dataSelectedItem.imgHouse}
                                             alt=""
-                                        />
+                                        />}
                                         <Text
                                             mt="8px"
                                             fontWeight={700}
