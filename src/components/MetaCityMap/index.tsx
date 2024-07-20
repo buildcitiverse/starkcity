@@ -1,4 +1,4 @@
-import { Button, Flex, Input, InputGroup, InputLeftElement, Text } from "@chakra-ui/react";
+import { Button, Flex, Input, InputGroup, InputLeftElement, Text, background } from "@chakra-ui/react";
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -11,6 +11,8 @@ import { motion } from "framer-motion";
 import { getTruncateHash } from "@/src/utils/getTruncateHash";
 import ModalNoti from "../ModalNoti";
 import { useConnect, useAccount, useDisconnect } from "@starknet-react/core";
+import useRankColor from "./hookMap";
+import { convertToUpperCase } from "@/src/utils/convertToUpperCase";
 
 const MetaCityMap: React.FC = () => {
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -29,14 +31,14 @@ const MetaCityMap: React.FC = () => {
 
     useEffect(() => {
         if (
-          isConnected && 
-          chainId !== BigInt("393402133025997798000961")
+            isConnected &&
+            chainId !== BigInt("393402133025997798000961")
         ) {
-          setShowModal(true);
+            setShowModal(true);
         } else {
-          setShowModal(false);
+            setShowModal(false);
         }
-      }, [chainId, isConnected]);
+    }, [chainId, isConnected]);
 
     const filteredList = listMetaCityMap.filter(item =>
         item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -68,6 +70,7 @@ const MetaCityMap: React.FC = () => {
                         top={0}
                         left={0}
                         zIndex={99}
+                        h="100%"
                         maxH={"100vh"}
                     >
                         <Link href="/">
@@ -103,7 +106,7 @@ const MetaCityMap: React.FC = () => {
                         <Flex mx="16px">
                             <InputGroup>
                                 <InputLeftElement pointerEvents='none' ml="8px">
-                                    <Image style={{marginRight:"8px"}} width={22} height={22} src="/assets/icons/search-icon.svg" alt="" />
+                                    <Image style={{ marginRight: "8px" }} width={22} height={22} src="/assets/icons/search-icon.svg" alt="" />
                                 </InputLeftElement>
                                 <Input
                                     type='tel'
@@ -111,7 +114,7 @@ const MetaCityMap: React.FC = () => {
                                     borderRadius={"40px"}
                                     value={searchQuery}
                                     onChange={(e) => setSearchQuery(e.target.value)}
-                                    _placeholder={{fontSize:"14px", fontWeight: 400, color: "#9C9C9C"}}
+                                    _placeholder={{ fontSize: "14px", fontWeight: 400, color: "#9C9C9C" }}
                                 />
                             </InputGroup>
                         </Flex>
@@ -120,31 +123,45 @@ const MetaCityMap: React.FC = () => {
                                 {filteredList.map((e: any, index: any) => {
                                     const isActive = index === Number(dataSelectedItem?.location) - 1;
                                     const isHovered = index === hoveredIndex;
+                                    const background = useRankColor(e.rank);
                                     return (
                                         <Flex
                                             key={index}
                                             borderRadius={"8px"}
-                                            height={"80px"}
+                                            // height={"80px"}
                                             padding={"8px"}
-                                            bg={(isActive || isHovered) ? "#EC796B" : "#0A0A20"}
+                                            bg={(isActive || isHovered) ? "#EC796B" : "#191945"}
                                             w="100%"
                                             mb="8px"
+                                            flexDirection={"column"}
                                             onClick={() => handleItemClick(e, index)}
                                             cursor="pointer"
                                             onMouseEnter={() => setHoveredIndex(index)}
                                             onMouseLeave={() => setHoveredIndex(null)}
                                         >
-                                            <ImageChakra borderRadius={"4px"} width={"64px"} height={"64px"} src={e.imgHouse} alt="" />
-                                            <Flex flexDirection={"column"} w="100%" ml="8px">
-                                                <Text lineHeight={"28px"} fontWeight={700} fontStyle={"normal"}>{e.name}</Text>
-                                                <Flex lineHeight={"normal"} justifyContent={"space-between"} w="100%">
-                                                    <Text color={(isActive || isHovered) ? "white" : "#9C9C9C"} fontWeight={400} fontSize={"12px"} lineHeight={"18px"}>Price:</Text>
-                                                    <Text color={(isActive || isHovered) ? "white" : "#EC796B"} fontWeight={700} fontSize={"12px"} lineHeight={"18px"}>{e.price} {e.symbol}</Text>
+                                            <Flex w='100%'>
+                                                <ImageChakra borderRadius={"4px"} width={"88px"} height={"88px"} src={e.imgHouse} alt="" />
+                                                <Flex justifyContent={"space-between"} flexDirection={"column"} w="100%" ml="8px">
+                                                    <Text lineHeight={"28px"} fontWeight={700} fontStyle={"normal"}>{e.name}</Text>
+                                                    <Flex lineHeight={"normal"} justifyContent={"space-between"} w="100%">
+                                                        <Text color={(isActive || isHovered) ? "white" : "#9C9C9C"} fontWeight={400} fontSize={"12px"} lineHeight={"18px"}>Rarity:</Text>
+                                                        <Text color={"#fff"} bg={background} px="8px" height={"18px"} fontWeight={500} fontSize={"12px"} lineHeight={"18px"}>{convertToUpperCase(e.rank)}</Text>
+                                                    </Flex>
+                                                    <Flex lineHeight={"normal"} justifyContent={"space-between"} w="100%">
+                                                        <Text color={(isActive || isHovered) ? "white" : "#9C9C9C"} fontWeight={400} fontSize={"12px"} lineHeight={"18px"}>Price:</Text>
+                                                        <Text color={(isActive || isHovered) ? "white" : "#EC796B"} fontWeight={700} fontSize={"12px"} lineHeight={"18px"}>{e.price} {e.symbol}</Text>
+                                                    </Flex>
+                                                    <Flex lineHeight={"normal"} justifyContent={"space-between"} w="100%">
+                                                        <Text color={isActive || isHovered ? "white" : "#9C9C9C"} fontWeight={400} fontSize={"12px"} lineHeight={"18px"}>ID:</Text>
+                                                        <Text fontWeight={400} fontSize={"12px"} lineHeight={"18px"}>#{e.id}</Text>
+                                                    </Flex>
                                                 </Flex>
-                                                <Flex lineHeight={"normal"} justifyContent={"space-between"} w="100%">
-                                                    <Text color={isActive || isHovered ? "white" : "#9C9C9C"} fontWeight={400} fontSize={"12px"} lineHeight={"18px"}>ID:</Text>
-                                                    <Text fontWeight={400} fontSize={"12px"} lineHeight={"18px"}>#{e.id}</Text>
-                                                </Flex>
+                                            </Flex>
+                                            <Flex w='100%' mt="8px">
+                                                <Link style={{width:"100%", marginRight: e.edit ? "8px" : "0px"}} href={e?.urlShowCase3D} passHref target="_blank">
+                                                    <Button bg="#04041B" _hover={{ background: "white", color: "#0A0A20", borderColor: "white" }} borderRadius={"4px"} border="1px solid #3D3D4D" w="100%" height={"29px"}>{convertToUpperCase("Play")}</Button>
+                                                </Link>
+                                                {e.edit && <Link style={{width:"100%"}} href={e?.edit} passHref target="_blank"><Button bg="#04041B" _hover={{ background: "white", color: "#0A0A20", borderColor: "white" }} borderRadius={"4px"} border="1px solid #3D3D4D" w="100%" height={"29px"}>{convertToUpperCase("Edit")}</Button> </Link>}
                                             </Flex>
                                         </Flex>
                                     );
@@ -186,7 +203,7 @@ const MetaCityMap: React.FC = () => {
                                         <Text color="rgba(156, 156, 156, 1)" fontWeight={400} fontSize={"12px"} lineHeight={"18px"}>{dataSelectedItem.description}</Text>
                                         <Link href={dataSelectedItem.urlShowCase3D} passHref target="_blank">
                                             <Button mt="16px" bg="rgba(10, 10, 32, 1)" height={"51px"} w="100%" borderRadius={"51px"} fontSize={"14px"}>
-                                                <Image style={{ marginRight: "8px" }} width={20} height={20} src="/assets/icons/show_case.png" alt="" />
+                                                <Image style={{ marginRight: "8px" }} width={24} height={24} src="/assets/icons/video-square.png" alt="" />
                                                 3D/VR PLAY
                                             </Button>
                                         </Link>
@@ -197,10 +214,11 @@ const MetaCityMap: React.FC = () => {
                         <CanvasWithImageAndIcon />
                     </Flex>
                 </Flex>
-            </Flex>
+            </Flex >
             {showModal && (
-        <ModalNoti message={"Please switch to NetWork Sepolia"} />
-      )}
+                <ModalNoti message={"Please switch to NetWork Sepolia"} />
+            )
+            }
         </>
     );
 };

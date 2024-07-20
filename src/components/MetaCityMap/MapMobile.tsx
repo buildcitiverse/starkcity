@@ -12,6 +12,8 @@ import CanvasWithImageAndIcon from "./CanvasWithImageAndIcon";
 import { motion, AnimatePresence } from "framer-motion";
 import { getTruncateHash } from "@/src/utils/getTruncateHash";
 import { Image as ImageChakra } from "@chakra-ui/react";
+import { convertToUpperCase } from "@/src/utils/convertToUpperCase";
+import useRankColor from "./hookMap";
 
 const MapMobile: React.FC = () => {
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -32,8 +34,8 @@ const MapMobile: React.FC = () => {
 
 
     useEffect(() => {
-            setIsModalVisible(true);
-      }, [dataSelectedItem?.location]);
+        setIsModalVisible(true);
+    }, [dataSelectedItem?.location]);
 
     const filteredList = listMetaCityMap.filter(
         (item) =>
@@ -46,10 +48,10 @@ const MapMobile: React.FC = () => {
     };
 
     useEffect(() => {
-        if(isMapView === true){
+        if (isMapView === true) {
             setIsModalVisible(false);
         }
-      }, [isMapView]);
+    }, [isMapView]);
 
     const numberToTextMap: { [key: number]: string } = {
         1: "one",
@@ -144,11 +146,12 @@ const MapMobile: React.FC = () => {
                             {filteredList.map((e: any, index: any) => {
                                 const isActive = index === Number(dataSelectedItem?.location) - 1;
                                 const isHovered = index === hoveredIndex;
+                                const background = useRankColor(e.rank);
                                 return (
                                     <Flex
                                         key={index}
                                         borderRadius={"8px"}
-                                        height={"80px"}
+                                        // height={"80px"}
                                         padding={"8px"}
                                         w="100%"
                                         bg={isActive || isHovered ? "#EC796B" : "#0A0A20"}
@@ -158,65 +161,93 @@ const MapMobile: React.FC = () => {
                                         onMouseEnter={() => setHoveredIndex(index)}
                                         onMouseLeave={() => setHoveredIndex(null)}
                                         mr="8px"
+                                        flexDirection={"column"}
                                     >
-                                        <ImageChakra
-                                            width={"64px"}
-                                            height={"64px"}
-                                            src={e?.imgHouse}
-                                            alt=""
-                                            borderRadius={"4px"}
-                                        />
-                                        <Flex flexDirection={"column"} w="100%" ml="8px">
-                                            <Text
-                                                lineHeight={"28px"}
-                                                fontWeight={700}
-                                                fontStyle={"normal"}
-                                            >
-                                                {e.name}
-                                            </Text>
-                                            <Flex
-                                                lineHeight={"normal"}
-                                                justifyContent={"space-between"}
-                                                w="100%"
-                                            >
+                                        <Flex w="100%">
+                                            <ImageChakra
+                                                width={"88px"}
+                                                height={"88px"}
+                                                src={e?.imgHouse}
+                                                alt=""
+                                                borderRadius={"4px"}
+                                            />
+                                            <Flex justifyContent={"space-between"} flexDirection={"column"} w="100%" ml="8px">
                                                 <Text
-                                                    color={isActive || isHovered ? "white" : "#9C9C9C"}
-                                                    fontWeight={400}
-                                                    fontSize={"12px"}
-                                                    lineHeight={"18px"}
-                                                >
-                                                    Price:
-                                                </Text>
-                                                <Text
-                                                    color={isActive || isHovered ? "white" : "#EC796B"}
+                                                    lineHeight={"28px"}
                                                     fontWeight={700}
-                                                    fontSize={"12px"}
-                                                    lineHeight={"18px"}
+                                                    fontStyle={"normal"}
                                                 >
-                                                    {e.price} {e.symbol}
+                                                    {e.name}
                                                 </Text>
+                                                <Flex
+                                                    lineHeight={"normal"}
+                                                    justifyContent={"space-between"}
+                                                    w="100%"
+                                                >
+                                                    <Text
+                                                        color={isActive || isHovered ? "white" : "#9C9C9C"}
+                                                        fontWeight={400}
+                                                        fontSize={"12px"}
+                                                        lineHeight={"18px"}
+                                                    >
+                                                        Rarity:
+                                                    </Text>
+                                                    <Text
+                                                        color={"#fff"} bg={background} px="8px" height={"18px"} fontWeight={500} fontSize={"12px"} lineHeight={"18px"}
+                                                    >
+                                                        {convertToUpperCase(e.rank)}
+                                                    </Text>
+                                                </Flex>
+                                                <Flex
+                                                    lineHeight={"normal"}
+                                                    justifyContent={"space-between"}
+                                                    w="100%"
+                                                >
+                                                    <Text
+                                                        color={isActive || isHovered ? "white" : "#9C9C9C"}
+                                                        fontWeight={400}
+                                                        fontSize={"12px"}
+                                                        lineHeight={"18px"}
+                                                    >
+                                                        Price:
+                                                    </Text>
+                                                    <Text
+                                                        color={isActive || isHovered ? "white" : "#EC796B"}
+                                                        fontWeight={700}
+                                                        fontSize={"12px"}
+                                                        lineHeight={"18px"}
+                                                    >
+                                                        {e.price} {e.symbol}
+                                                    </Text>
+                                                </Flex>
+                                                <Flex
+                                                    lineHeight={"normal"}
+                                                    justifyContent={"space-between"}
+                                                    w="100%"
+                                                >
+                                                    <Text
+                                                        color={isActive || isHovered ? "white" : "#9C9C9C"}
+                                                        fontWeight={400}
+                                                        fontSize={"12px"}
+                                                        lineHeight={"18px"}
+                                                    >
+                                                        ID:
+                                                    </Text>
+                                                    <Text
+                                                        fontWeight={400}
+                                                        fontSize={"12px"}
+                                                        lineHeight={"18px"}
+                                                    >
+                                                        #{e.id}
+                                                    </Text>
+                                                </Flex>
                                             </Flex>
-                                            <Flex
-                                                lineHeight={"normal"}
-                                                justifyContent={"space-between"}
-                                                w="100%"
-                                            >
-                                                <Text
-                                                    color={isActive || isHovered ? "white" : "#9C9C9C"}
-                                                    fontWeight={400}
-                                                    fontSize={"12px"}
-                                                    lineHeight={"18px"}
-                                                >
-                                                    ID:
-                                                </Text>
-                                                <Text
-                                                    fontWeight={400}
-                                                    fontSize={"12px"}
-                                                    lineHeight={"18px"}
-                                                >
-                                                    #{e.id}
-                                                </Text>
-                                            </Flex>
+                                        </Flex>
+                                        <Flex w='100%' mt="8px">
+                                                <Link style={{width:"100%", marginRight: e.edit ? "8px" : "0px"}} href={e?.urlShowCase3D} passHref target="_blank">
+                                                    <Button bg="#04041B" _hover={{ background: "white", color: "#0A0A20", borderColor: "white" }} borderRadius={"4px"} border="1px solid #3D3D4D" w="100%" height={"29px"}>{convertToUpperCase("Play")}</Button>
+                                                </Link>
+                                                {e.edit && <Link style={{width:"100%"}} href={e?.edit} passHref target="_blank"><Button bg="#04041B" _hover={{ background: "white", color: "#0A0A20", borderColor: "white" }} borderRadius={"4px"} border="1px solid #3D3D4D" w="100%" height={"29px"}>{convertToUpperCase("Edit")}</Button> </Link>}
                                         </Flex>
                                     </Flex>
                                 );
@@ -238,6 +269,7 @@ const MapMobile: React.FC = () => {
                                     zIndex: 99,
                                     maxWidth: "375px",
                                     width: "100%",
+                                    opacity: 1
                                 }}
                             >
                                 <Flex
@@ -248,10 +280,11 @@ const MapMobile: React.FC = () => {
                                     bg="rgba(10, 10, 32, 0.6)"
                                     maxH={"614px"}
                                     position={"relative"}
+                                    backdropFilter={"blur(3px)"}
                                 >
                                     <Flex justifyContent={"center"} left={"33%"} onClick={() => setIsModalVisible(false)} height={"30px"} position={"absolute"} top={0}>
                                         <Flex
-                                            
+
                                             height={"3px"}
                                             w="131px"
                                             bg="rgba(217, 217, 217, 1)"
@@ -391,9 +424,9 @@ const MapMobile: React.FC = () => {
                                             >
                                                 <Image
                                                     style={{ marginRight: "8px" }}
-                                                    width={20}
-                                                    height={20}
-                                                    src="/assets/icons/show_case.png"
+                                                    width={24}
+                                                    height={24}
+                                                    src="/assets/icons/video-square.png"
                                                     alt=""
                                                 />
                                                 3D/VR PLAY

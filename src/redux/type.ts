@@ -4,6 +4,8 @@ export interface MetaCityItem {
     name: string;
     price: number;
     location: number,
+    rank: string;
+    edit: string;
     symbol: string;
     imgSymbol: string;
     imgHouse: string;
