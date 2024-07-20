@@ -187,7 +187,7 @@ const MetaCityMap: React.FC = () => {
                                         <Link href={dataSelectedItem.urlShowCase3D} passHref target="_blank">
                                             <Button mt="16px" bg="rgba(10, 10, 32, 1)" height={"51px"} w="100%" borderRadius={"51px"} fontSize={"14px"}>
                                                 <Image style={{ marginRight: "8px" }} width={20} height={20} src="/assets/icons/show_case.png" alt="" />
-                                                3D SHOWCASE
+                                                3D/VR PLAY
                                             </Button>
                                         </Link>
                                     </>

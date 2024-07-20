@@ -1,7 +1,7 @@
 export const listMetaCityMap = [
   {
     id: 101,
-    name: "Happy Coffee House 1",
+    name: "Fiction Apartment",
     price: 300,
     location: 1,
     symbol: "STRK",
@@ -20,7 +20,7 @@ export const listMetaCityMap = [
   },
   {
     id: 102,
-    name: "Happy Coffee House 2",
+    name: "Wuthering Hill",
     price: 300,
     location: 2,
     symbol: "STRK",
@@ -38,7 +38,7 @@ export const listMetaCityMap = [
   },
   {
     id: 103,
-    name: "Happy Coffee House 3",
+    name: "Country Corner",
     price: 300,
     location: 3,
     symbol: "STRK",
@@ -56,7 +56,7 @@ export const listMetaCityMap = [
   },
   {
     id: 104,
-    name: "Happy Coffee House 4",
+    name: "The Lake House",
     price: 300,
     location: 4,
     symbol: "STRK",
@@ -74,7 +74,7 @@ export const listMetaCityMap = [
   },
   {
     id: 105,
-    name: "Happy Coffee House 5",
+    name: "Nvy Love",
     price: 300,
     location: 5,
     symbol: "STRK",
@@ -92,7 +92,7 @@ export const listMetaCityMap = [
   },
   {
     id: 106,
-    name: "Happy Coffee House 6",
+    name: "Fun of Sounds",
     price: 300,
     location: 6,
     symbol: "STRK",
@@ -110,7 +110,7 @@ export const listMetaCityMap = [
   },
   {
     id: 107,
-    name: "Happy Coffee House 7",
+    name: "Lovely House",
     price: 300,
     location: 7,
     symbol: "STRK",
@@ -128,7 +128,7 @@ export const listMetaCityMap = [
   },
   {
     id: 108,
-    name: "Happy Coffee House 8",
+    name: "Suburban",
     price: 300,
     location: 8,
     symbol: "STRK",
@@ -146,7 +146,7 @@ export const listMetaCityMap = [
   },
   {
     id: 109,
-    name: "Happy Coffee House 9",
+    name: "The Myths Pagoda",
     price: 300,
     location: 9,
     symbol: "STRK",
@@ -164,7 +164,7 @@ export const listMetaCityMap = [
   },
   {
     id: 110,
-    name: "Happy Coffee House 10",
+    name: "Yellow Autumn Sunshine",
     price: 300,
     location: 10,
     symbol: "STRK",
@@ -182,7 +182,7 @@ export const listMetaCityMap = [
   },
   {
     id: 111,
-    name: "Happy Coffee House 11",
+    name: "Brother Louis Coffee",
     price: 300,
     location: 11,
     symbol: "STRK",
@@ -200,7 +200,7 @@ export const listMetaCityMap = [
   },
   {
     id: 112,
-    name: "Happy Coffee House 12",
+    name: "Greenlake",
     price: 300,
     location: 12,
     symbol: "STRK",
@@ -218,7 +218,7 @@ export const listMetaCityMap = [
   },
   {
     id: 113,
-    name: "Happy Coffee House 13",
+    name: "Arco Hall",
     price: 300,
     location: 13,
     symbol: "STRK",
@@ -236,7 +236,7 @@ export const listMetaCityMap = [
   },
   {
     id: 114,
-    name: "Happy Coffee House 14",
+    name: "Frank House",
     price: 300,
     location: 14,
     symbol: "STRK",
@@ -254,7 +254,7 @@ export const listMetaCityMap = [
   },
   {
     id: 115,
-    name: "Happy Coffee House 15",
+    name: "Kanvee Home",
     price: 300,
     location: 15,
     symbol: "STRK",
@@ -272,7 +272,7 @@ export const listMetaCityMap = [
   },
   {
     id: 116,
-    name: "Happy Coffee House 16",
+    name: "Deep Purple",
     price: 300,
     location: 16,
     symbol: "STRK",
@@ -290,7 +290,7 @@ export const listMetaCityMap = [
   },
   {
     id: 117,
-    name: "Happy Coffee House 17",
+    name: "Haru Kaori",
     price: 300,
     location: 17,
     symbol: "STRK",
@@ -308,7 +308,7 @@ export const listMetaCityMap = [
   },
   {
     id: 118,
-    name: "Happy Coffee House 18",
+    name: "Up to You",
     price: 300,
     location: 18,
     symbol: "STRK",
@@ -326,7 +326,7 @@ export const listMetaCityMap = [
   },
   {
     id: 119,
-    name: "Happy Coffee House 19",
+    name: "Anne Village",
     price: 300,
     location: 19,
     symbol: "STRK",
@@ -344,7 +344,7 @@ export const listMetaCityMap = [
   },
   {
     id: 120,
-    name: "Happy Coffee House 20",
+    name: "Vaniane Dawn",
     price: 300,
     location: 20,
     symbol: "STRK",
@@ -362,7 +362,7 @@ export const listMetaCityMap = [
   },
   {
     id: 121,
-    name: "Happy Coffee House 21",
+    name: "Moonlight Sonata",
     price: 300,
     location: 21,
     symbol: "STRK",
@@ -380,7 +380,7 @@ export const listMetaCityMap = [
   },
   {
     id: 122,
-    name: "Happy Coffee House 22",
+    name: "The Dark House",
     price: 300,
     location: 22,
     symbol: "STRK",
@@ -398,7 +398,7 @@ export const listMetaCityMap = [
   },
   {
     id: 123,
-    name: "Happy Coffee House 23",
+    name: "Starry Night",
     price: 300,
     location: 23,
     symbol: "STRK",
@@ -416,7 +416,7 @@ export const listMetaCityMap = [
   },
   {
     id: 124,
-    name: "Happy Coffee House 24",
+    name: "Far House",
     price: 300,
     location: 24,
     symbol: "STRK",
@@ -434,7 +434,7 @@ export const listMetaCityMap = [
   },
   {
     id: 125,
-    name: "Happy Coffee House 25",
+    name: "Ringing Bell",
     price: 300,
     location: 25,
     symbol: "STRK",
@@ -452,7 +452,7 @@ export const listMetaCityMap = [
   },
   {
     id: 126,
-    name: "Happy Coffee House 26",
+    name: "Lily House",
     price: 300,
     location: 26,
     symbol: "STRK",
@@ -470,7 +470,7 @@ export const listMetaCityMap = [
   },
   {
     id: 127,
-    name: "Happy Coffee House 27",
+    name: "Norwegian wood",
     price: 300,
     location: 27,
     symbol: "STRK",
@@ -488,7 +488,7 @@ export const listMetaCityMap = [
   },
   {
     id: 128,
-    name: "Happy Coffee House 28",
+    name: "Concrete & Spring",
     price: 300,
     location: 28,
     symbol: "STRK",
@@ -506,7 +506,7 @@ export const listMetaCityMap = [
   },
   {
     id: 129,
-    name: "Happy Coffee House 29",
+    name: "My Smallville",
     price: 300,
     location: 29,
     symbol: "STRK",
@@ -524,7 +524,7 @@ export const listMetaCityMap = [
   },
   {
     id: 130,
-    name: "Happy Coffee House 30",
+    name: "The Truc's House",
     price: 300,
     location: 30,
     symbol: "STRK",
@@ -542,7 +542,7 @@ export const listMetaCityMap = [
   },
   {
     id: 131,
-    name: "Happy Coffee House 31",
+    name: "Loveplace of Vy",
     price: 300,
     location: 31,
     symbol: "STRK",
@@ -560,7 +560,7 @@ export const listMetaCityMap = [
   },
   {
     id: 132,
-    name: "Happy Coffee House 32",
+    name: "Snow Heights",
     price: 300,
     location: 32,
     symbol: "STRK",
@@ -578,7 +578,7 @@ export const listMetaCityMap = [
   },
   {
     id: 133,
-    name: "Happy Coffee House 33",
+    name: "Peace Villa",
     price: 300,
     location: 33,
     symbol: "STRK",
@@ -596,7 +596,7 @@ export const listMetaCityMap = [
   },
   {
     id: 134,
-    name: "Happy Coffee House 34",
+    name: "Dyle Hometown",
     price: 300,
     location: 34,
     symbol: "STRK",
@@ -614,7 +614,7 @@ export const listMetaCityMap = [
   },
   {
     id: 135,
-    name: "Happy Coffee House 35",
+    name: "5.20 Riverside",
     price: 300,
     location: 35,
     symbol: "STRK",
@@ -632,7 +632,7 @@ export const listMetaCityMap = [
   },
   {
     id: 136,
-    name: "Happy Coffee House 36",
+    name: "Kenari Forest Homestay",
     price: 300,
     location: 36,
     symbol: "STRK",
@@ -650,7 +650,7 @@ export const listMetaCityMap = [
   },
   {
     id: 137,
-    name: "Happy Coffee House 37",
+    name: "Sunset Coffee",
     price: 300,
     location: 37,
     symbol: "STRK",
@@ -668,7 +668,7 @@ export const listMetaCityMap = [
   },
   {
     id: 138,
-    name: "Happy Coffee House 38",
+    name: "Glosbe Home",
     price: 300,
     location: 38,
     symbol: "STRK",
@@ -686,7 +686,7 @@ export const listMetaCityMap = [
   },
   {
     id: 139,
-    name: "Happy Coffee House 39",
+    name: "Nami Memories",
     price: 300,
     location: 39,
     symbol: "STRK",
@@ -704,7 +704,7 @@ export const listMetaCityMap = [
   },
   {
     id: 140,
-    name: "Happy Coffee House 40",
+    name: "The Blocks",
     price: 300,
     location: 40,
     symbol: "STRK",
@@ -722,7 +722,7 @@ export const listMetaCityMap = [
   },
   {
     id: 141,
-    name: "Happy Coffee House 41",
+    name: "Stairhouse",
     price: 300,
     location: 41,
     symbol: "STRK",
@@ -740,7 +740,7 @@ export const listMetaCityMap = [
   },
   {
     id: 142,
-    name: "Happy Coffee House 42",
+    name: "The Flame",
     price: 300,
     location: 42,
     symbol: "STRK",
@@ -758,7 +758,7 @@ export const listMetaCityMap = [
   },
   {
     id: 143,
-    name: "Happy Coffee House 43",
+    name: "Ricky Resort",
     price: 300,
     location: 43,
     symbol: "STRK",
@@ -776,7 +776,7 @@ export const listMetaCityMap = [
   },
   {
     id: 144,
-    name: "Happy Coffee House 44",
+    name: "Teravy Corner",
     price: 300,
     location: 44,
     symbol: "STRK",
@@ -794,7 +794,7 @@ export const listMetaCityMap = [
   },
   {
     id: 145,
-    name: "Happy Coffee House 45",
+    name: "Hana Ramen Restaurant",
     price: 300,
     location: 45,
     symbol: "STRK",
@@ -812,7 +812,7 @@ export const listMetaCityMap = [
   },
   {
     id: 146,
-    name: "Happy Coffee House 46",
+    name: "Wooden Hill Homestay",
     price: 300,
     location: 46,
     symbol: "STRK",
@@ -830,7 +830,7 @@ export const listMetaCityMap = [
   },
   {
     id: 147,
-    name: "Happy Coffee House 47",
+    name: "Small House",
     price: 300,
     location: 47,
     symbol: "STRK",
@@ -848,7 +848,7 @@ export const listMetaCityMap = [
   },
   {
     id: 148,
-    name: "Happy Coffee House 48",
+    name: "Fishing Town",
     price: 300,
     location: 48,
     symbol: "STRK",
@@ -866,7 +866,7 @@ export const listMetaCityMap = [
   },
   {
     id: 149,
-    name: "Happy Coffee House 49",
+    name: "Le Hotel",
     price: 300,
     location: 49,
     symbol: "STRK",
@@ -884,7 +884,7 @@ export const listMetaCityMap = [
   },
   {
     id: 150,
-    name: "Happy Coffee House 50",
+    name: "Violet Garden",
     price: 300,
     location: 50,
     symbol: "STRK",
@@ -902,7 +902,7 @@ export const listMetaCityMap = [
   },
   {
     id: 151,
-    name: "Happy Coffee House 51",
+    name: "Maya Slope",
     price: 300,
     location: 51,
     symbol: "STRK",
@@ -920,7 +920,7 @@ export const listMetaCityMap = [
   },
   {
     id: 152,
-    name: "Happy Coffee House 52",
+    name: "Tina Homestay",
     price: 300,
     location: 52,
     symbol: "STRK",
@@ -938,7 +938,7 @@ export const listMetaCityMap = [
   },
   {
     id: 153,
-    name: "Happy Coffee House 53",
+    name: "Hillstay",
     price: 300,
     location: 53,
     symbol: "STRK",
@@ -956,7 +956,7 @@ export const listMetaCityMap = [
   },
   {
     id: 150,
-    name: "Happy Coffee House 54",
+    name: "Greenhill Homestay",
     price: 300,
     location: 54,
     symbol: "STRK",
@@ -974,7 +974,7 @@ export const listMetaCityMap = [
   },
   {
     id: 155,
-    name: "Happy Coffee House 55",
+    name: "1096 Red Center Apartment",
     price: 300,
     location: 55,
     symbol: "STRK",
