@@ -32,6 +32,7 @@ const CanvasWithImageAndIcon: React.FC = () => {
   const [isDragging, setIsDragging] = useState(false);
   const [dragStart, setDragStart] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
   const [initialLoad, setInitialLoad] = useState(true);
+  const [clickMapPosition, setClickMapPosition] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
 
   const [iconPosition, setIconPosition] = useState<Point>(originalPoints[0]);
   const iconRef = useRef<HTMLImageElement | null>(null);
@@ -117,17 +118,19 @@ const CanvasWithImageAndIcon: React.FC = () => {
     for (const point of originalPointsObject) {
       const position = calculatePointPosition(point);
 
+      ctx.fillStyle = "";
       ctx.save();
       ctx.translate(position.x, position.y);
       ctx.rotate((point.rotation * Math.PI) / 180);
 
       ctx.beginPath();
       ctx.rect(-point.width / 2, -point.height / 2, point.width, point.height);
+      ctx.fill();
       ctx.restore();
     }
   }
 
-  const index = originalPoints.findIndex(point => point.x === iconPosition.x && point.y === iconPosition.y);
+  const index = originalPoints.findIndex(point => point.x === clickMapPosition.x && point.y === clickMapPosition.y);
   
   const dispatch = useDispatch();
   useEffect(() => {
@@ -253,7 +256,6 @@ const CanvasWithImageAndIcon: React.FC = () => {
       for (let i = 0; i < originalPointsObject.length; i++) {
         const point = originalPointsObject[i];
         const pointPosition = calculatePointPosition(point);
-
         if (
           mouseX >= pointPosition.x - point.width / 2 &&
           mouseX <= pointPosition.x + point.width / 2 &&
@@ -267,6 +269,7 @@ const CanvasWithImageAndIcon: React.FC = () => {
 
       if (clickedPointIndex !== null) {
         const newPosition = originalPoints[clickedPointIndex];
+        setClickMapPosition(newPosition)
         animateIcon(newPosition);
       }
     }
