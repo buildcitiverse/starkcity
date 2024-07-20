@@ -118,14 +118,14 @@ const CanvasWithImageAndIcon: React.FC = () => {
     for (const point of originalPointsObject) {
       const position = calculatePointPosition(point);
 
-      ctx.fillStyle = "";
+      // ctx.fillStyle = "";
       ctx.save();
       ctx.translate(position.x, position.y);
       ctx.rotate((point.rotation * Math.PI) / 180);
 
       ctx.beginPath();
       ctx.rect(-point.width / 2, -point.height / 2, point.width, point.height);
-      ctx.fill();
+      // ctx.fill();
       ctx.restore();
     }
   }
