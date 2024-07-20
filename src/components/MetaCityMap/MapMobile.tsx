@@ -200,7 +200,7 @@ const MapMobile: React.FC = () => {
                                                         Rarity:
                                                     </Text>
                                                     <Text
-                                                        color={"#fff"} bg={colorRank[e as keyof typeof colorRank]} px="8px" height={"18px"} fontWeight={500} fontSize={"12px"} lineHeight={"18px"}
+                                                        color={"#fff"} bg={colorRank[e.rank as keyof typeof colorRank]} px="8px" height={"18px"} fontWeight={500} fontSize={"12px"} lineHeight={"18px"}
                                                     >
                                                         {convertToUpperCase(e.rank)}
                                                     </Text>
@@ -307,14 +307,14 @@ const MapMobile: React.FC = () => {
                                             alt=""
                                         />
                                         <Text
-                                            mt="16px"
+                                            mt="8px"
                                             fontWeight={700}
                                             fontSize={"20px"}
                                             lineHeight={"30px"}
                                         >
                                             {dataSelectedItem.name}
                                         </Text>
-                                        <Flex my="16px" align={"center"}>
+                                        <Flex my="4px" align={"center"}>
                                             <Text
                                                 mr="16px"
                                                 fontWeight={800}
@@ -369,7 +369,7 @@ const MapMobile: React.FC = () => {
                                             </Flex>
                                         </Flex>
                                         <Text
-                                            mt="16px"
+                                            mt="4px"
                                             fontWeight={600}
                                             fontSize={"14px"}
                                             lineHeight={"21px"}
@@ -385,7 +385,7 @@ const MapMobile: React.FC = () => {
                                             {getTruncateHash(dataSelectedItem.address, 6, 4)}
                                         </Text>
                                         <Text
-                                            mt="16px"
+                                            mt="4px"
                                             fontWeight={600}
                                             fontSize={"14px"}
                                             lineHeight={"21px"}
@@ -401,7 +401,7 @@ const MapMobile: React.FC = () => {
                                             {dataSelectedItem.network}
                                         </Text>
                                         <Text
-                                            mt="16px"
+                                            mt="4px"
                                             fontWeight={600}
                                             fontSize={"14px"}
                                             lineHeight={"21px"}

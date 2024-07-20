@@ -24,17 +24,14 @@ const CanvasWithImageAndIcon: React.FC = () => {
   const dataSelectedItem = selectedItem.selectedItem;
 
   const ratioZoom = () => {
-    if (!isLargerThan1000) {
-      return 0.59;
-    } else {
-      return 0.75;
-    }
+    return isLargerThan1000 ? 0.75 : 0.59;
   };
 
-  const [zoomLevel, setZoomLevel] = useState<number>(0.75);
+  const [zoomLevel, setZoomLevel] = useState<number>(ratioZoom());
   const [panPosition, setPanPosition] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
   const [dragStart, setDragStart] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
+  const [initialLoad, setInitialLoad] = useState(true);
 
   const [iconPosition, setIconPosition] = useState<Point>(originalPoints[0]);
   const iconRef = useRef<HTMLImageElement | null>(null);
@@ -42,7 +39,7 @@ const CanvasWithImageAndIcon: React.FC = () => {
 
   useEffect(() => {
     setZoomLevel(ratioZoom());
-  }, [ratioZoom()]);
+  }, [isLargerThan1000]);
 
   useEffect(() => {
     const iconImg = new Image();
@@ -69,13 +66,12 @@ const CanvasWithImageAndIcon: React.FC = () => {
         const imageWidth = imageSize.width * zoomLevel;
         const imageHeight = imageSize.height * zoomLevel;
 
-        const maxPanX = Math.max(canvasWidth - imageWidth, 0);
-        const maxPanY = Math.max(canvasHeight - imageHeight, 0);
-        setPanPosition((prevPosition) => ({
-          x: Math.min(prevPosition.x, maxPanX),
-          y: Math.min(prevPosition.y, maxPanY),
-        }));
-
+        if (initialLoad) {
+          setPanPosition({
+            x: (canvasWidth - imageWidth) / 2,
+            y: (canvasHeight - imageHeight) / 2,
+          });
+        }
         setCanvasSize({ width: canvasWidth, height: canvasHeight });
       }
     };
@@ -86,7 +82,7 @@ const CanvasWithImageAndIcon: React.FC = () => {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, [imageSize, zoomLevel]);
+  }, [imageSize, zoomLevel, initialLoad]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -120,23 +116,17 @@ const CanvasWithImageAndIcon: React.FC = () => {
   const drawPoints = (ctx: CanvasRenderingContext2D) => {
     for (const point of originalPointsObject) {
       const position = calculatePointPosition(point);
-  
-      // ctx.fillStyle = "";
-      ctx.save();
-  
-      ctx.translate(position.x, position.y);
-  
-      ctx.rotate((point.rotation * Math.PI) / 180);
-  
 
-        ctx.beginPath();
-        ctx.rect(-point.width / 2, -point.height / 2, point.width, point.height);
-        // ctx.fill();
-  
+      ctx.save();
+      ctx.translate(position.x, position.y);
+      ctx.rotate((point.rotation * Math.PI) / 180);
+
+      ctx.beginPath();
+      ctx.rect(-point.width / 2, -point.height / 2, point.width, point.height);
       ctx.restore();
     }
   }
-  
+
   const index = originalPoints.findIndex(point => point.x === iconPosition.x && point.y === iconPosition.y);
   
   const dispatch = useDispatch();
@@ -148,16 +138,22 @@ const CanvasWithImageAndIcon: React.FC = () => {
   }, [index, dispatch]);
 
   const handleZoomIn = () => {
-    setZoomLevel((prevZoom) => Math.min(prevZoom + 0.1, 2)); // Increase zoom level by 0.1 up to a maximum of 2
+    setZoomLevel((prevZoom) => Math.min(prevZoom + 0.1, 2));
   };
 
   const handleZoomOut = () => {
-    setZoomLevel((prevZoom) => Math.max(prevZoom - 0.1, 0.75)); // Decrease zoom level by 0.1 down to a minimum of 0.75
+    setZoomLevel((prevZoom) => Math.max(prevZoom - 0.1, 0.75));
   };
 
   const handleMouseDown = (event: React.MouseEvent<HTMLCanvasElement, MouseEvent>) => {
-    setIsDragging(true);
-    setDragStart({ x: event.clientX, y: event.clientY });
+    if (imageLoaded) {
+      setIsDragging(true);
+      setDragStart({ x: event.clientX, y: event.clientY });
+
+      if (initialLoad) {
+        setInitialLoad(false);
+      }
+    }
   };
 
   const handleMouseMove = (event: React.MouseEvent<HTMLCanvasElement, MouseEvent>) => {
@@ -184,24 +180,58 @@ const CanvasWithImageAndIcon: React.FC = () => {
     setIsDragging(false);
   };
 
+  const handleTouchStart = (event: React.TouchEvent<HTMLCanvasElement>) => {
+    if (imageLoaded) {
+      setIsDragging(true);
+      const touch = event.touches[0];
+      setDragStart({ x: touch.clientX, y: touch.clientY });
+
+      if (initialLoad) {
+        setInitialLoad(false);
+      }
+    }
+  };
+
+  const handleTouchMove = (event: React.TouchEvent<HTMLCanvasElement>) => {
+    if (isDragging) {
+      const touch = event.touches[0];
+      const deltaX = touch.clientX - dragStart.x;
+      const deltaY = touch.clientY - dragStart.y;
+
+      setPanPosition((prevPan) => {
+        const newPanX = Math.min(
+          Math.max(prevPan.x + deltaX, canvasSize.width - imageSize.width * zoomLevel),
+          0
+        );
+        const newPanY = Math.min(
+          Math.max(prevPan.y + deltaY, canvasSize.height - imageSize.height * zoomLevel),
+          0
+        );
+        return { x: newPanX, y: newPanY };
+      });
+      setDragStart({ x: touch.clientX, y: touch.clientY });
+    }
+  };
+
+  const handleTouchEnd = () => {
+    setIsDragging(false);
+  };
+
   useEffect(() => {
     const index = Number(dataSelectedItem?.location || 1);
     animateIcon(originalPoints[index - 1]);
   }, [dataSelectedItem?.location]);
 
   const animateIcon = (newPosition: Point) => {
-    const duration = 500; // Duration of the animation in milliseconds
+    const duration = 500;
     const startTime = performance.now();
     const startPosition = iconPosition;
-    const deltaX = newPosition.x - startPosition.x;
-    const deltaY = newPosition.y - startPosition.y;
-
+    
     const step = (currentTime: number) => {
-      const elapsedTime = currentTime - startTime;
-      const progress = Math.min(elapsedTime / duration, 1);
+      const progress = (currentTime - startTime) / duration;
+      const interpolatedX = startPosition.x + (newPosition.x - startPosition.x) * progress;
+      const interpolatedY = startPosition.y + (newPosition.y - startPosition.y) * progress;
 
-      const interpolatedX = startPosition.x + deltaX * progress;
-      const interpolatedY = startPosition.y + deltaY * progress;
       setIconPosition({ x: interpolatedX, y: interpolatedY });
 
       if (progress < 1) {
@@ -217,13 +247,13 @@ const CanvasWithImageAndIcon: React.FC = () => {
     if (rect) {
       const mouseX = event.clientX - rect.left;
       const mouseY = event.clientY - rect.top;
-  
+
       let clickedPointIndex: number | null = null;
-  
+
       for (let i = 0; i < originalPointsObject.length; i++) {
         const point = originalPointsObject[i];
         const pointPosition = calculatePointPosition(point);
-  
+
         if (
           mouseX >= pointPosition.x - point.width / 2 &&
           mouseX <= pointPosition.x + point.width / 2 &&
@@ -234,15 +264,45 @@ const CanvasWithImageAndIcon: React.FC = () => {
           break;
         }
       }
-  
+
       if (clickedPointIndex !== null) {
         const newPosition = originalPoints[clickedPointIndex];
         animateIcon(newPosition);
       }
     }
   };
-  
-  
+
+  const handleTouchClick = (event: React.TouchEvent<HTMLCanvasElement>) => {
+    const rect = canvasRef.current?.getBoundingClientRect();
+    if (rect) {
+      const touch = event.touches[0];
+      const touchX = touch.clientX - rect.left;
+      const touchY = touch.clientY - rect.top;
+
+      let clickedPointIndex: number | null = null;
+
+      for (let i = 0; i < originalPointsObject.length; i++) {
+        const point = originalPointsObject[i];
+        const pointPosition = calculatePointPosition(point);
+
+        if (
+          touchX >= pointPosition.x - point.width / 2 &&
+          touchX <= pointPosition.x + point.width / 2 &&
+          touchY >= pointPosition.y - point.height / 2 &&
+          touchY <= pointPosition.y + point.height / 2
+        ) {
+          clickedPointIndex = i;
+          break;
+        }
+      }
+
+      if (clickedPointIndex !== null) {
+        const newPosition = originalPoints[clickedPointIndex];
+        animateIcon(newPosition);
+      }
+    }
+  };
+
   return (
     <Box position="relative" width="100%" height="100%" overflow="hidden">
       <canvas
@@ -254,6 +314,11 @@ const CanvasWithImageAndIcon: React.FC = () => {
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseUp}
         onClick={handleClick}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+        onTouchCancel={handleTouchEnd}
+        onTouchStartCapture={handleTouchClick}
         style={{ cursor: isDragging ? "grabbing" : "grab", display: imageLoaded ? "block" : "none" }}
       />
       {isLargerThan1200 && <ButtonMap handleZoomIn={handleZoomIn} handleZoomOut={handleZoomOut} />}

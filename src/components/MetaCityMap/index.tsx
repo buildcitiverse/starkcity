@@ -69,6 +69,7 @@ const MetaCityMap: React.FC = () => {
             <Flex w="100%" justifyContent={"center"} height={"100vh"} bg="rgba(4, 4, 27, 1)" overflow={"hidden"}>
                 <Flex bg="white" height={"100%"} w="100%" position={"relative"}>
                     <Flex
+                        maxW={"334px"}
                         minW={"334px"}
                         bg="#04041B"
                         flexDirection={"column"}
@@ -130,12 +131,10 @@ const MetaCityMap: React.FC = () => {
                                 {filteredList.map((e: any, index: any) => {
                                     const isActive = index === Number(dataSelectedItem?.location) - 1;
                                     const isHovered = index === hoveredIndex;
-                                    // const background = useRankColor(e.rank);
                                     return (
                                         <Flex
                                             key={index}
                                             borderRadius={"8px"}
-                                            // height={"80px"}
                                             padding={"8px"}
                                             bg={(isActive || isHovered) ? "#EC796B" : "#191945"}
                                             w="100%"
@@ -152,7 +151,7 @@ const MetaCityMap: React.FC = () => {
                                                     <Text lineHeight={"28px"} fontWeight={700} fontStyle={"normal"}>{e.name}</Text>
                                                     <Flex lineHeight={"normal"} justifyContent={"space-between"} w="100%">
                                                         <Text color={(isActive || isHovered) ? "white" : "#9C9C9C"} fontWeight={400} fontSize={"12px"} lineHeight={"18px"}>Rarity:</Text>
-                                                        <Text color={"#fff"} bg={colorRank[e as keyof typeof colorRank]} px="8px" height={"18px"} fontWeight={500} fontSize={"12px"} lineHeight={"18px"}>{convertToUpperCase(e.rank)}</Text>
+                                                        <Text color={"#fff"} bg={colorRank[e.rank as keyof typeof colorRank]} px="8px" height={"18px"} fontWeight={500} fontSize={"12px"} lineHeight={"18px"}>{convertToUpperCase(e.rank)}</Text>
                                                     </Flex>
                                                     <Flex lineHeight={"normal"} justifyContent={"space-between"} w="100%">
                                                         <Text color={(isActive || isHovered) ? "white" : "#9C9C9C"} fontWeight={400} fontSize={"12px"} lineHeight={"18px"}>Price:</Text>
