@@ -13,7 +13,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import { getTruncateHash } from "@/src/utils/getTruncateHash";
 import { Image as ImageChakra } from "@chakra-ui/react";
 import { convertToUpperCase } from "@/src/utils/convertToUpperCase";
-import useRankColor from "./hookMap";
+
+enum colorRank {
+    diamond= '#490254',  // Light green
+    ruby= '#81001F',     // Light red
+    gold= '#7B5010',     // Gold yellow
+    sapphire= '#146377', // Dark blue
+    silver= '#3B3A4C',   // Silver grey
+}
 
 const MapMobile: React.FC = () => {
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -146,7 +153,7 @@ const MapMobile: React.FC = () => {
                             {filteredList.map((e: any, index: any) => {
                                 const isActive = index === Number(dataSelectedItem?.location) - 1;
                                 const isHovered = index === hoveredIndex;
-                                const background = useRankColor(e.rank);
+                                // const background = useRankColor(e.rank);
                                 return (
                                     <Flex
                                         key={index}
@@ -193,7 +200,7 @@ const MapMobile: React.FC = () => {
                                                         Rarity:
                                                     </Text>
                                                     <Text
-                                                        color={"#fff"} bg={background} px="8px" height={"18px"} fontWeight={500} fontSize={"12px"} lineHeight={"18px"}
+                                                        color={"#fff"} bg={colorRank[e as keyof typeof colorRank]} px="8px" height={"18px"} fontWeight={500} fontSize={"12px"} lineHeight={"18px"}
                                                     >
                                                         {convertToUpperCase(e.rank)}
                                                     </Text>
