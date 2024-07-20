@@ -1,6 +1,11 @@
 import { Flex, Image } from "@chakra-ui/react";
+import { useRouter } from "next/router";
 
 const Terms = () => {
+  const router = useRouter()
+  const handleHome = () => {
+    router.push('/')
+  }
   return (
     <Flex
       minH={"100vh"}
@@ -11,7 +16,7 @@ const Terms = () => {
       gap={"20px"}
       
     >
-      <Flex height={"80px"} alignItems={"center"}>
+      <Flex height={"80px"} alignItems={"center"} cursor={"pointer"} onClick={handleHome}>
         <Image
           w={"260px"}
           height={"40px"}
@@ -430,7 +435,7 @@ const Terms = () => {
           alt="icon_city"
         /> */}
       </Flex>
-        <Flex justifyContent={"center"} fontWeight={500} fontSize={"14px"} height={"80px"} lineHeight={"18px"} opacity={"60%"}>© 2024 CITI VERSE. All rights reserved.</Flex>
+        <Flex justifyContent={"center"} fontWeight={500} fontSize={"14px"} height={"80px"} lineHeight={"18px"} opacity={"60%"}>© 2024 Citiverse. All rights reserved</Flex>
     </Flex>
 
   );

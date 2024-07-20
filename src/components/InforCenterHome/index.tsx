@@ -12,16 +12,18 @@ const InforCenterHome = () => {
 
     const { connect, connectors } = useConnect();
     const router = useRouter();
-    const { isConnected, chainId } = useAccount();
+    const { isConnected, chainId, address } = useAccount();
 
     const argentConnector = connectors.find(
         (connector) => connector.id === "argentX"
     );
 
     console.log(chainId, 'chainId');
+    console.log(address, 'add');
 
     const handleClickExplore = async () => {
         await connect({ connector: argentConnector });
+
     };
 
     useEffect(() => {
@@ -39,9 +41,17 @@ const InforCenterHome = () => {
     }, [isConnected]); 
 
     useEffect(() => {
-        if (isConnected && chainId === BigInt("393402133025997798000961")) {
-            router.push("/explorer");
-        }
+        const redirectToExplorer = async () => {
+            if (isConnected && chainId === BigInt("393402133025997798000961")) {
+                setTimeout(() => {
+                    router.push("/explorer");
+                }, 1000);
+            }
+            if (address) {
+                localStorage.setItem("userAddress", address);
+            }
+        };
+        redirectToExplorer();
     }, [isConnected, router, chainId]);
 
     const [showInstall, setShowInstall] = useState(false);
