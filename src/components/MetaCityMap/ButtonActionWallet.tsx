@@ -27,16 +27,25 @@ const ButtonActionWallet = () => {
   };
 
   return (
-    <Flex top={10} right={10} position={"absolute"} gap={"8px"} zIndex={999}>
+    <Flex
+      top={10}
+      right={10}
+      position={"absolute"}
+      zIndex={999}
+    >
       <Flex
         w={"152px"}
         bg={"#0A0A20"}
         borderRadius={"40px"}
         height={"40px"}
+        position={"absolute"}
+        right={"0px"}
         alignItems={"center"}
         justifyContent={"center"}
         cursor={"pointer"}
         onClick={handleShowDisconnect}
+        transition={"transform 0.3s ease"} // Thêm transition cho hiệu ứng
+        transform={showDisconnect ? "translateX(-162px)" : "translateX(0)"} // Thay đổi vị trí khi showDisconnect = true
       >
         <Flex
           fontWeight={800}
@@ -45,13 +54,13 @@ const ButtonActionWallet = () => {
         >
           {shortenAddress(address)}
         </Flex>
-          <Image
-            src="assets/icons/arrow_right.svg"
-            alt=""
-            w={"24px"}
-            h={"24px"}
-          />
-        </Flex>
+        <Image
+          src="assets/icons/arrow_right.svg"
+          alt=""
+          w={"24px"}
+          h={"24px"}
+        />
+      </Flex>
       {showDisconnect && 
         <Flex
           w={"152px"}

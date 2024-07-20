@@ -7,7 +7,7 @@ import Policy from "../components/Policy";
 const PrivacyPolicy = () => {
     return (
         <Flex>
-            <Meta title={"Privacy Policy"} description={""}/>
+            <Meta title={"Privacy Policy"} description={"A virtual city inside Citiverse with 50+ 3D/VR NFTs built by designers & architects from Citiverse Professional Network, on Starknet blockchain"}/>
             <Policy/>
         </Flex>
     );

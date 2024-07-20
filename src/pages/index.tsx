@@ -5,6 +5,7 @@ import { Box, Flex, Image, useBreakpointValue } from "@chakra-ui/react";
 import InforCenterHome from "../components/InforCenterHome";
 import Footer from "../components/Footer";
 import InforMeta from "../components/InforMeta";
+import { Meta } from "../containers/Meta";
 
 const Index = () => {
   const displayResponesive = useBreakpointValue({ base: "block", sm: "none" });
@@ -13,6 +14,8 @@ const Index = () => {
   const mtRes = useBreakpointValue({ base: "110px", sm: "81px" });
 
   return (
+    <>
+    <Meta title={"City Explorer"} description={"A virtual city inside Citiverse with 50+ 3D/VR NFTs built by designers & architects from Citiverse Professional Network, on Starknet blockchain"}/>
     <Flex
       width={"100%"}
       flexDirection={"column"}
@@ -98,6 +101,7 @@ const Index = () => {
       
       <Footer />
     </Flex>
+    </>
   );
 };
 
