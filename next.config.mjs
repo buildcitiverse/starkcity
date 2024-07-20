@@ -7,15 +7,6 @@
 const nextConfig = {
     output: 'standalone',
 
-    async rewrites() {
-      return [
-        {
-          source: '/videos/:path*',
-          destination: '/api/videos/:path*',
-        },
-      ];
-    },
-
     async headers() {
       return [
         {
@@ -35,7 +26,7 @@ const nextConfig = {
       remotePatterns:[
         {
           protocol:'https',
-          hostname:'dev-stark.citiverse.io',
+          hostname:'dev-stark.citiverse.io/',
           port:'',
           pathname:'/assets/**'
         }
@@ -45,3 +36,4 @@ const nextConfig = {
   };
 
 export default nextConfig;
+  

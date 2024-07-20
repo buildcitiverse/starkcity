@@ -1,6 +1,6 @@
 import { Button, Flex, Text } from "@chakra-ui/react";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { listMetaCityMap } from "./config";
 import {
@@ -39,6 +39,12 @@ const MapMobile: React.FC = () => {
     const toggleView = () => {
         setIsMapView(!isMapView);
     };
+
+    useEffect(() => {
+        if(isMapView === true){
+            setIsModalVisible(false);
+        }
+      }, [isMapView]);
 
     const numberToTextMap: { [key: number]: string } = {
         1: "one",
@@ -131,7 +137,7 @@ const MapMobile: React.FC = () => {
                             width="100%"
                         >
                             {filteredList.map((e: any, index: any) => {
-                                const isActive = index === activeIndex;
+                                const isActive = index === Number(dataSelectedItem?.location) - 1;
                                 const isHovered = index === hoveredIndex;
                                 return (
                                     <Flex

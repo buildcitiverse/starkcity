@@ -118,7 +118,7 @@ const MetaCityMap: React.FC = () => {
                         <Flex px="16px" mt="16px" flexDirection={"column"} overflowY="auto" className="scroll-style" height="calc(100% - 139px)">
                             <Flex flexDirection={"column"}>
                                 {filteredList.map((e: any, index: any) => {
-                                    const isActive = index === activeIndex;
+                                    const isActive = index === Number(dataSelectedItem?.location) - 1;
                                     const isHovered = index === hoveredIndex;
                                     return (
                                         <Flex
