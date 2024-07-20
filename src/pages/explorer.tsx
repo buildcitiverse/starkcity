@@ -11,7 +11,7 @@ const MetaCity = () => {
 
     return (
         <Flex>
-            <Meta title={"City Explorer"} description={""}/>
+            <Meta title={"City Explorer"} description={"A virtual city inside Citiverse with 50+ 3D/VR NFTs built by designers & architects from Citiverse Professional Network, on Starknet blockchain"}/>
             {isLargerThan1200 ? <MetaCityMap /> : <MapMobile/> }
         </Flex>
     );

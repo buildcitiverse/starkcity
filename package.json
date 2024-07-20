@@ -16,6 +16,7 @@
     "@reduxjs/toolkit": "^2.2.6",
     "@starknet-react/chains": "^0.1.7",
     "@starknet-react/core": "^2.8.3",
+    "animate.css": "^4.1.1",
     "framer-motion": "^11.3.5",
     "get-starknet-core": "^3.3.2",
     "next": "14.2.5",
