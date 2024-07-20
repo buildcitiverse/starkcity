@@ -18,12 +18,8 @@ const InforCenterHome = () => {
         (connector) => connector.id === "argentX"
     );
 
-    console.log(chainId, 'chainId');
-    console.log(address, 'add');
-
     const handleClickExplore = async () => {
         await connect({ connector: argentConnector });
-
     };
 
     useEffect(() => {

@@ -1,5 +1,4 @@
 import { Flex, Image } from "@chakra-ui/react";
-import { useAccount } from "@starknet-react/core";
 import React, { useState } from "react";
 import { useDisconnect } from "@starknet-react/core";
 import { useRouter } from "next/router";
@@ -27,19 +26,6 @@ const ButtonActionWallet = () => {
     setShowDisconnect(prevState => !prevState);
   };
 
-  const handleCopyAddress = () => {
-    if (address) {
-      navigator.clipboard.writeText(address).then(
-        () => {
-         console.log('copied')
-        },
-        (err) => {
-          console.error('Failed to copy address: ', err);
-        }
-      );
-    }
-  };
-
   return (
     <Flex top={10} right={10} position={"absolute"} gap={"8px"} zIndex={999}>
       <Flex
@@ -50,18 +36,15 @@ const ButtonActionWallet = () => {
         alignItems={"center"}
         justifyContent={"center"}
         cursor={"pointer"}
+        onClick={handleShowDisconnect}
       >
         <Flex
           fontWeight={800}
           fontSize={"14px"}
           lineHeight={"21px"}
-          onClick={handleCopyAddress} 
         >
           {shortenAddress(address)}
         </Flex>
-            {/* <Flex className="copied-icon">Copied</Flex> */}
-       
-        <Flex onClick={handleShowDisconnect}>
           <Image
             src="assets/icons/arrow_right.svg"
             alt=""
@@ -69,7 +52,6 @@ const ButtonActionWallet = () => {
             h={"24px"}
           />
         </Flex>
-      </Flex>
       {showDisconnect && 
         <Flex
           w={"152px"}
