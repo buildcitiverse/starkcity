@@ -12,6 +12,7 @@ import { getTruncateHash } from "@/src/utils/getTruncateHash";
 import ModalNoti from "../ModalNoti";
 import { useConnect, useAccount, useDisconnect } from "@starknet-react/core";
 import { convertToUpperCase } from "@/src/utils/convertToUpperCase";
+import ButtonActionWallet from "./ButtonActionWallet";
 
 enum colorRank {
   diamond= '#490254',  // Light green
@@ -68,6 +69,7 @@ const MetaCityMap: React.FC = () => {
         <>
             <Flex w="100%" justifyContent={"center"} height={"100vh"} bg="rgba(4, 4, 27, 1)" overflow={"hidden"}>
                 <Flex bg="white" height={"100%"} w="100%" position={"relative"}>
+                  <ButtonActionWallet/>
                     <Flex
                         maxW={"334px"}
                         minW={"334px"}
@@ -175,7 +177,9 @@ const MetaCityMap: React.FC = () => {
                             </Flex>
                         </Flex>
                     </Flex>
+                    
                     <Flex w="100%" position={"relative"}>
+                   
                         {dataSelectedItem && (
                             <motion.div
                                 initial={{ x: '100%' }}
@@ -218,6 +222,7 @@ const MetaCityMap: React.FC = () => {
                             </motion.div>
                         )}
                         <CanvasWithImageAndIcon />
+                       
                     </Flex>
                 </Flex>
             </Flex >

@@ -18,7 +18,7 @@ const Index = () => {
       flexDirection={"column"}
       height={heightWrapper}
       overflow={"hidden"}
-      backgroundImage={`url("/assets/images/bgBeach.png")`} 
+      backgroundImage={`url("/assets/images/bg1.jpg")`} 
       backgroundSize="cover"
       backgroundPosition="center"
     >
