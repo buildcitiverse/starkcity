@@ -1,6 +1,11 @@
 import { Flex, Image } from "@chakra-ui/react";
+import { useRouter } from "next/router";
 
 const Policy = () => {
+  const router = useRouter()
+  const handleHome = () => {
+    router.push('/')
+  }
   return (
     <Flex
       width={"100%"}
@@ -9,7 +14,7 @@ const Policy = () => {
       padding={"0 80px"}
       flexDirection={"column"}
     >
-      <Flex height={"80px"} alignItems={"center"}>
+      <Flex height={"80px"} alignItems={"center"} cursor={"pointer"} onClick={handleHome}>
         <Image
           w={"260px"}
           height={"40px"}
@@ -127,7 +132,7 @@ const Policy = () => {
           CITIVERSE by sending an email with your question to support@CITIVERSE.com
         </Flex>
         <Flex fontSize={"14px"} mb={"40px"} height={"40px"} borderBottom={"1px solid #313133"}>We speak English.</Flex>
-        <Flex justifyContent={"center"} fontWeight={500} fontSize={"14px"} height={"80px"} lineHeight={"18px"} opacity={"60%"}>© 2024 CITI VERSE. All rights reserved.</Flex>
+        <Flex justifyContent={"center"} fontWeight={500} fontSize={"14px"} height={"80px"} lineHeight={"18px"} opacity={"60%"}>© 2024 Citiverse. All rights reserved</Flex>
       </Flex>
     </Flex>
   );

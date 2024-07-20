@@ -29,7 +29,7 @@ const Footer = () => {
         <Flex height={height} padding={"0 80px"} bg="#04041B" w={"100%"} zIndex={3} position={"absolute"} bottom={"0"}>
             <Box width="100%" height="100%">
                 <Flex height="100%" alignItems="center" justifyContent={justifyContentValue}>
-                    <Flex gap={"40px"}>
+                    <Flex gap={"16px"}>
                         <Image src="/assets/images/icon_discord.png" alt="" onClick={handleClickDiscord} w={"24px"} h={"24px"} cursor="pointer" />
                         <Image src="/assets/images/icon_tele.png" onClick={handleClickTele} alt="" w={"24px"} h={"24px"} cursor="pointer" />
                         <Image src="/assets/images/icon_twr.png" onClick={handleClickTwitter} alt="" w={"24px"} h={"24px"} cursor="pointer" />
