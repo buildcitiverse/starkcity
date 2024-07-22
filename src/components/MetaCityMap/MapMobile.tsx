@@ -19,7 +19,7 @@ enum colorRank {
     ruby= '#81001F',     // Light red
     gold= '#7B5010',     // Gold yellow
     sapphire= '#146377', // Dark blue
-    silver= '#3B3A4C',   // Silver grey
+    silver= '#490254',   // Silver grey
 }
 
 const MapMobile: React.FC = () => {

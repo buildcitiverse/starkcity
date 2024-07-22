@@ -10,16 +10,17 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { getTruncateHash } from "@/src/utils/getTruncateHash";
 import ModalNoti from "../ModalNoti";
-import { useConnect, useAccount, useDisconnect } from "@starknet-react/core";
+import { useAccount,useDisconnect } from "@starknet-react/core";
 import { convertToUpperCase } from "@/src/utils/convertToUpperCase";
 import ButtonActionWallet from "./ButtonActionWallet";
+import { useRouter } from "next/router";
 
 enum colorRank {
   diamond= '#490254',  // Light green
   ruby= '#81001F',     // Light red
   gold= '#7B5010',     // Gold yellow
   sapphire= '#146377', // Dark blue
-  silver= '#3B3A4C',   // Silver grey
+  silver= '#490254',   // Silver grey
 }
 
 const MetaCityMap: React.FC = () => {
@@ -31,6 +32,8 @@ const MetaCityMap: React.FC = () => {
     const dataSelectedItem = selectedItem.selectedItem;
     const [showModal, setShowModal] = useState(false);
     const { address, isConnected, chainId } = useAccount();
+    const router = useRouter()
+    const { disconnect } = useDisconnect();
 
     const handleItemClick = (item: any, index: number) => {
         setActiveIndex(index);
@@ -47,6 +50,11 @@ const MetaCityMap: React.FC = () => {
             setShowModal(false);
         }
     }, [chainId, isConnected]);
+
+    const handleHome = () => {
+        disconnect()
+        router.push("/")
+    }
 
     const filteredList = listMetaCityMap.filter(item =>
         item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -83,7 +91,7 @@ const MetaCityMap: React.FC = () => {
                         h="100%"
                         maxH={"100vh"}
                     >
-                        <Link href="/">
+                        <Flex onClick={handleHome} cursor={"pointer"}>
                             <Flex
                                 bg="#EC796B"
                                 height={"46px"}
@@ -97,7 +105,7 @@ const MetaCityMap: React.FC = () => {
                             >
                                 <Image width={175} height={38} src="/assets/icons/logo_meta_city.svg" alt="" />
                             </Flex>
-                        </Link>
+                        </Flex>
 
                         <Flex justifyContent={"space-between"} m="16px">
                             <Flex fontWeight={700} fontSize={"16px"}>Starkcity</Flex>
@@ -167,9 +175,9 @@ const MetaCityMap: React.FC = () => {
                                             </Flex>
                                             <Flex w='100%' mt="8px">
                                                 <Link style={{width:"100%", marginRight: e.edit ? "8px" : "0px"}} href={e?.urlShowCase3D} passHref target="_blank">
-                                                    <Button bg="#04041B" _hover={{ background: "white", color: "#0A0A20", borderColor: "white" }} borderRadius={"4px"} border="1px solid #3D3D4D" w="100%" height={"29px"}>{convertToUpperCase("Play")}</Button>
+                                                    <Button bg="#04041B" _hover={{ background: "white", color: "#0A0A20", borderColor: "white" }} fontSize={"14px"} borderRadius={"4px"} border="1px solid #3D3D4D" w="100%" height={"29px"}>{convertToUpperCase("Play")}</Button>
                                                 </Link>
-                                                {e.edit && <Link style={{width:"100%"}} href={e?.edit} passHref target="_blank"><Button bg="#04041B" _hover={{ background: "white", color: "#0A0A20", borderColor: "white" }} borderRadius={"4px"} border="1px solid #3D3D4D" w="100%" height={"29px"}>{convertToUpperCase("Edit")}</Button> </Link>}
+                                                {e.edit && <Link style={{width:"100%"}} href={e?.edit} passHref target="_blank"><Button bg="#04041B" _hover={{ background: "white", color: "#0A0A20", borderColor: "white" }} fontSize={"14px"} borderRadius={"4px"} border="1px solid #3D3D4D" w="100%" height={"29px"}>{convertToUpperCase("Edit")}</Button> </Link>}
                                             </Flex>
                                         </Flex>
                                     );
@@ -197,11 +205,11 @@ const MetaCityMap: React.FC = () => {
                                         </Flex>
                                         <Flex>
                                             <Flex>
-                                                <Text color="rgba(156, 156, 156, 1)" fontWeight={400} fontSize={"12px"} lineHeight={"18px"}>Token ID:</Text>
+                                                <Text color="rgba(156, 156, 156, 1)" fontWeight={400} fontSize={"12px"} lineHeight={"18px"}>Token ID:&nbsp; </Text>
                                                 <Text color="rgba(236, 121, 107, 1)" fontWeight={700} fontSize={"12px"} lineHeight={"18px"}>#{dataSelectedItem.id}</Text>
                                             </Flex>
                                             <Flex ml="24px">
-                                                <Text color="rgba(156, 156, 156, 1)" fontWeight={400} fontSize={"12px"} lineHeight={"18px"}>Price:</Text>
+                                                <Text color="rgba(156, 156, 156, 1)" fontWeight={400} fontSize={"12px"} lineHeight={"18px"}>Price:&nbsp;</Text>
                                                 <Text color="rgba(236, 121, 107, 1)" fontWeight={700} fontSize={"12px"} lineHeight={"18px"}>{dataSelectedItem.price} {dataSelectedItem.symbol}</Text>
                                             </Flex>
                                         </Flex>

@@ -11,12 +11,12 @@ const rankColors: RankColor = {
   ruby: '#81001F',     // Light red
   gold: '#7B5010',     // Gold yellow
   sapphire: '#146377', // Dark blue
-  silver: '#3B3A4C',   // Silver grey
+  silver: '#490254',   // Silver grey
 };
 
 // Custom hook to get color based on rank
 const useRankColor = (rank: string): string => {
-  return rankColors[rank.toLowerCase()] || '#3B3A4C';
+  return rankColors[rank.toLowerCase()] || '#490254';
 };
 
 export default useRankColor;
