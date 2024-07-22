@@ -12,8 +12,9 @@ const InforMeta = () => {
       position={"relative"}
       zIndex={2}
       style={{ backdropFilter: "blur(10px)" }}
+      cursor={"default"}
     >
-      <Flex flexDirection={"column"} gap={"8px"}>
+      <Flex flexDirection={"column"} gap={"8px"} >
         <Flex gap= {"10px"} alignItems={"center"}>
           <Image src="/assets/icons/left_element.svg" alt="" w={"5px"} h={"20px"} />
           <Flex fontSize={"13px"} fontFamily={"Mulish"} fontWeight={700} mt={"1px"} lineHeight={"17.57px"}>01</Flex>
