@@ -8,7 +8,7 @@ import InforMeta from "../components/InforMeta";
 import { Meta } from "../containers/Meta";
 import ModalInstall from "../components/ModalNoti/ModalInstall";
 import { useRouter } from "next/router";
-import ModalStarknet from "../components/ModalNoti/ModalStarknet";
+// import ModalStarknet from "../components/ModalNoti/ModalStarknet";
 import { useAccount, useConnect } from "@starknet-react/core";
 
 const Index = () => {
@@ -17,7 +17,7 @@ const Index = () => {
   const heightWrapper = useBreakpointValue({ base: "auto", sm: "100vh" });
   const mtRes = useBreakpointValue({ base: "110px", sm: "81px" });
   const [showInstall, setShowInstall] = useState(false);
-  const [showInstallStarknet, setShowInstallStarknet] = useState(false);
+  // const [showInstallStarknet, setShowInstallStarknet] = useState(false);
   const router = useRouter();
   const { connect, connectors } = useConnect();
   const { isConnected, chainId, address } = useAccount();
@@ -42,26 +42,26 @@ const Index = () => {
     setShowInstall(false)
   }
 
-  const handleShowModalStarknet = () => {
-    setShowInstallStarknet(true)
-  }
+  // const handleShowModalStarknet = () => {
+  //   setShowInstallStarknet(true)
+  // }
 
-  const handleClickBravoos = async () => {
-    if (argentConnector?.available()) {
-      await connect({ connector: braavosConnector });
-  } else { 
-      // onCheckInstallArgent()
-      console.log('1')
-  }
-  }
+  // const handleClickBravoos = async () => {
+  //   if (argentConnector?.available()) {
+  //     await connect({ connector: braavosConnector });
+  // } else { 
+  //     // onCheckInstallArgent()
+  //     console.log('1')
+  // }
+  // }
 
-  const handleClickAgrent = async () => {
-    if (argentConnector?.available()) {
-        await connect({ connector: argentConnector });
-    } else { 
-        console.log('1')
-    }
-  };
+  // const handleClickAgrent = async () => {
+  //   if (argentConnector?.available()) {
+  //       await connect({ connector: argentConnector });
+  //   } else { 
+  //       console.log('1')
+  //   }
+  // };
 
   useEffect(() => {
     const switchChain = async () => {
@@ -117,7 +117,8 @@ useEffect(() => {
           alignItems="center"
         >
           <Flex mb={"40px"} justifyContent={"center"}>
-            <InforCenterHome onCheckInstallArgent={handleCheckInstallAgent} onShowModalStarknet = {handleShowModalStarknet}/>
+          {/* <InforCenterHome onCheckInstallArgent={handleCheckInstallAgent} onShowModalStarknet = {handleShowModalStarknet}/> */}
+          <InforCenterHome onCheckInstallArgent={handleCheckInstallAgent} />
           </Flex>
           <Flex justifyContent={"center"}>
             <InforMeta />
@@ -161,7 +162,8 @@ useEffect(() => {
             height="auto"
             zIndex="2"
           >
-            <InforCenterHome onCheckInstallArgent={handleCheckInstallAgent} onShowModalStarknet = {handleShowModalStarknet} />
+            {/* <InforCenterHome onCheckInstallArgent={handleCheckInstallAgent} onShowModalStarknet = {handleShowModalStarknet} /> */}
+            <InforCenterHome onCheckInstallArgent={handleCheckInstallAgent} />
           </Box>
           <Box
             position={"absolute"}
@@ -179,7 +181,7 @@ useEffect(() => {
         
         <Footer />
         {showInstall && <ModalInstall onCheckYesStacknet = {handleActionYes} onCheckNoStacknet = {handleActionNo}/>}
-        {showInstallStarknet && <ModalStarknet onClickAgrent = {handleClickAgrent} onClickBravoos = {handleClickBravoos}/>}
+        {/* {showInstallStarknet && <ModalStarknet onClickAgrent = {handleClickAgrent} onClickBravoos = {handleClickBravoos}/>} */}
       </Flex>
     </>
   );
