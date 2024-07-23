@@ -30,9 +30,9 @@ const Footer = () => {
             <Box width="100%" height="100%">
                 <Flex height="100%" alignItems="center" justifyContent={justifyContentValue}>
                     <Flex gap={"16px"}>
-                        <Image src="/assets/images/icon_discord.png" alt="" onClick={handleClickDiscord} w={"24px"} h={"24px"} cursor="pointer" />
-                        <Image src="/assets/images/icon_tele.png" onClick={handleClickTele} alt="" w={"24px"} h={"24px"} cursor="pointer" />
-                        <Image src="/assets/images/icon_twr.png" onClick={handleClickTwitter} alt="" w={"24px"} h={"24px"} cursor="pointer" />
+                        <Image src="/assets/icons/discord.svg" alt="" onClick={handleClickDiscord} w={"24px"} h={"24px"} cursor="pointer" />
+                        <Image src="/assets/icons/telegram.svg" onClick={handleClickTele} alt="" w={"24px"} h={"24px"} cursor="pointer" />
+                        <Image src="/assets/icons/twitter.svg" onClick={handleClickTwitter} alt="" w={"24px"} h={"24px"} cursor="pointer" />
                     </Flex>
                     <Flex display={displayFooter} position={"absolute"} cursor={"default"} bottom={"21px"} transform={"translate(-50%, -50%)"} left={"50%"} fontWeight={500} fontSize={"14px"} lineHeight={"18px"} opacity={"60%"}>© 2024 Citiverse. All rights reserved</Flex>
                     <Flex display={displayFooter} gap={"24px"}>

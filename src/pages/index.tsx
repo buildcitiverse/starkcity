@@ -8,6 +8,8 @@ import InforMeta from "../components/InforMeta";
 import { Meta } from "../containers/Meta";
 import ModalInstall from "../components/ModalNoti/ModalInstall";
 import { useRouter } from "next/router";
+import ModalStarknet from "../components/ModalNoti/ModalStarknet";
+import { useAccount, useConnect } from "@starknet-react/core";
 
 const Index = () => {
   const displayResponesive = useBreakpointValue({ base: "block", sm: "none" });
@@ -15,7 +17,18 @@ const Index = () => {
   const heightWrapper = useBreakpointValue({ base: "auto", sm: "100vh" });
   const mtRes = useBreakpointValue({ base: "110px", sm: "81px" });
   const [showInstall, setShowInstall] = useState(false);
+  const [showInstallStarknet, setShowInstallStarknet] = useState(false);
   const router = useRouter();
+  const { connect, connectors } = useConnect();
+  const { isConnected, chainId, address } = useAccount();
+
+  const argentConnector = connectors.find(
+    (connector) => connector.id === "argentX"
+  );
+
+  const braavosConnector = connectors.find(
+    (connector) => connector.id === "braavos"
+  );
   
   const handleCheckInstallAgent = () => {
     setShowInstall(true);
@@ -28,6 +41,55 @@ const Index = () => {
   const handleActionNo = () => {
     setShowInstall(false)
   }
+
+  const handleShowModalStarknet = () => {
+    setShowInstallStarknet(true)
+  }
+
+  const handleClickBravoos = async () => {
+    if (argentConnector?.available()) {
+      await connect({ connector: braavosConnector });
+  } else { 
+      // onCheckInstallArgent()
+      console.log('1')
+  }
+  }
+
+  const handleClickAgrent = async () => {
+    if (argentConnector?.available()) {
+        await connect({ connector: argentConnector });
+    } else { 
+        console.log('1')
+    }
+  };
+
+  useEffect(() => {
+    const switchChain = async () => {
+        if (isConnected) {
+            await window.starknet.request({
+                type: "wallet_switchStarknetChain",
+                params: {
+                  chainId: "SN_SEPOLIA"
+                }
+            });
+        }
+    };
+    switchChain();
+}, [isConnected]); 
+
+useEffect(() => {
+    const redirectToExplorer = async () => {
+        if (isConnected && chainId === BigInt("393402133025997798000961")) {
+            setTimeout(() => {
+                router.push("/explorer");
+            }, 1000);
+        }
+        if (address) {
+            localStorage.setItem("userAddress", address);
+        }
+    };
+    redirectToExplorer();
+}, [isConnected, router, chainId]);
 
   return (
     <>
@@ -55,7 +117,7 @@ const Index = () => {
           alignItems="center"
         >
           <Flex mb={"40px"} justifyContent={"center"}>
-            <InforCenterHome onCheckInstallArgent={handleCheckInstallAgent} />
+            <InforCenterHome onCheckInstallArgent={handleCheckInstallAgent} onShowModalStarknet = {handleShowModalStarknet}/>
           </Flex>
           <Flex justifyContent={"center"}>
             <InforMeta />
@@ -99,7 +161,7 @@ const Index = () => {
             height="auto"
             zIndex="2"
           >
-            <InforCenterHome onCheckInstallArgent={handleCheckInstallAgent} />
+            <InforCenterHome onCheckInstallArgent={handleCheckInstallAgent} onShowModalStarknet = {handleShowModalStarknet} />
           </Box>
           <Box
             position={"absolute"}
@@ -117,6 +179,7 @@ const Index = () => {
         
         <Footer />
         {showInstall && <ModalInstall onCheckYesStacknet = {handleActionYes} onCheckNoStacknet = {handleActionNo}/>}
+        {showInstallStarknet && <ModalStarknet onClickAgrent = {handleClickAgrent} onClickBravoos = {handleClickBravoos}/>}
       </Flex>
     </>
   );
