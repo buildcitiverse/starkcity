@@ -122,6 +122,8 @@ const MapMobile: React.FC = () => {
                     mx="16px"
                     mb="8px"
                     onClick={toggleView}
+                    bg="transparent"
+                    color="white"
                 >
                     <Image
                         style={{ marginRight: "8px" }}
@@ -151,114 +153,115 @@ const MapMobile: React.FC = () => {
                             width="100%"
                         >
                             {filteredList.map((e: any, index: any) => {
-                                const isActive = index === Number(dataSelectedItem?.location) - 1;
-                                const isHovered = index === hoveredIndex;
-                                // const background = useRankColor(e.rank);
-                                return (
-                                    <Flex
-                                        key={index}
-                                        borderRadius={"8px"}
-                                        // height={"80px"}
-                                        padding={"8px"}
-                                        w="100%"
-                                        bg={isActive || isHovered ? "#EC796B" : "#0A0A20"}
-                                        minW="302px" // Set minimum width for each item
-                                        onClick={() => handleItemClick(e, index)}
-                                        cursor="pointer"
-                                        onMouseEnter={() => setHoveredIndex(index)}
-                                        onMouseLeave={() => setHoveredIndex(null)}
-                                        mr="8px"
-                                        flexDirection={"column"}
-                                    >
-                                        <Flex w="100%">
-                                            <ImageChakra
-                                                width={"88px"}
-                                                height={"88px"}
-                                                src={e?.imgHouse}
-                                                alt=""
-                                                borderRadius={"4px"}
-                                            />
-                                            <Flex justifyContent={"space-between"} flexDirection={"column"} w="100%" ml="8px">
-                                                <Text
-                                                    lineHeight={"28px"}
-                                                    fontWeight={700}
-                                                    fontStyle={"normal"}
-                                                >
-                                                    {e.name}
-                                                </Text>
-                                                <Flex
-                                                    lineHeight={"normal"}
-                                                    justifyContent={"space-between"}
-                                                    w="100%"
-                                                >
-                                                    <Text
-                                                        color={isActive || isHovered ? "white" : "#9C9C9C"}
-                                                        fontWeight={400}
-                                                        fontSize={"12px"}
-                                                        lineHeight={"18px"}
-                                                    >
-                                                        Rarity:
-                                                    </Text>
-                                                    <Text
-                                                        color={"#fff"} bg={colorRank[e.rank as keyof typeof colorRank]} px="8px" height={"18px"} fontWeight={500} fontSize={"12px"} lineHeight={"18px"}
-                                                    >
-                                                        {convertToUpperCase(e.rank)}
-                                                    </Text>
-                                                </Flex>
-                                                <Flex
-                                                    lineHeight={"normal"}
-                                                    justifyContent={"space-between"}
-                                                    w="100%"
-                                                >
-                                                    <Text
-                                                        color={isActive || isHovered ? "white" : "#9C9C9C"}
-                                                        fontWeight={400}
-                                                        fontSize={"12px"}
-                                                        lineHeight={"18px"}
-                                                    >
-                                                        Price:
-                                                    </Text>
-                                                    <Text
-                                                        color={isActive || isHovered ? "white" : "#EC796B"}
-                                                        fontWeight={700}
-                                                        fontSize={"12px"}
-                                                        lineHeight={"18px"}
-                                                    >
-                                                        {e.price} {e.symbol}
-                                                    </Text>
-                                                </Flex>
-                                                <Flex
-                                                    lineHeight={"normal"}
-                                                    justifyContent={"space-between"}
-                                                    w="100%"
-                                                >
-                                                    <Text
-                                                        color={isActive || isHovered ? "white" : "#9C9C9C"}
-                                                        fontWeight={400}
-                                                        fontSize={"12px"}
-                                                        lineHeight={"18px"}
-                                                    >
-                                                        ID:
-                                                    </Text>
-                                                    <Text
-                                                        fontWeight={400}
-                                                        fontSize={"12px"}
-                                                        lineHeight={"18px"}
-                                                    >
-                                                        #{e.id}
-                                                    </Text>
-                                                </Flex>
-                                            </Flex>
-                                        </Flex>
-                                        <Flex w='100%' mt="8px">
-                                                <Link style={{width:"100%", marginRight: e.edit ? "8px" : "0px"}} href={e?.urlShowCase3D} passHref target="_blank">
-                                                    <Button bg="#04041B" _hover={{ background: "white", color: "#0A0A20", borderColor: "white" }} borderRadius={"4px"} border="1px solid #3D3D4D" w="100%" height={"29px"}>{convertToUpperCase("Play")}</Button>
-                                                </Link>
-                                                {e.edit && <Link style={{width:"100%"}} href={e?.edit} passHref target="_blank"><Button bg="#04041B" _hover={{ background: "white", color: "#0A0A20", borderColor: "white" }} borderRadius={"4px"} border="1px solid #3D3D4D" w="100%" height={"29px"}>{convertToUpperCase("Edit")}</Button> </Link>}
-                                        </Flex>
-                                    </Flex>
-                                );
-                            })}
+    const isActive = index === Number(dataSelectedItem?.location) - 1;
+    const isHovered = index === hoveredIndex;
+    return (
+        <Flex
+            key={index}
+            borderRadius={"8px"}
+            padding={"8px"}
+            minW="302px"
+            bg={isActive || isHovered ? "#EC796B" : "#0A0A20"}
+            onClick={() => handleItemClick(e, index)}
+            cursor="pointer"
+            onMouseEnter={() => setHoveredIndex(index)}
+            onMouseLeave={() => setHoveredIndex(null)}
+            mr="8px"
+            flexDirection={"column"}
+            flex="1 1 auto"
+            width="auto"
+        >
+            <Flex width="100%">
+                <ImageChakra
+                    width={"88px"}
+                    height={"88px"}
+                    src={e?.imgHouse}
+                    alt=""
+                    borderRadius={"4px"}
+                />
+                <Flex justifyContent={"space-between"} flexDirection={"column"} flex="1" ml="8px" minWidth="0">
+                    <Text
+                        lineHeight={"28px"}
+                        fontWeight={700}
+                        fontStyle={"normal"}
+                        isTruncated
+                    >
+                        {e.name}
+                    </Text>
+                    <Flex
+                        lineHeight={"normal"}
+                        justifyContent={"space-between"}
+                        width="100%"
+                    >
+                        <Text
+                            color={isActive || isHovered ? "white" : "#9C9C9C"}
+                            fontWeight={400}
+                            fontSize={"12px"}
+                            lineHeight={"18px"}
+                        >
+                            Rarity:
+                        </Text>
+                        <Text
+                            color={"#fff"} bg={colorRank[e.rank as keyof typeof colorRank]} px="8px" height={"18px"} fontWeight={500} fontSize={"12px"} lineHeight={"18px"}
+                        >
+                            {convertToUpperCase(e.rank)}
+                        </Text>
+                    </Flex>
+                    <Flex
+                        lineHeight={"normal"}
+                        justifyContent={"space-between"}
+                        width="100%"
+                    >
+                        <Text
+                            color={isActive || isHovered ? "white" : "#9C9C9C"}
+                            fontWeight={400}
+                            fontSize={"12px"}
+                            lineHeight={"18px"}
+                        >
+                            Price:
+                        </Text>
+                        <Text
+                            color={isActive || isHovered ? "white" : "#EC796B"}
+                            fontWeight={700}
+                            fontSize={"12px"}
+                            lineHeight={"18px"}
+                        >
+                            {e.price} {e.symbol}
+                        </Text>
+                    </Flex>
+                    <Flex
+                        lineHeight={"normal"}
+                        justifyContent={"space-between"}
+                        width="100%"
+                    >
+                        <Text
+                            color={isActive || isHovered ? "white" : "#9C9C9C"}
+                            fontWeight={400}
+                            fontSize={"12px"}
+                            lineHeight={"18px"}
+                        >
+                            ID:
+                        </Text>
+                        <Text
+                            fontWeight={400}
+                            fontSize={"12px"}
+                            lineHeight={"18px"}
+                        >
+                            #{e.id}
+                        </Text>
+                    </Flex>
+                </Flex>
+            </Flex>
+            <Flex width='100%' mt="8px">
+                <Link style={{width:"100%", marginRight: e.edit ? "8px" : "0px"}} href={e?.urlShowCase3D} passHref target="_blank">
+                    <Button color="white" bg="#04041B" _hover={{ background: "white", color: "#0A0A20", borderColor: "white" }} borderRadius={"4px"} border="1px solid #3D3D4D" width="100%" height={"29px"}>{convertToUpperCase("Play")}</Button>
+                </Link>
+                {e.edit && <Link style={{width:"100%"}} href={e?.edit} passHref target="_blank"><Button color="white" bg="#04041B" _hover={{ background: "white", color: "#0A0A20", borderColor: "white" }} borderRadius={"4px"} border="1px solid #3D3D4D" width="100%" height={"29px"}>{convertToUpperCase("Edit")}</Button> </Link>}
+            </Flex>
+        </Flex>
+    );
+})}
+
                         </Flex>
                     )}
 

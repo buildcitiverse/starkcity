@@ -85,7 +85,8 @@ body {
   /*-webkit-backdrop-filter: blur(10px); */
 }
 .modal-body {
-  height: 212px;
+  /* height: 212px; */
+  padding: 16px 0px;
   background-color: #04041B;
   margin: auto;
   position: relative;

@@ -1,4 +1,5 @@
 import { Flex, Image } from "@chakra-ui/react";
+import { useConnect } from "@starknet-react/core";
 
 interface ModalInstallStarknet {
   onClickAgrent: () => void; 
@@ -15,6 +16,9 @@ const ModalStarknet: React.FC<ModalInstallStarknet> = ({onClickAgrent,onClickBra
     onClickBravoos()
   }
 
+  const { connect, connectors } = useConnect()
+
+
   return (
     <div className="modal-home">
       <div className="modal-overlay"></div>
@@ -29,7 +33,7 @@ const ModalStarknet: React.FC<ModalInstallStarknet> = ({onClickAgrent,onClickBra
               gap: "16px",
             }}
           >
-            <Flex
+            {/* <Flex
               w={"300px"}
               position={"relative"}
               zIndex={"99"}
@@ -68,7 +72,37 @@ const ModalStarknet: React.FC<ModalInstallStarknet> = ({onClickAgrent,onClickBra
                 height={"30px"}
                 alt=""
               />
-            </Flex>
+            </Flex> */}
+             {
+          connectors.map((connector) => (
+            // <button onClick={(() => connect({ connector }))}>
+            //   Connect {connector.id}
+            // </button>
+            <Flex
+            w={"300px"}
+            position={"relative"}
+            zIndex={"99"}
+            height={"66px"}
+            gap={"8px"}
+            border="1px solid #FFFFFF3D"
+            cursor={"pointer"}
+            justifyContent={"center"}
+            alignItems={"center"}
+            borderRadius={"8px"}
+            key={connector.id}
+            onClick={(() => connect({ connector }))}
+          >
+            {connector.name !== "Argent (mobile)" && <Image
+              src={String(connector.icon.light)}
+              width={"40px"}
+              height={"30px"}
+              alt=""
+            />}
+            <img src={String(connector.icon)} alt="" />
+            {connector.name}
+          </Flex>
+          ))
+        }
           </div>
         </div>
       </div>
