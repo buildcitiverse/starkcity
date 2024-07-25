@@ -109,13 +109,13 @@ const MetaCityMap: React.FC = () => {
                         </Flex>
 
                         <Flex justifyContent={"space-between"} m="16px">
-                            <Flex fontWeight={700} fontSize={"16px"}>Starkcity</Flex>
+                            <Flex cursor={"default"} fontWeight={700} fontSize={"16px"}>Starkcity</Flex>
                             <Flex
                                 fontWeight={400}
                                 lineHeight={"21px"}
                                 fontSize={"14px"}
                             >
-                                <Flex>
+                                <Flex cursor={"default"}>
                                     <Text color="#9C9C9C" mr="4px">Available</Text>
                                     <Text color="#EC796B">{listMetaCityMap?.length}</Text>
                                     <Text>/{listMetaCityMap?.length}</Text>
@@ -197,7 +197,7 @@ const MetaCityMap: React.FC = () => {
                                 transition={{ type: 'spring', stiffness: 100, damping: 30 }}
                                 style={{ position: 'absolute', right: 0, top: '14%', zIndex: 99, maxWidth: '288px', width: '100%' }}
                             >
-                                <Flex flexDirection={"column"} p='16px' borderTopLeftRadius={"16px"} borderBottomLeftRadius={"16px"} bg="rgba(10, 10, 32, 0.6)" maxH={"614px"}>
+                                <Flex cursor={"default"} flexDirection={"column"} p='16px' borderTopLeftRadius={"16px"} borderBottomLeftRadius={"16px"} bg="rgba(10, 10, 32, 0.6)" maxH={"614px"}>
                                     <>
                                         <ImageChakra borderRadius={"8px"} width={256} height={160} src={dataSelectedItem.imgHouse} alt="" />
                                         <Text mt="16px" fontWeight={700} fontSize={"20px"} lineHeight={"30px"}>{dataSelectedItem.name}</Text>
