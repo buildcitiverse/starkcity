@@ -140,7 +140,8 @@ const MetaCityMap: React.FC = () => {
                         <Flex px="16px" mt="16px" flexDirection={"column"} overflowY="auto" className="scroll-style" height="calc(100% - 139px)">
                             <Flex flexDirection={"column"}>
                                 {filteredList.map((e: any, index: any) => {
-                                    const isActive = index === Number(dataSelectedItem?.location) - 1;
+                                    const locationNumber = Number(dataSelectedItem?.location) || 1
+                                    const isActive = index === locationNumber - 1;
                                     const isHovered = index === hoveredIndex;
                                     return (
                                         <Flex
@@ -151,12 +152,12 @@ const MetaCityMap: React.FC = () => {
                                             w="100%"
                                             mb="8px"
                                             flexDirection={"column"}
-                                            onClick={() => handleItemClick(e, index)}
+                                            // onClick={() => handleItemClick(e, index)}
                                             cursor="pointer"
                                             onMouseEnter={() => setHoveredIndex(index)}
                                             onMouseLeave={() => setHoveredIndex(null)}
                                         >
-                                            <Flex w='100%'>
+                                            <Flex w='100%' onClick={() => handleItemClick(e, index)}>
                                                 <ImageChakra borderRadius={"4px"} width={"88px"} height={"88px"} src={e.imgHouse} alt="" />
                                                 <Flex justifyContent={"space-between"} flexDirection={"column"} w="100%" ml="8px">
                                                     <Text lineHeight={"28px"} fontWeight={700} fontStyle={"normal"}>{e.name}</Text>
@@ -176,9 +177,9 @@ const MetaCityMap: React.FC = () => {
                                             </Flex>
                                             <Flex w='100%' mt="8px" zIndex={999}>
                                                 <Link style={{width:"100%", marginRight: e.edit ? "8px" : "0px"}} href={e?.urlShowCase3D} passHref target="_blank">
-                                                    <Button  bg="#04041B" _hover={{ background: "white", color: "#0A0A20", borderColor: "white" }} fontSize={"14px"} borderRadius={"4px"} border="1px solid #3D3D4D" w="100%" height={"29px"}>{convertToUpperCase("Play")}</Button>
+                                                    <Button color="white"  bg="#04041B" _hover={{ background: "white", color: "#0A0A20", borderColor: "white" }} fontSize={"14px"} borderRadius={"4px"} border="1px solid #3D3D4D" w="100%" height={"29px"}>{convertToUpperCase("Play")}</Button>
                                                 </Link>
-                                                {e.edit && <Link style={{width:"100%"}} href={e?.edit} passHref target="_blank"><Button bg="#04041B" _hover={{ background: "white", color: "#0A0A20", borderColor: "white" }} fontSize={"14px"} borderRadius={"4px"} border="1px solid #3D3D4D" w="100%" height={"29px"}>{convertToUpperCase("Edit")}</Button> </Link>}
+                                                {e.edit && <Link style={{width:"100%"}} href={e?.edit} passHref target="_blank"><Button bg="#04041B" _hover={{ background: "white", color: "#0A0A20", borderColor: "white" }}  fontSize={"14px"} borderRadius={"4px"} border="1px solid #3D3D4D" w="100%" height={"29px"}>{convertToUpperCase("Edit")}</Button> </Link>}
                                             </Flex>
                                         </Flex>
                                     );
