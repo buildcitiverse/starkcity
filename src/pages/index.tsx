@@ -116,11 +116,11 @@ useEffect(() => {
           justifyContent={"center"}
           alignItems="center"
         >
-          <Flex mb={"40px"} justifyContent={"center"}>
+          <Flex mb={"40px"} justifyContent={"center"} >
           {/* <InforCenterHome onCheckInstallArgent={handleCheckInstallAgent} onShowModalStarknet = {handleShowModalStarknet}/> */}
           <InforCenterHome onCheckInstallArgent={handleCheckInstallAgent} />
           </Flex>
-          <Flex justifyContent={"center"}>
+          <Flex justifyContent={"center"} backdropFilter={"blur(3px)"} position={"relative"} zIndex={9}>
             <InforMeta />
           </Flex>
           <Image

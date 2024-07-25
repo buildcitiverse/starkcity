@@ -102,11 +102,11 @@ const MapMobile: React.FC = () => {
                     </Flex>
                 </Link>
                 <Flex justifyContent={"space-between"} m="8px 16px">
-                    <Flex fontWeight={700} fontSize={"16px"}>
+                    <Flex fontWeight={700} fontSize={"16px"} cursor={"default"}>
                         Starkcity
                     </Flex>
                     <Flex fontWeight={400} lineHeight={"21px"} fontSize={"14px"}>
-                        <Flex>
+                        <Flex cursor={"default"}>
                             <Text color="#9C9C9C" mr="4px">
                                 Available
                             </Text>
