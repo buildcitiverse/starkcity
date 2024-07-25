@@ -72,7 +72,7 @@ const InforCenterHome: React.FC<InfoCenterHomeProps> = ({ onCheckInstallArgent }
           Welcome to the virtual world’s one-stop-shop for the very best digital assets.
         </Flex>
       </Flex>
-      <Image w="260px" height="42px" src="/assets/images/logo_citiverse.png" alt="icon_city" />
+      <Image w="297px" height="48px" src="/assets/icons/logo_citiverse.svg" alt="icon_city" />
       <Flex gap={"16px"} alignItems={"center"}>
         <Flex fontWeight={400} fontFamily={"Sora"} cursor={"default"} fontSize={textBuildOn}>Build on</Flex>
         {isSmallScreen ? (
