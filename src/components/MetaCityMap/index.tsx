@@ -30,6 +30,7 @@ const MetaCityMap: React.FC = () => {
     const dispatch = useDispatch();
     const selectedItem = useSelector(selectedItemData);
     const dataSelectedItem = selectedItem.selectedItem;
+    console.log('dataSelectedItem :>> ', dataSelectedItem);
     const [showModal, setShowModal] = useState(false);
     const { address, isConnected, chainId } = useAccount();
     const router = useRouter()
@@ -173,9 +174,9 @@ const MetaCityMap: React.FC = () => {
                                                     </Flex>
                                                 </Flex>
                                             </Flex>
-                                            <Flex w='100%' mt="8px">
+                                            <Flex w='100%' mt="8px" zIndex={999}>
                                                 <Link style={{width:"100%", marginRight: e.edit ? "8px" : "0px"}} href={e?.urlShowCase3D} passHref target="_blank">
-                                                    <Button bg="#04041B" _hover={{ background: "white", color: "#0A0A20", borderColor: "white" }} fontSize={"14px"} borderRadius={"4px"} border="1px solid #3D3D4D" w="100%" height={"29px"}>{convertToUpperCase("Play")}</Button>
+                                                    <Button  bg="#04041B" _hover={{ background: "white", color: "#0A0A20", borderColor: "white" }} fontSize={"14px"} borderRadius={"4px"} border="1px solid #3D3D4D" w="100%" height={"29px"}>{convertToUpperCase("Play")}</Button>
                                                 </Link>
                                                 {e.edit && <Link style={{width:"100%"}} href={e?.edit} passHref target="_blank"><Button bg="#04041B" _hover={{ background: "white", color: "#0A0A20", borderColor: "white" }} fontSize={"14px"} borderRadius={"4px"} border="1px solid #3D3D4D" w="100%" height={"29px"}>{convertToUpperCase("Edit")}</Button> </Link>}
                                             </Flex>
