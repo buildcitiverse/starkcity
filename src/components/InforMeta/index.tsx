@@ -1,6 +1,8 @@
-import { Flex, Image } from "@chakra-ui/react";
+import { Flex, Image, useBreakpointValue } from "@chakra-ui/react";
 
 const InforMeta = () => {
+  const gapWrapperr = useBreakpointValue({ base: "20px", "2xl": "40px" });
+
   return (
     <Flex
       w={"326px"}
@@ -8,7 +10,7 @@ const InforMeta = () => {
       bg={"#00000033"}
       p={"24px"}
       flexDirection={"column"}
-      gap={"40px"}
+      gap={gapWrapperr}
       position={"relative"}
       zIndex={2}
       style={{ backdropFilter: "blur(10px)" }}
