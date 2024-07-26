@@ -4,15 +4,16 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 
 interface InfoCenterHomeProps {
-  onCheckInstallArgent: () => void;
+  onQuestionInstall: () => void;
+  onCheckInstallStarknet: () => void;
 }
 
-const InforCenterHome: React.FC<InfoCenterHomeProps> = ({ onCheckInstallArgent }) => {
+const InforCenterHome: React.FC<InfoCenterHomeProps> = ({ onCheckInstallStarknet,onQuestionInstall }) => {
   const fontSizeValue = useBreakpointValue({ base: "56px", lg: "64px" });
   const textWidth = useBreakpointValue({ base: "244px", lg: "auto" });
   const textBuildOn = useBreakpointValue({ base: "18px", lg: "24px" });
   const gapWrapper = useBreakpointValue({ base: "32px", lg: "40px" });
-  const isSmallScreen = useBreakpointValue({ base: true, lg: false });
+  const isSmallScreen = useBreakpointValue({ base: true, sm: false });
 
   const { connect, connectors } = useConnect();
   const router = useRouter();
@@ -22,11 +23,19 @@ const InforCenterHome: React.FC<InfoCenterHomeProps> = ({ onCheckInstallArgent }
     (connector) => connector.id === "argentX"
   );
 
+  // const handleClickExplore = async () => {
+  //   if (argentConnector?.available()) {
+  //     await connect({ connector: argentConnector });
+  //   } else {
+  //     onCheckInstallArgent()
+  //   }
+  // }
+
   const handleClickExplore = async () => {
-    if (argentConnector?.available()) {
-      await connect({ connector: argentConnector });
+    if(argentConnector?.available()){
+      onCheckInstallStarknet()
     } else {
-      onCheckInstallArgent()
+      onQuestionInstall()
     }
   }
 

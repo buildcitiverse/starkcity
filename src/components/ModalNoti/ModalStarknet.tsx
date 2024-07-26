@@ -1,23 +1,50 @@
 import { Flex, Image } from "@chakra-ui/react";
-import { useConnect } from "@starknet-react/core";
+import { useEffect, useState } from "react";
+import { useConnect as useStarknetConnect } from "@starknet-react/core";
 
 interface ModalInstallStarknet {
-  onClickAgrent: () => void; 
-  onClickBravoos: () => void; 
+  onClickAgrent: () => void;
+  onClickBravoos: () => void;
 }
 
-const ModalStarknet: React.FC<ModalInstallStarknet> = ({onClickAgrent,onClickBravoos}) => {
+const ModalStarknet: React.FC<ModalInstallStarknet> = ({
+  onClickAgrent,
+  onClickBravoos,
+}) => {
+  const { connectors: starknetConnectors } = useStarknetConnect();
+  const braavosConnector = starknetConnectors.find(
+    (connector) => connector.id === "braavos"
+  );
+  const argentConnector = starknetConnectors.find(
+    (connector) => connector.id === "argentX"
+  );
 
-  const handleClickAgrent = () =>{
-    onClickAgrent()
-  }
+  const [showInBraavos, setShowInBraavos] = useState(false);
+  const [showInArgent, setShowInArgent] = useState(false);
+  const connectors = [
+    { connector: braavosConnector, setShow: setShowInBraavos },
+    { connector: argentConnector, setShow: setShowInArgent },
+  ];
 
-  const handleClickBravoos = () =>{
-    onClickBravoos()
-  }
+  const handleClickAgrent = () => {
+    onClickAgrent();
+  };
 
-  const { connect, connectors } = useConnect()
+  const handleClickBravoos = () => {
+    onClickBravoos();
+  };
 
+  useEffect(() => {
+    connectors.forEach(({ connector, setShow }) => {
+      const checkConnectorAvailability = () => connector?.available();
+
+      setTimeout(() => {
+        if (!checkConnectorAvailability()) {
+          setShow(true);
+        }
+      }, 100);
+    });
+  }, [braavosConnector, argentConnector]);
 
   return (
     <div className="modal-home">
@@ -33,7 +60,7 @@ const ModalStarknet: React.FC<ModalInstallStarknet> = ({onClickAgrent,onClickBra
               gap: "16px",
             }}
           >
-            {/* <Flex
+            <Flex
               w={"300px"}
               position={"relative"}
               zIndex={"99"}
@@ -46,12 +73,18 @@ const ModalStarknet: React.FC<ModalInstallStarknet> = ({onClickAgrent,onClickBra
               borderRadius={"8px"}
               onClick={handleClickAgrent}
             >
-              <Image
-                src={`/assets/images/icon_argent.png`}
-                width={"107px"}
-                height={"32px"}
-                alt=""
-              />
+              {!showInBraavos ? (
+                <Image
+                  src={`/assets/images/icon_argent.png`}
+                  width={"107px"}
+                  height={"32px"}
+                  alt=""
+                />
+              ) : (
+                <Flex fontWeight={800} fontSize={"18px"} lineHeight={"21px"}>
+                  Install Argent X
+                </Flex>
+              )}
             </Flex>
             <Flex
               w={"300px"}
@@ -66,14 +99,20 @@ const ModalStarknet: React.FC<ModalInstallStarknet> = ({onClickAgrent,onClickBra
               borderRadius={"8px"}
               onClick={handleClickBravoos}
             >
-              <Image
-                src={`/assets/images/imgBravos.png`}
-                width={"129px"}
-                height={"30px"}
-                alt=""
-              />
-            </Flex> */}
-             {
+              {!showInBraavos ? (
+                <Image
+                  src={`/assets/images/imgBravos.png`}
+                  width={"129px"}
+                  height={"30px"}
+                  alt=""
+                />
+              ) : (
+                <Flex fontWeight={800} fontSize={"18px"} lineHeight={"21px"}>
+                  Install Braavos
+                </Flex>
+              )}
+            </Flex>
+            {/* {
           connectors.map((connector) => (
             // <button onClick={(() => connect({ connector }))}>
             //   Connect {connector.id}
@@ -102,7 +141,7 @@ const ModalStarknet: React.FC<ModalInstallStarknet> = ({onClickAgrent,onClickBra
             {connector.name}
           </Flex>
           ))
-        }
+        } */}
           </div>
         </div>
       </div>
