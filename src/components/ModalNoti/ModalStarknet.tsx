@@ -73,7 +73,7 @@ const ModalStarknet: React.FC<ModalInstallStarknet> = ({
               borderRadius={"8px"}
               onClick={handleClickAgrent}
             >
-              {!showInBraavos ? (
+              {!showInArgent ? (
                 <Image
                   src={`/assets/images/icon_argent.png`}
                   width={"107px"}

@@ -1,11 +1,11 @@
 import { Image } from "@chakra-ui/react";
 
-interface ModalInstallProps {
+interface ModalInstallArgentProps {
     onCheckYesStacknet: () => void; 
     onCheckNoStacknet: () => void; 
   }
 
-const ModalInstall : React.FC<ModalInstallProps> = ({onCheckYesStacknet,onCheckNoStacknet}) => {
+const ModalInstallArgent : React.FC<ModalInstallArgentProps> = ({onCheckYesStacknet,onCheckNoStacknet}) => {
 
     const handleYes = () => {
         onCheckYesStacknet()
@@ -42,7 +42,7 @@ const ModalInstall : React.FC<ModalInstallProps> = ({onCheckYesStacknet,onCheckN
               You have to install wallet plugin and connect to explore. Do you
               want to proceed?
             </div>
-            {/* <Image src="assets/icons/agent_icon.svg" alt="" width={"91px"} height={"26px"}/> */}
+            <Image src="assets/icons/agent_icon.svg" alt="" width={"91px"} height={"26px"}/>
             <div style={{display:"flex", gap:"16px"}}>
                 <div onClick={handleYes} style={{width:"80px",cursor:"pointer",  height:"32px", textAlign:"center",border:"1px solid #3D3D4D", borderRadius:"4px", background:"#EC796B"}}>
                     <div style={{ display:"flex",fontSize:"14px", fontWeight:700, height:"100%", justifyContent:"center", alignItems:"center"}}>Yes</div>
@@ -58,4 +58,4 @@ const ModalInstall : React.FC<ModalInstallProps> = ({onCheckYesStacknet,onCheckN
   );
 };
 
-export default ModalInstall;
+export default ModalInstallArgent;

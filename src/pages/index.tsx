@@ -6,19 +6,19 @@ import InforCenterHome from "../components/InforCenterHome";
 import Footer from "../components/Footer";
 import InforMeta from "../components/InforMeta";
 import { Meta } from "../containers/Meta";
-// import ModalInstall from "../components/ModalNoti/ModalInstall";
 import { useRouter } from "next/router";
 import { useAccount, useConnect } from "@starknet-react/core";
 import ModalStarknet from "../components/ModalNoti/ModalStarknet";
-import ModalInstall from "../components/ModalNoti/ModalInstall";
+import ModalInstallArgent from "../components/ModalNoti/ModalInstallArgent";
+import ModalInstallBraavos from "../components/ModalNoti/ModalInstallBraavos";
 
 const Index = () => {
   const displayResponesive = useBreakpointValue({ base: "block", md: "none" });
   const displayDesktop = useBreakpointValue({ base: "none", md: "block" });
   const heightWrapper = useBreakpointValue({ base: "auto", md: "100vh" });
   const mtRes = useBreakpointValue({ base: "110px", sm: "81px" });
-  // const widthMapRes = useBreakpointValue({ base: "110px", sm: "81px" });
   const [showInstall, setShowInstall] = useState(false);
+  const [showQuesBraavos, setShowQuesBraavos] = useState(false);
   const [showInstallStarknet, setShowInstallStarknet] = useState(false);
   const router = useRouter();
   const { connect, connectors } = useConnect();
@@ -32,16 +32,21 @@ const Index = () => {
     (connector) => connector.id === "braavos"
   );
 
-  const handleOnQuestionInstall = () => {
-    setShowInstall(true);
-  };
-
   const handleActionYes = () => {
-    setShowInstallStarknet(true);
+    router.push("https://www.argent.xyz/argent-x/");
   };
 
   const handleActionNo = () => {
     setShowInstall(false);
+  };
+
+  const handleYesBraavos = () => {
+    router.push("https://braavos.app/");
+  };
+
+  const handleNoBraavos = () => {
+    setShowQuesBraavos(false);
+    setShowInstallStarknet(false);
   };
 
   const handleShowModalStarknet = () => {
@@ -49,10 +54,11 @@ const Index = () => {
   };
 
   const handleClickBravoos = async () => {
-    if (argentConnector?.available()) {
+    if (braavosConnector?.available()) {
       await connect({ connector: braavosConnector });
     } else {
-      router.push("https://braavos.app/");
+      setShowQuesBraavos(true);
+      setShowInstallStarknet(false);
     }
   };
 
@@ -60,7 +66,8 @@ const Index = () => {
     if (argentConnector?.available()) {
       await connect({ connector: argentConnector });
     } else {
-      router.push("https://www.argent.xyz/argent-x/");
+      setShowInstallStarknet(false);
+       setShowInstall(true);
     }
   };
 
@@ -173,11 +180,7 @@ const Index = () => {
             height="auto"
             zIndex="2"
           >
-            {/* <InforCenterHome onCheckInstallArgent={handleCheckInstallAgent} onShowModalStarknet = {handleShowModalStarknet} /> */}
-            <InforCenterHome
-              onCheckInstallStarknet={handleShowModalStarknet}
-              onQuestionInstall={handleOnQuestionInstall}
-            />
+            <InforCenterHome onCheckInstallStarknet={handleShowModalStarknet} />
           </Box>
           <Box
             position={"absolute"}
@@ -195,7 +198,7 @@ const Index = () => {
 
         <Footer />
         {showInstall && (
-          <ModalInstall
+          <ModalInstallArgent
             onCheckYesStacknet={handleActionYes}
             onCheckNoStacknet={handleActionNo}
           />
@@ -204,6 +207,12 @@ const Index = () => {
           <ModalStarknet
             onClickAgrent={handleClickAgrent}
             onClickBravoos={handleClickBravoos}
+          />
+        )}
+        {showQuesBraavos && (
+          <ModalInstallBraavos
+            onCheckYesBraavos={handleYesBraavos}
+            onCheckNoBraavos={handleNoBraavos}
           />
         )}
       </Flex>

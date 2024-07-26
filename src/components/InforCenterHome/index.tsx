@@ -4,11 +4,11 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 
 interface InfoCenterHomeProps {
-  onQuestionInstall: () => void;
+  // onQuestionInstall: () => void;
   onCheckInstallStarknet: () => void;
 }
 
-const InforCenterHome: React.FC<InfoCenterHomeProps> = ({ onCheckInstallStarknet,onQuestionInstall }) => {
+const InforCenterHome: React.FC<InfoCenterHomeProps> = ({ onCheckInstallStarknet }) => {
   const fontSizeValue = useBreakpointValue({ base: "56px", lg: "64px" });
   const textWidth = useBreakpointValue({ base: "244px", lg: "auto" });
   const textBuildOn = useBreakpointValue({ base: "18px", lg: "24px" });
@@ -32,12 +32,16 @@ const InforCenterHome: React.FC<InfoCenterHomeProps> = ({ onCheckInstallStarknet
   // }
 
   const handleClickExplore = async () => {
-    if(argentConnector?.available()){
-      onCheckInstallStarknet()
-    } else {
-      onQuestionInstall()
-    }
+    onCheckInstallStarknet ()
   }
+
+  // const handleClickExplore = async () => {
+  //   if(argentConnector?.available()){
+  //     onCheckInstallStarknet()
+  //   } else {
+  //     onQuestionInstall()
+  //   }
+  // }
 
   const handleClickExploreMobile = () => {
     router.push("/explorer")
