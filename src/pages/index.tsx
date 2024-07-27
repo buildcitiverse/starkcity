@@ -225,7 +225,7 @@ const Index = () => {
           <Box
             position={"absolute"}
             right={"0"}
-            top={"50%"}
+            top={"53%"}
             transform={"translateY(-50%)"}
             zIndex="2"
             pr={"0px"}
@@ -233,10 +233,11 @@ const Index = () => {
             paddingRight={"80px"}
             css={{
               "@media (max-width: 1439px) and (min-width: 1024px)": {
-                paddingRight: "20px",
+                paddingRight: "30px",
               },
               "@media (max-width: 1023px) and (min-width: 768px)": {
                 paddingRight: "30px",
+                top:"49%"
               },
             }}
           >

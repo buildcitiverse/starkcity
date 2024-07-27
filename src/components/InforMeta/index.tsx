@@ -20,7 +20,8 @@ const InforMeta = () => {
           padding: "10px 13px",
           width:"290px",
           gap:"15px"
-        }}}
+        }
+      }}
     >
       <Flex flexDirection={"column"} gap={"8px"} >
         <Flex gap= {"10px"} alignItems={"center"}>

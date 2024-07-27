@@ -36,6 +36,11 @@ const Footer = () => {
                 position={"absolute"} 
                 bottom={"0"} 
                 display={{ base: "none", lg: "flex" }} 
+                css={{
+                    '@media (max-width: 1439px) and (min-width: 1024px)': {
+                      padding: "0px 30px 0 80px"
+                    }
+                  }}
             >
                 <Box width="100%" height="100%">
                     <Flex height="100%" alignItems="center" justifyContent={justifyContentValue}>
@@ -67,7 +72,7 @@ const Footer = () => {
             >
                 <Box width="100%" height="100%">
                     <Flex height="100%" alignItems="center" justifyContent={"center"} gap={"8px"} flexDirection={"column"}>
-                        <Flex gap={"24px"} width={"100%"} justifyContent={"center"}>
+                        <Flex gap={"24px"} width={"400px"} justifyContent={"center"}>
                             <Flex alignItems={"center"} gap={"4px"}>
                                 <Flex w={"4px"} borderRadius={"50%"} height={"4px"} bg={"#FFFFFF"} opacity={"60%"}></Flex>
                                 <Flex fontWeight={400} fontSize={"12px"} lineHeight={"26px"} cursor={"pointer"} onClick={handleClickTerms} opacity={"60%"}>Terms and Conditions</Flex>
@@ -82,7 +87,7 @@ const Footer = () => {
                             <Image src="/assets/icons/telegram.svg" onClick={handleClickTele} alt="" w={"24px"} h={"24px"} cursor="pointer" />
                             <Image src="/assets/icons/twitter.svg" onClick={handleClickTwitter} alt="" w={"24px"} h={"24px"} cursor="pointer" />
                         </Flex>
-                        <Flex cursor={"default"} width={"100%"} justifyContent={"center"} fontWeight={500} fontSize={"12px"} lineHeight={"18px"} opacity={"60%"}>© 2024 Citiverse. All rights reserved</Flex>
+                        <Flex cursor={"default"} width={"400px"} justifyContent={"center"} fontWeight={500} fontSize={"12px"} lineHeight={"18px"} opacity={"60%"}>© 2024 Citiverse. All rights reserved</Flex>
                     </Flex>
                 </Box>
             </Flex>
