@@ -15,6 +15,12 @@ const InforMeta = () => {
       zIndex={2}
       style={{ backdropFilter: "blur(10px)" }}
       cursor={"default"}
+      css={{
+        '@media (max-width: 1439px) and (min-width: 1024px)': {
+          padding: "10px 13px",
+          width:"290px",
+          gap:"15px"
+        }}}
     >
       <Flex flexDirection={"column"} gap={"8px"} >
         <Flex gap= {"10px"} alignItems={"center"}>
