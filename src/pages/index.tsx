@@ -16,13 +16,29 @@ const Index = () => {
   const displayResponesive = useBreakpointValue({ base: "block", md: "none" });
   const displayDesktop = useBreakpointValue({ base: "none", md: "block" });
   const heightWrapper = useBreakpointValue({ base: "auto", md: "100vh" });
-  const mtRes = useBreakpointValue({ base: "110px", sm: "81px" });
+  const mtRes = useBreakpointValue({ base: "110px", md: "81px" });
   const [showInstall, setShowInstall] = useState(false);
   const [showQuesBraavos, setShowQuesBraavos] = useState(false);
   const [showInstallStarknet, setShowInstallStarknet] = useState(false);
   const router = useRouter();
   const { connect, connectors } = useConnect();
   const { isConnected, chainId, address } = useAccount();
+  const [imageSrc, setImageSrc] = useState("/assets/images/bgMapRes.png");
+
+  useEffect(() => {
+    const updateImageSrc = () => {
+      if (window.innerWidth >= 444 && window.innerWidth <= 767) {
+        setImageSrc("/assets/images/map_res.png");
+      } else {
+        setImageSrc("/assets/images/bgMapRes.png");
+      }
+    };
+    updateImageSrc();
+    window.addEventListener("resize", updateImageSrc);
+    return () => {
+      window.removeEventListener("resize", updateImageSrc);
+    };
+  }, []);
 
   const argentConnector = connectors.find(
     (connector) => connector.id === "argentX"
@@ -67,8 +83,12 @@ const Index = () => {
       await connect({ connector: argentConnector });
     } else {
       setShowInstallStarknet(false);
-       setShowInstall(true);
+      setShowInstall(true);
     }
+  };
+
+  const handleClickMobile = () => {
+    router.push("");
   };
 
   useEffect(() => {
@@ -130,8 +150,7 @@ const Index = () => {
           alignItems="center"
         >
           <Flex mb={"40px"} justifyContent={"center"}>
-            {/* <InforCenterHome onCheckInstallArgent={handleCheckInstallAgent} onShowModalStarknet = {handleShowModalStarknet}/> */}
-            {/* <InforCenterHome onCheckInstallArgent={handleCheckInstallAgent} /> */}
+            <InforCenterHome onCheckInstallStarknet={() => {}} />
           </Flex>
           <Flex
             justifyContent={"center"}
@@ -142,8 +161,14 @@ const Index = () => {
             <InforMeta />
           </Flex>
           <Image
+            css={{
+              "@media (max-width: 767px) and (min-width: 444px)": {
+                marginTop: "-20px",
+                marginLeft: "-190px",
+              },
+            }}
             mt={"-235px"}
-            src={"/assets/images/bgMapRes.png"}
+            src={imageSrc}
             alt=""
             width={"100%"}
             objectFit={"cover"}
@@ -161,6 +186,15 @@ const Index = () => {
           display={displayDesktop}
         >
           <Image
+            css={{
+              "@media (max-width: 1439px) and (min-width: 1024px)": {
+                width: "50%",
+                left: "-15%",
+              },
+              "@media (max-width: 1023px) and (min-width: 768px)": {
+                display: "none",
+              },
+            }}
             src={"/assets/images/bgleft.png"}
             alt=""
             position="absolute"
@@ -171,6 +205,7 @@ const Index = () => {
             objectFit={"cover"}
             zIndex="1"
           />
+
           <Box
             position="absolute"
             left="50%"
@@ -179,6 +214,11 @@ const Index = () => {
             width="auto"
             height="auto"
             zIndex="2"
+            css={{
+              "@media (max-width: 1023px) and (min-width: 768px)": {
+                left: "30%",
+              },
+            }}
           >
             <InforCenterHome onCheckInstallStarknet={handleShowModalStarknet} />
           </Box>
@@ -191,6 +231,14 @@ const Index = () => {
             pr={"0px"}
             display={displayDesktop}
             paddingRight={"80px"}
+            css={{
+              "@media (max-width: 1439px) and (min-width: 1024px)": {
+                paddingRight: "20px",
+              },
+              "@media (max-width: 1023px) and (min-width: 768px)": {
+                paddingRight: "30px",
+              },
+            }}
           >
             <InforMeta />
           </Box>
