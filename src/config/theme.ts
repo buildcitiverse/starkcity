@@ -17,7 +17,7 @@ const theme = extendTheme({
     xl: "80em",
     "1000px": "62.5em", 
     "2xl": "91em",
-    "1xl": "90em"
+    "1xl": "90em",
   },
   colors: {
     brand: {
