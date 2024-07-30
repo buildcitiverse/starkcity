@@ -1,6 +1,7 @@
 import { Flex, Image } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { useConnect as useStarknetConnect } from "@starknet-react/core";
+import { useRouter } from "next/router";
 
 interface ModalInstallStarknet {
   onClickAgrent: () => void;
@@ -26,6 +27,8 @@ const ModalStarknet: React.FC<ModalInstallStarknet> = ({
     { connector: argentConnector, setShow: setShowInArgent },
   ];
 
+  const router = useRouter()
+
   const handleClickAgrent = () => {
     onClickAgrent();
   };
@@ -33,6 +36,10 @@ const ModalStarknet: React.FC<ModalInstallStarknet> = ({
   const handleClickBravoos = () => {
     onClickBravoos();
   };
+
+  const handleSkip = () => {
+    router.push("/explorer")
+  }
 
   useEffect(() => {
     connectors.forEach(({ connector, setShow }) => {
@@ -60,6 +67,22 @@ const ModalStarknet: React.FC<ModalInstallStarknet> = ({
               gap: "16px",
             }}
           >
+             {(showInArgent || showInBraavos) && (
+                 <div
+                 style={{
+                   fontSize: "16px",
+                   fontWeight: "400",
+                   lineHeight: "21px",
+                   textAlign: "center",
+                   color: "#FFFFFF",
+                   width: "321px",
+                 }}
+               >
+                 To fully experience StarkCity, you need to log in using your
+                 wallet. Please install a wallet plugin to your browser first
+               </div>
+             )}
+           
             <Flex
               w={"300px"}
               position={"relative"}
@@ -112,36 +135,21 @@ const ModalStarknet: React.FC<ModalInstallStarknet> = ({
                 </Flex>
               )}
             </Flex>
-            {/* {
-          connectors.map((connector) => (
-            // <button onClick={(() => connect({ connector }))}>
-            //   Connect {connector.id}
-            // </button>
-            <Flex
-            w={"300px"}
-            position={"relative"}
-            zIndex={"99"}
-            height={"66px"}
-            gap={"8px"}
-            border="1px solid #FFFFFF3D"
-            cursor={"pointer"}
-            justifyContent={"center"}
-            alignItems={"center"}
-            borderRadius={"8px"}
-            key={connector.id}
-            onClick={(() => connect({ connector }))}
-          >
-            {connector.name !== "Argent (mobile)" && <Image
-              src={String(connector.icon.light)}
-              width={"40px"}
-              height={"30px"}
-              alt=""
-            />}
-            <img src={String(connector.icon)} alt="" />
-            {connector.name}
-          </Flex>
-          ))
-        } */}
+            {(showInArgent || showInBraavos) && (
+              <Flex
+              position={"relative"}
+              zIndex={"99"}
+              padding={"8px 25px"}
+              border="1px solid #FFFFFF3D"
+              cursor={"pointer"}
+              justifyContent={"center"}
+              alignItems={"center"}
+              onClick={handleSkip}
+            >
+              Skip
+            </Flex>
+            )}
+            
           </div>
         </div>
       </div>
