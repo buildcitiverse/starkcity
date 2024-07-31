@@ -48,17 +48,17 @@ const Index = () => {
     (connector) => connector.id === "braavos"
   );
 
-  const handleActionYes = () => {
-    router.push("https://www.argent.xyz/argent-x/");
-  };
+  // const handleActionYes = () => {
+  //   router.push("https://www.argent.xyz/argent-x/");
+  // };
 
-  const handleActionNo = () => {
-    setShowInstall(false);
-  };
+  // const handleActionNo = () => {
+  //   setShowInstall(false);
+  // };
 
-  const handleYesBraavos = () => {
-    router.push("https://braavos.app/");
-  };
+  // const handleYesBraavos = () => {
+  //   router.push("https://braavos.app/");
+  // };
 
   const handleNoBraavos = () => {
     setShowQuesBraavos(false);
@@ -73,8 +73,7 @@ const Index = () => {
     if (braavosConnector?.available()) {
       await connect({ connector: braavosConnector });
     } else {
-      setShowQuesBraavos(true);
-      setShowInstallStarknet(false);
+      router.push("https://braavos.app/");
     }
   };
 
@@ -82,14 +81,13 @@ const Index = () => {
     if (argentConnector?.available()) {
       await connect({ connector: argentConnector });
     } else {
-      setShowInstallStarknet(false);
-      setShowInstall(true);
+      router.push("https://www.argent.xyz/argent-x/");
     }
   };
 
-  const handleClickMobile = () => {
-    router.push("");
-  };
+  // const handleClickMobile = () => {
+  //   router.push("");
+  // };
 
   useEffect(() => {
     const switchChain = async () => {
@@ -237,7 +235,7 @@ const Index = () => {
               },
               "@media (max-width: 1023px) and (min-width: 768px)": {
                 paddingRight: "30px",
-                top:"49%"
+                top: "49%",
               },
             }}
           >
@@ -246,24 +244,24 @@ const Index = () => {
         </Flex>
 
         <Footer />
-        {showInstall && (
+        {/* {showInstall && (
           <ModalInstallArgent
             onCheckYesStacknet={handleActionYes}
             onCheckNoStacknet={handleActionNo}
           />
-        )}
+        )} */}
         {showInstallStarknet && (
           <ModalStarknet
             onClickAgrent={handleClickAgrent}
             onClickBravoos={handleClickBravoos}
           />
         )}
-        {showQuesBraavos && (
+        {/* {showQuesBraavos && (
           <ModalInstallBraavos
             onCheckYesBraavos={handleYesBraavos}
             onCheckNoBraavos={handleNoBraavos}
           />
-        )}
+        )} */}
       </Flex>
     </>
   );
