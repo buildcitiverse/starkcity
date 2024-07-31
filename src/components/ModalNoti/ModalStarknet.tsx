@@ -56,7 +56,7 @@ const ModalStarknet: React.FC<ModalInstallStarknet> = ({
   return (
     <div className="modal-home">
       <div className="modal-overlay"></div>
-      <div className="modal-body">
+      <div style={{width:"501px"}} className="modal-body">
         <div className="modal-inner">
           <div
             style={{
@@ -68,19 +68,9 @@ const ModalStarknet: React.FC<ModalInstallStarknet> = ({
             }}
           >
              {(showInArgent || showInBraavos) && (
-                 <div
-                 style={{
-                   fontSize: "16px",
-                   fontWeight: "400",
-                   lineHeight: "21px",
-                   textAlign: "center",
-                   color: "#FFFFFF",
-                   width: "321px",
-                 }}
-               >
-                 To fully experience StarkCity, you need to log in using your
-                 wallet. Please install a wallet plugin to your browser first
-               </div>
+
+              <Flex fontSize={"16px"} fontWeight={400} lineHeight={"21px"} textAlign={"center"} color={"#FFFFFF"}>  To fully experience StarkCity, you need to log in using your
+              wallet. Please install a wallet plugin to your browser first.</Flex>
              )}
            
             <Flex
@@ -143,8 +133,11 @@ const ModalStarknet: React.FC<ModalInstallStarknet> = ({
               border="1px solid #FFFFFF3D"
               cursor={"pointer"}
               justifyContent={"center"}
+              height={"66px"}
               alignItems={"center"}
               onClick={handleSkip}
+              w={"300px"}
+              fontWeight={800} fontSize={"18px"} lineHeight={"21px"}
             >
               Skip
             </Flex>
