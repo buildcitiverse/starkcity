@@ -2,6 +2,7 @@ import { Flex, Image } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { useConnect as useStarknetConnect } from "@starknet-react/core";
 import { useRouter } from "next/router";
+import { ArrowRightIcon } from "@chakra-ui/icons";
 
 interface ModalInstallStarknet {
   onClickAgrent: () => void;
@@ -67,19 +68,20 @@ const ModalStarknet: React.FC<ModalInstallStarknet> = ({
               gap: "16px",
             }}
           >
-            {(showInArgent || showInBraavos) && (
-              <Flex
-                fontSize={"16px"}
-                mb={"10px"}
-                fontWeight={400}
-                lineHeight={"21px"}
-                textAlign={"center"}
-                color={"#FFFFFF"}
-              >
-                To fully experience StarkCity, you need to log in using your
-                wallet. Please install a wallet plugin to your browser first.
-              </Flex>
-            )}
+            <Flex
+              fontSize={"16px"}
+              mb={"10px"}
+              fontWeight={400}
+              lineHeight={"21px"}
+              textAlign={"center"}
+              color={"#FFFFFF"}
+            >
+              To fully experience StarkCity, you need to log in using your
+              wallet.{" "}
+              {showInArgent &&
+                showInBraavos &&
+                "Please install a wallet plugin to your browser first."}
+            </Flex>
 
             {!showInArgent && (
               <Flex
@@ -103,24 +105,25 @@ const ModalStarknet: React.FC<ModalInstallStarknet> = ({
                 />
               </Flex>
             )}
-               {showInBraavos && showInArgent && (
-            <Flex
-              w={"300px"}
-              position={"relative"}
-              zIndex={"99"}
-              height={"66px"}
-              gap={"8px"}
-              border="1px solid #FFFFFF3D"
-              cursor={"pointer"}
-              justifyContent={"center"}
-              alignItems={"center"}
-              borderRadius={"8px"}
-              onClick={handleClickAgrent}
-            >
-              <Flex fontWeight={800} fontSize={"18px"} lineHeight={"21px"}>
-                Install Argent X
+            {showInBraavos && showInArgent && (
+              <Flex
+                w={"300px"}
+                position={"relative"}
+                zIndex={"99"}
+                height={"66px"}
+                gap={"8px"}
+                border="1px solid #FFFFFF3D"
+                cursor={"pointer"}
+                justifyContent={"center"}
+                alignItems={"center"}
+                borderRadius={"8px"}
+                onClick={handleClickAgrent}
+              >
+                <Flex fontWeight={800} fontSize={"18px"} lineHeight={"21px"}>
+                  Install Argent X
+                </Flex>
               </Flex>
-            </Flex>)}
+            )}
 
             {!showInBraavos && (
               <Flex
@@ -164,26 +167,28 @@ const ModalStarknet: React.FC<ModalInstallStarknet> = ({
               </Flex>
             )}
 
-            {(showInArgent || showInBraavos) && (
-              <Flex
-                position={"relative"}
-                borderRadius={"10px"}
-                zIndex={"99"}
-                padding={"8px 25px"}
-                border="1px solid #FFFFFF3D"
-                cursor={"pointer"}
-                justifyContent={"center"}
-                height={"66px"}
-                alignItems={"center"}
-                onClick={handleSkip}
-                w={"300px"}
-                fontWeight={800}
-                fontSize={"18px"}
-                lineHeight={"21px"}
-              >
-                Skip
+            <Flex
+              position={"relative"}
+              borderRadius={"10px"}
+              zIndex={"99"}
+              padding={"8px 25px"}
+              border="1px solid #FFFFFF3D"
+              cursor={"pointer"}
+              justifyContent={"center"}
+              height={"66px"}
+              alignItems={"center"}
+              onClick={handleSkip}
+              w={"300px"}
+              fontWeight={800}
+              fontSize={"18px"}
+              lineHeight={"21px"}
+              gap={"10px"}
+            >
+              <Flex> Skip</Flex>
+              <Flex>
+                <ArrowRightIcon />
               </Flex>
-            )}
+            </Flex>
           </div>
         </div>
       </div>

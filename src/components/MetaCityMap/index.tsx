@@ -27,6 +27,7 @@ const MetaCityMap: React.FC = () => {
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
     const [searchQuery, setSearchQuery] = useState<string>("");
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+    const [showButtonActionWallet, setshowButtonActionWallet] = useState(false)
     const dispatch = useDispatch();
     const selectedItem = useSelector(selectedItemData);
     const dataSelectedItem = selectedItem.selectedItem;
@@ -35,6 +36,8 @@ const MetaCityMap: React.FC = () => {
     const { address, isConnected, chainId } = useAccount();
     const router = useRouter()
     const { disconnect } = useDisconnect();
+
+    const addressLocal = localStorage.getItem("userAddress");
 
     const handleItemClick = (item: any, index: number) => {
         setActiveIndex(index);
@@ -57,6 +60,16 @@ const MetaCityMap: React.FC = () => {
         router.push("/")
     }
 
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            if (addressLocal) {
+                setshowButtonActionWallet(true);
+            }
+        }, 300);
+    
+        return () => clearTimeout(timer);
+    }, [addressLocal]);
+
     const filteredList = listMetaCityMap.filter(item =>
         item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
         item.id.toString().includes(searchQuery)
@@ -78,7 +91,7 @@ const MetaCityMap: React.FC = () => {
         <>
             <Flex w="100%" justifyContent={"center"} height={"100vh"} bg="rgba(4, 4, 27, 1)" overflow={"hidden"}>
                 <Flex bg="white" height={"100%"} w="100%" position={"relative"}>
-                  <ButtonActionWallet/>
+                {showButtonActionWallet && <ButtonActionWallet />}
                     <Flex
                         maxW={"334px"}
                         minW={"334px"}

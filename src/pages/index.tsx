@@ -60,14 +60,21 @@ const Index = () => {
   //   router.push("https://braavos.app/");
   // };
 
-  const handleNoBraavos = () => {
-    setShowQuesBraavos(false);
-    setShowInstallStarknet(false);
-  };
+  // const handleNoBraavos = () => {
+  //   setShowQuesBraavos(false);
+  //   setShowInstallStarknet(false);
+  // };
+
 
   const handleShowModalStarknet = () => {
-    setShowInstallStarknet(true);
+    const addressLocal = localStorage.getItem("userAddress");
+    if (addressLocal) {
+      router.push("/explorer")
+    } else {
+      setShowInstallStarknet(true);
+    }
   };
+  
 
   const handleClickBravoos = async () => {
     if (braavosConnector?.available()) {
@@ -84,10 +91,6 @@ const Index = () => {
       router.push("https://www.argent.xyz/argent-x/");
     }
   };
-
-  // const handleClickMobile = () => {
-  //   router.push("");
-  // };
 
   useEffect(() => {
     const switchChain = async () => {
