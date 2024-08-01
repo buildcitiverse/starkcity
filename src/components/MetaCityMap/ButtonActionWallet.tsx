@@ -44,8 +44,8 @@ const ButtonActionWallet = () => {
         justifyContent={"center"}
         cursor={"pointer"}
         onClick={handleShowDisconnect}
-        transition={"transform 0.3s ease"} // Thêm transition cho hiệu ứng
-        transform={showDisconnect ? "translateX(-162px)" : "translateX(0)"} // Thay đổi vị trí khi showDisconnect = true
+        transition={"transform 0.3s ease"} 
+        transform={showDisconnect ? "translateX(-162px)" : "translateX(0)"} 
       >
         <Flex
           fontWeight={800}
