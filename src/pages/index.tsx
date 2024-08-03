@@ -99,6 +99,8 @@
       watch: true,
     });
 
+    console.log(dataMinted,'dataMinted')
+
     const handleClickBravoos = async () => {
       try {
         await connect({ connector: braavosConnector });
@@ -131,7 +133,7 @@
           await window.starknet.request({
             type: "wallet_switchStarknetChain",
             params: {
-              chainId: "SN_SEPOLIA",
+              chainId: "20240803173753",
             },
           });
         }
@@ -155,6 +157,12 @@
 
       return () => clearTimeout(timeout);
     }, [address, callContract]);
+
+    useEffect(()=>{
+      if(isConnected){
+        setShowInstallStarknet(false)
+      }
+    },[isConnected])
 
     useEffect(() => {
       const redirectToExplorer = async () => {

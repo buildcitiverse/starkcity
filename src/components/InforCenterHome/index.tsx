@@ -42,7 +42,7 @@ const InforCenterHome: React.FC<InfoCenterHomeProps> = ({
 
   useEffect(() => {
     const switchChain = async () => {
-      if (isConnected) {
+      if (isConnected || address) {
         await window.starknet.request({
           type: "wallet_switchStarknetChain",
           params: {
@@ -52,7 +52,7 @@ const InforCenterHome: React.FC<InfoCenterHomeProps> = ({
       }
     };
     switchChain();
-  }, [isConnected]);
+  }, [isConnected, address]);
 
   // const { contract } = useContract({
   //   abi: abi,
