@@ -1,6 +1,6 @@
 import { Button, Flex, Input, InputGroup, InputLeftElement, Text, background } from "@chakra-ui/react";
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
+import { useState, useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { listMetaCityMap } from "./config";
 import { Image as ImageChakra } from '@chakra-ui/react';
@@ -10,10 +10,11 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { getTruncateHash } from "@/src/utils/getTruncateHash";
 import ModalNoti from "../ModalNoti";
-import { useAccount,useDisconnect } from "@starknet-react/core";
+import { useAccount,useContractRead,useDisconnect } from "@starknet-react/core";
 import { convertToUpperCase } from "@/src/utils/convertToUpperCase";
 import ButtonActionWallet from "./ButtonActionWallet";
 import { useRouter } from "next/router";
+import abi from "../../config/abi/abi.json";
 
 enum colorRank {
   diamond= '#490254',  // Light green
@@ -37,12 +38,19 @@ const MetaCityMap: React.FC = () => {
     const router = useRouter()
     const { disconnect } = useDisconnect();
 
-    const addressLocal = localStorage.getItem("userAddress");
-
     const handleItemClick = (item: any, index: number) => {
         setActiveIndex(index);
         dispatch(setSelectedItem(item));
     };
+
+    const { data: dataMinted, refetch: refetchData } = useContractRead({
+        functionName: "minted",
+        args: [address as String],
+        abi: abi,
+        address:
+          "0x06C1e915560589703C87ED758866aDadcd9acD324193e7F4C300C7357c9ffc3b",
+        watch: true,
+      });
 
     useEffect(() => {
         if (
@@ -60,16 +68,25 @@ const MetaCityMap: React.FC = () => {
         router.push("/")
     }
 
+    useEffect (()=>{
+        if(dataMinted === false){
+            disconnect()
+            localStorage.removeItem("userAddress");
+            router.push("/")
+        }
+    },[dataMinted])
+
     useEffect(() => {
         const timer = setTimeout(() => {
-            if (addressLocal) {
+            if (address) {
                 setshowButtonActionWallet(true);
             }
         }, 300);
     
         return () => clearTimeout(timer);
-    }, [addressLocal]);
+    }, [address]);
 
+    
     const filteredList = listMetaCityMap.filter(item =>
         item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
         item.id.toString().includes(searchQuery)
@@ -89,6 +106,7 @@ const MetaCityMap: React.FC = () => {
 
     return (
         <>
+      
             <Flex w="100%" justifyContent={"center"} height={"100vh"} bg="rgba(4, 4, 27, 1)" overflow={"hidden"}>
                 <Flex bg="white" height={"100%"} w="100%" position={"relative"}>
                 {showButtonActionWallet && <ButtonActionWallet />}
