@@ -159,7 +159,7 @@
     }, [address, callContract]);
 
     useEffect(()=>{
-      if(isConnected){
+      if(isConnected || address){
         setShowInstallStarknet(false)
       }
     },[isConnected])
