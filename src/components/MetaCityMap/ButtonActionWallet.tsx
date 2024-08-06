@@ -1,13 +1,13 @@
 import { Flex, Image } from "@chakra-ui/react";
 import React, { useState } from "react";
-import { useDisconnect } from "@starknet-react/core";
+import { useAccount, useDisconnect } from "@starknet-react/core";
 import { useRouter } from "next/router";
 
 const ButtonActionWallet = () => {
   const { disconnect } = useDisconnect();
   const router = useRouter();
   const [showDisconnect, setShowDisconnect] = useState(false);
-  const address = localStorage.getItem("userAddress");
+  const { address, isConnected, chainId } = useAccount();
 
   const shortenAddress = (address: any) => {
     if (!address) return "";
@@ -18,7 +18,6 @@ const ButtonActionWallet = () => {
 
   const handleDisconnect = () => {
     disconnect();
-    localStorage.removeItem("userAddress");
     router.push("/");
   };
 

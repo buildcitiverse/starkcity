@@ -1,6 +1,6 @@
 import { Button, Flex, Input, InputGroup, InputLeftElement, Text, background } from "@chakra-ui/react";
 import Image from 'next/image';
-import { useState, useEffect} from 'react';
+import { useState, useEffect, useMemo} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { listMetaCityMap } from "./config";
 import { Image as ImageChakra } from '@chakra-ui/react';
@@ -10,7 +10,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { getTruncateHash } from "@/src/utils/getTruncateHash";
 import ModalNoti from "../ModalNoti";
-import { useAccount,useContractRead,useDisconnect } from "@starknet-react/core";
+import { useAccount,useContract,useContractRead,useContractWrite,useDisconnect } from "@starknet-react/core";
 import { convertToUpperCase } from "@/src/utils/convertToUpperCase";
 import ButtonActionWallet from "./ButtonActionWallet";
 import { useRouter } from "next/router";
@@ -43,7 +43,13 @@ const MetaCityMap: React.FC = () => {
         dispatch(setSelectedItem(item));
     };
 
-    const { data: dataMinted, refetch: refetchData } = useContractRead({
+    const { contract } = useContract({
+        abi: abi,
+        address:
+          "0x06C1e915560589703C87ED758866aDadcd9acD324193e7F4C300C7357c9ffc3b",
+      });
+
+    const { data: dataMinted } = useContractRead({
         functionName: "minted",
         args: [address as String],
         abi: abi,
@@ -64,17 +70,21 @@ const MetaCityMap: React.FC = () => {
     }, [chainId, isConnected]);
 
     const handleHome = () => {
-        disconnect()
         router.push("/")
     }
 
-    useEffect (()=>{
-        if(dataMinted === false){
-            disconnect()
-            localStorage.removeItem("userAddress");
-            router.push("/")
+    console.log(dataMinted,'dataM')
+    console.log(address,'addM')
+
+    useEffect(() => {
+        if (dataMinted === false) {
+            setTimeout(() => {
+                disconnect();
+                router.push("/");
+            }, 1000); 
         }
-    },[dataMinted])
+    }, [dataMinted, address]);
+    
 
     useEffect(() => {
         const timer = setTimeout(() => {

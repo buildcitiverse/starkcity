@@ -1,5 +1,4 @@
 import { Flex, Text, Image, Button } from "@chakra-ui/react";
-import { useDisconnect } from "@starknet-react/core";
 import { useRouter } from "next/router";
 import React from "react";
 
@@ -12,9 +11,7 @@ interface ButtonMapProps {
 const ButtonMap: React.FC<ButtonMapProps> = ({ handleZoomIn, handleZoomOut }) => {
     ;
     const router = useRouter()
-    const { disconnect } = useDisconnect();
     const handleHome = () => {
-        disconnect()
         router.push("/")
     }
     return (
