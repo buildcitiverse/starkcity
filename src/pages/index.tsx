@@ -31,8 +31,7 @@ const Index = () => {
   const [imageSrc, setImageSrc] = useState("/assets/images/bgMapRes.png");
   const [callContract, setCallContract] = useState(true);
 
-  const addressLocal =
-    typeof window !== "undefined" ? localStorage.getItem("userAddress") : null;
+  console.log(address,'address')
 
   useEffect(() => {
     const updateImageSrc = () => {
@@ -83,6 +82,8 @@ const Index = () => {
       "0x06C1e915560589703C87ED758866aDadcd9acD324193e7F4C300C7357c9ffc3b",
     watch: true,
   });
+
+  console.log(dataMinted,'dataMinted')
 
   const { handleClickAgrent } = useHandleClickAgrent(argentConnector);
   const { handleClickBravoos } = useHandleClickBravoos(braavosConnector);
