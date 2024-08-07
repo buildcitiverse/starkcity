@@ -128,6 +128,19 @@ const Index = () => {
     }
   };
   
+  useEffect(() => {
+    const hasReloaded = localStorage.getItem("hasReloaded");
+    if (!hasReloaded) {
+      localStorage.setItem("hasReloaded", "true");
+      window.location.reload();
+    }
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      localStorage.removeItem("hasReloaded");
+    };
+  }, []);
 
   return (
     <>
