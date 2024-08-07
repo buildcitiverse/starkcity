@@ -58,16 +58,20 @@ export const useHandleClickBravoos = (braavosConnector: any) => {
 
 
   useEffect(() => {
-    if (address && (dataMinted === undefined || dataMinted === false) ) {
-      writeAsync()
-        .then(() => {
-        setCallContract(true)
-          refetchData();
-        })
-        .catch((error: any) => {
-          console.error("Error verify code:", error);
-        });
-    }
+    const delayFunction = () => {
+      if (address && (dataMinted === undefined || dataMinted === false)) {
+        writeAsync()
+          .then(() => {
+            setCallContract(true);
+            refetchData();
+          })
+          .catch((error: any) => {
+            console.error("Error verify code:", error);
+          });
+      }
+    };
+    const timer = setTimeout(delayFunction, 1000);
+    return () => clearTimeout(timer);
   }, [address, dataMinted]);
 
   useEffect(() => {
