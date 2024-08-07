@@ -27,12 +27,11 @@ const Index = () => {
   const [showInstallStarknet, setShowInstallStarknet] = useState(false);
   const router = useRouter();
   const { connect, connectors } = useConnect();
-  const { isConnected, chainId, address } = useAccount();
+  const { isConnected, chainId, address, isDisconnected } = useAccount();
   const [imageSrc, setImageSrc] = useState("/assets/images/bgMapRes.png");
   const [callContract, setCallContract] = useState(true);
 
-  const addressLocal =
-    typeof window !== "undefined" ? localStorage.getItem("userAddress") : null;
+  console.log(address, "address");
 
   useEffect(() => {
     const updateImageSrc = () => {
@@ -74,7 +73,7 @@ const Index = () => {
   const { writeAsync, data: dataVerify } = useContractWrite({
     calls,
   });
-
+  
   const { data: dataMinted, refetch: refetchData } = useContractRead({
     functionName: "minted",
     args: [address as String],
@@ -83,6 +82,8 @@ const Index = () => {
       "0x06C1e915560589703C87ED758866aDadcd9acD324193e7F4C300C7357c9ffc3b",
     watch: true,
   });
+
+  console.log(dataMinted, "dataMinted");
 
   const { handleClickAgrent } = useHandleClickAgrent(argentConnector);
   const { handleClickBravoos } = useHandleClickBravoos(braavosConnector);
@@ -108,8 +109,6 @@ const Index = () => {
   }, [isConnected, address]);
 
   const handleShowModalStarknet = async () => {
-    console.log(dataMinted)
-    console.log(address)
     if (address) {
       if (dataMinted === undefined || dataMinted === false) {
         writeAsync()
@@ -119,15 +118,14 @@ const Index = () => {
           .catch((error: any) => {
             console.error("Error verify code:", error);
           });
-          console.log('1')
       } else {
-        router.push('/explorer')
+        router.push("/explorer");
       }
     } else {
       setShowInstallStarknet(true);
     }
   };
-  
+
   useEffect(() => {
     const hasReloaded = localStorage.getItem("hasReloaded");
     if (!hasReloaded) {
@@ -141,7 +139,6 @@ const Index = () => {
       localStorage.removeItem("hasReloaded");
     };
   }, []);
-
   return (
     <>
       <Meta

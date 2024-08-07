@@ -34,7 +34,7 @@ const MetaCityMap: React.FC = () => {
     const dataSelectedItem = selectedItem.selectedItem;
     console.log('dataSelectedItem :>> ', dataSelectedItem);
     const [showModal, setShowModal] = useState(false);
-    const { address, isConnected, chainId } = useAccount();
+    const { address, isConnected, chainId, isDisconnected, status } = useAccount();
     const router = useRouter()
     const { disconnect } = useDisconnect();
 
@@ -42,12 +42,28 @@ const MetaCityMap: React.FC = () => {
         setActiveIndex(index);
         dispatch(setSelectedItem(item));
     };
+    
+    console.log(isDisconnected,'isDisconnected')
+    console.log(status,'status')
 
     const { contract } = useContract({
         abi: abi,
         address:
           "0x06C1e915560589703C87ED758866aDadcd9acD324193e7F4C300C7357c9ffc3b",
       });
+
+      const calls = useMemo(() => {
+        if (!address || !contract) return [];
+        return contract.populateTransaction["init_mint"]!(address, {
+          low: 1,
+          high: 0,
+        });
+      }, [contract, address]);
+    
+      const { writeAsync, data: dataVerify } = useContractWrite({
+        calls,
+      });
+    
 
     const { data: dataMinted } = useContractRead({
         functionName: "minted",
