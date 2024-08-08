@@ -124,7 +124,7 @@ const Index = () => {
     }, 2000);
 
     return () => clearTimeout(timeout);
-  }, [address, callContract]);
+  }, [address, callContract, dataMinted]);
 
   //Check router explorer
   useEffect(() => {
@@ -189,8 +189,6 @@ const Index = () => {
       setShowInstallStarknet(true);
     }
   };
-
-  console.log(dataMinted, "dataMinted");
 
   useEffect(() => {
     const hasReloaded = localStorage.getItem("hasReloaded");
