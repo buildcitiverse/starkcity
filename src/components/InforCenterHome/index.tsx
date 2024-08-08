@@ -167,12 +167,9 @@ const InforCenterHome: React.FC<InfoCenterHomeProps> = ({
         borderRadius={"51px"}
         justifyContent={"center"}
         align={"center"}
+        onClick={isSmallScreen2 ? handleClickExploreMobile : handleClickExplore}
       >
-        <Flex
-          onClick={
-            isSmallScreen2 ? handleClickExploreMobile : handleClickExplore
-          }
-        >
+        <Flex>
           <Image
             alt=""
             src="/assets/icons/mountain.svg"
