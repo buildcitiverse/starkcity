@@ -1,6 +1,6 @@
 import { Button, Flex, Input, InputGroup, InputLeftElement, Text, background } from "@chakra-ui/react";
 import Image from 'next/image';
-import { useState, useEffect, useMemo} from 'react';
+import { useState, useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { listMetaCityMap } from "./config";
 import { Image as ImageChakra } from '@chakra-ui/react';
@@ -10,7 +10,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { getTruncateHash } from "@/src/utils/getTruncateHash";
 import ModalNoti from "../ModalNoti";
-import { useAccount,useContract,useContractRead,useContractWrite,useDisconnect } from "@starknet-react/core";
+import { useAccount,useContractRead,useDisconnect } from "@starknet-react/core";
 import { convertToUpperCase } from "@/src/utils/convertToUpperCase";
 import ButtonActionWallet from "./ButtonActionWallet";
 import { useRouter } from "next/router";
@@ -42,28 +42,6 @@ const MetaCityMap: React.FC = () => {
         setActiveIndex(index);
         dispatch(setSelectedItem(item));
     };
-    
-    console.log(isDisconnected,'isDisconnected')
-    console.log(status,'status')
-
-    const { contract } = useContract({
-        abi: abi,
-        address:
-          "0x06C1e915560589703C87ED758866aDadcd9acD324193e7F4C300C7357c9ffc3b",
-      });
-
-      const calls = useMemo(() => {
-        if (!address || !contract) return [];
-        return contract.populateTransaction["init_mint"]!(address, {
-          low: 1,
-          high: 0,
-        });
-      }, [contract, address]);
-    
-      const { writeAsync, data: dataVerify } = useContractWrite({
-        calls,
-      });
-    
 
     const { data: dataMinted } = useContractRead({
         functionName: "minted",
@@ -89,9 +67,6 @@ const MetaCityMap: React.FC = () => {
         router.push("/")
     }
 
-    console.log(dataMinted,'dataM')
-    console.log(address,'addM')
-
     useEffect(() => {
         if (dataMinted === false) {
             setTimeout(() => {
@@ -101,7 +76,6 @@ const MetaCityMap: React.FC = () => {
         }
     }, [dataMinted, address]);
     
-
     useEffect(() => {
         const timer = setTimeout(() => {
             if (address) {

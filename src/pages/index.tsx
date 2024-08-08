@@ -16,8 +16,6 @@ import {
 } from "@starknet-react/core";
 import ModalStarknet from "../components/ModalNoti/ModalStarknet";
 import abi from "../config/abi/abi.json";
-import { useHandleClickAgrent } from "../hooks/useHandleClickAgrent";
-import { useHandleClickBravoos } from "../hooks/useHandleClickBraavos";
 
 const Index = () => {
   const displayResponesive = useBreakpointValue({ base: "block", md: "none" });
@@ -27,35 +25,12 @@ const Index = () => {
   const [showInstallStarknet, setShowInstallStarknet] = useState(false);
   const router = useRouter();
   const { connect, connectors } = useConnect();
-  const { isConnected, chainId, address, isDisconnected } = useAccount();
+  const { isConnected, chainId, address } = useAccount();
   const [imageSrc, setImageSrc] = useState("/assets/images/bgMapRes.png");
   const [callContract, setCallContract] = useState(true);
+  const [actionConnect, setActionConnect] = useState(false);
 
-  console.log(address, "address");
-
-  useEffect(() => {
-    const updateImageSrc = () => {
-      if (window.innerWidth >= 444 && window.innerWidth <= 767) {
-        setImageSrc("/assets/images/map_res.png");
-      } else {
-        setImageSrc("/assets/images/bgMapRes.png");
-      }
-    };
-    updateImageSrc();
-    window.addEventListener("resize", updateImageSrc);
-    return () => {
-      window.removeEventListener("resize", updateImageSrc);
-    };
-  }, []);
-
-  const argentConnector = connectors.find(
-    (connector) => connector.id === "argentX"
-  );
-
-  const braavosConnector = connectors.find(
-    (connector) => connector.id === "braavos"
-  );
-
+  //Write && Read Contract
   const { contract } = useContract({
     abi: abi,
     address:
@@ -73,7 +48,7 @@ const Index = () => {
   const { writeAsync, data: dataVerify } = useContractWrite({
     calls,
   });
-  
+
   const { data: dataMinted, refetch: refetchData } = useContractRead({
     functionName: "minted",
     args: [address as String],
@@ -83,11 +58,95 @@ const Index = () => {
     watch: true,
   });
 
-  console.log(dataMinted, "dataMinted");
+  //Connect Starknet
+  const argentConnector = connectors.find(
+    (connector) => connector.id === "argentX"
+  );
 
-  const { handleClickAgrent } = useHandleClickAgrent(argentConnector);
-  const { handleClickBravoos } = useHandleClickBravoos(braavosConnector);
+  const braavosConnector = connectors.find(
+    (connector) => connector.id === "braavos"
+  );
 
+  const handleClickAgrent = async () => {
+    if (argentConnector?.available()) {
+      try {
+        await connect({ connector: argentConnector });
+        setActionConnect(true);
+      } catch (error: any) {
+        console.error("Error connecting or verifying code:", error);
+      }
+    } else {
+      router.push("https://www.argent.xyz/argent-x/");
+    }
+  };
+
+  const handleClickBravoos = async () => {
+    if (braavosConnector?.available()) {
+      try {
+        await connect({ connector: braavosConnector });
+        setActionConnect(true);
+      } catch (error: any) {
+        console.error("Error connecting or verifying code:", error);
+      }
+    } else {
+      router.push("https://braavos.app/");
+    }
+  };
+  
+  //Resize Image
+  useEffect(() => {
+    const updateImageSrc = () => {
+      if (window.innerWidth >= 444 && window.innerWidth <= 767) {
+        setImageSrc("/assets/images/map_res.png");
+      } else {
+        setImageSrc("/assets/images/bgMapRes.png");
+      }
+    };
+    updateImageSrc();
+    window.addEventListener("resize", updateImageSrc);
+    return () => {
+      window.removeEventListener("resize", updateImageSrc);
+    };
+  }, []);
+  
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      if ((callContract === false || address) && (dataMinted === false )) {
+        writeAsync()
+          .then(() => {
+            setCallContract(true);
+            refetchData();
+          })
+          .catch((error: any) => {
+            console.error("Error verify code:", error);
+          });
+      }
+    }, 2000);
+
+    return () => clearTimeout(timeout);
+  }, [address, callContract]);
+
+  //Check router explorer
+  useEffect(() => {
+    if (
+      isConnected &&
+      actionConnect &&
+      chainId === BigInt("393402133025997798000961") &&
+      dataMinted
+    ) {
+      const timer = setTimeout(() => {
+        router.push("/explorer");
+      }, 1000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [isConnected, chainId, dataMinted]);
+
+  useEffect(() => {
+    setActionConnect(false);
+  }, [router]);
+
+  //Switch network
   useEffect(() => {
     const switchChain = async () => {
       if (isConnected) {
@@ -102,6 +161,7 @@ const Index = () => {
     switchChain();
   }, [isConnected]);
 
+  //Show Modal Starknet
   useEffect(() => {
     if (isConnected || address) {
       setShowInstallStarknet(false);
@@ -119,12 +179,18 @@ const Index = () => {
             console.error("Error verify code:", error);
           });
       } else {
-        router.push("/explorer");
+        const timer = setTimeout(() => {
+          router.push("/explorer");
+        }, 500);
+
+        return () => clearTimeout(timer);
       }
     } else {
       setShowInstallStarknet(true);
     }
   };
+
+  console.log(dataMinted, "dataMinted");
 
   useEffect(() => {
     const hasReloaded = localStorage.getItem("hasReloaded");
@@ -139,6 +205,7 @@ const Index = () => {
       localStorage.removeItem("hasReloaded");
     };
   }, []);
+
   return (
     <>
       <Meta
