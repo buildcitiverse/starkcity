@@ -16,6 +16,7 @@ import {
 } from "@starknet-react/core";
 import ModalStarknet from "../components/ModalNoti/ModalStarknet";
 import abi from "../config/abi/abi.json";
+import ModalLoading from "../components/ModalNoti/ModalLoading";
 
 const Index = () => {
   const displayResponesive = useBreakpointValue({ base: "block", md: "none" });
@@ -28,6 +29,7 @@ const Index = () => {
   const { isConnected, chainId, address } = useAccount();
   const [imageSrc, setImageSrc] = useState("/assets/images/bgMapRes.png");
   const [actionConnect, setActionConnect] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [callContract, setCallContract] = useState(true);
 
   //Write && Read Contract
@@ -115,6 +117,7 @@ const Index = () => {
         writeAsync()
           .then(() => {
             refetchData();
+            setIsLoading(true)
             setCallContract(false)
           })
           .catch((error: any) => {
@@ -174,6 +177,7 @@ const Index = () => {
         writeAsync()
           .then(() => {
             refetchData()
+            setIsLoading(true)
             setCallContract(false)
           })
           .catch((error: any) => {
@@ -194,6 +198,7 @@ const Index = () => {
   useEffect(()=>{
     if(dataMinted === true){
       setCallContract(false)
+      setIsLoading(false)
     }
   },[dataMinted])
 
@@ -345,6 +350,7 @@ const Index = () => {
             onClickBravoos={handleClickBravoos}
           />
         )}
+        {isLoading && (<ModalLoading/>)}
       </Flex>
     </>
   );

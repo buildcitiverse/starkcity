@@ -97,6 +97,14 @@ body {
   border-radius: 40px;
 }
 
+.modal-body-loading {
+  margin: auto;
+  position: relative;
+  border: #fffcf9;
+  box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.05);
+  animation: growth linear 0.1s;
+}
+
 .modal-inner {
   display: flex;
   flex-direction: column;
