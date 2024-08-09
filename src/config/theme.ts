@@ -7,9 +7,9 @@ const config = {
 }
 
 const theme = extendTheme({
-  // fonts: {
-  //   body: `'Poppins', sans-serif`,
-  // },
+  fonts: {
+    body: `'Poppins', sans-serif`,
+  },
   breakpoints: {
     sm: "30em",
     md: "48em",

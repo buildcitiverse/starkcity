@@ -32,7 +32,7 @@ const MetaCityMap: React.FC = () => {
     const dispatch = useDispatch();
     const selectedItem = useSelector(selectedItemData);
     const dataSelectedItem = selectedItem.selectedItem;
-    // console.log('dataSelectedItem :>> ', dataSelectedItem);
+    console.log('dataSelectedItem :>> ', dataSelectedItem);
     const [showModal, setShowModal] = useState(false);
     const { address, isConnected, chainId, isDisconnected, status } = useAccount();
     const router = useRouter()

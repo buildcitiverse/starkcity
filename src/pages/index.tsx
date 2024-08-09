@@ -27,8 +27,8 @@ const Index = () => {
   const { connect, connectors } = useConnect();
   const { isConnected, chainId, address } = useAccount();
   const [imageSrc, setImageSrc] = useState("/assets/images/bgMapRes.png");
-  const [callContract, setCallContract] = useState(true);
   const [actionConnect, setActionConnect] = useState(false);
+  const [callContract, setCallContract] = useState(true);
 
   //Write && Read Contract
   const { contract } = useContract({
@@ -45,7 +45,7 @@ const Index = () => {
     });
   }, [contract, address]);
 
-  const { writeAsync, data: dataVerify } = useContractWrite({
+  const { writeAsync } = useContractWrite({
     calls,
   });
 
@@ -111,11 +111,11 @@ const Index = () => {
   
   useEffect(() => {
     const timeout = setTimeout(() => {
-      if ((callContract === false || address) && (dataMinted === false )) {
+      if ( callContract && dataMinted === false && address) {
         writeAsync()
           .then(() => {
-            setCallContract(true);
             refetchData();
+            setCallContract(false)
           })
           .catch((error: any) => {
             console.error("Error verify code:", error);
@@ -124,7 +124,7 @@ const Index = () => {
     }, 2000);
 
     return () => clearTimeout(timeout);
-  }, [address, callContract, dataMinted]);
+  }, [address, dataMinted, callContract]);
 
   //Check router explorer
   useEffect(() => {
@@ -173,7 +173,8 @@ const Index = () => {
       if (dataMinted === undefined || dataMinted === false) {
         writeAsync()
           .then(() => {
-            setCallContract(true);
+            refetchData()
+            setCallContract(false)
           })
           .catch((error: any) => {
             console.error("Error verify code:", error);
@@ -189,6 +190,12 @@ const Index = () => {
       setShowInstallStarknet(true);
     }
   };
+
+  useEffect(()=>{
+    if(dataMinted === true){
+      setCallContract(false)
+    }
+  },[dataMinted])
 
   useEffect(() => {
     const hasReloaded = localStorage.getItem("hasReloaded");
