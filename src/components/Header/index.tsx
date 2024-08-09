@@ -1,6 +1,4 @@
-import { Flex, Box, Image, Text, useBreakpointValue } from "@chakra-ui/react";
-
-const menuItems = ["METACITY", "MARKETPLACE", "ACADEMY", "NEWS", "WHITE LIST"];
+import { Flex, Box, Image, useBreakpointValue } from "@chakra-ui/react";
 
 const Header = () => {
     const justifyContentValue = useBreakpointValue({ base: "center", sm: "space-between" });
@@ -13,13 +11,6 @@ const Header = () => {
             <Box width="100%" height="80px" padding={"0 80px"} >
                 <Flex height="100%" alignItems="center" justifyContent={justifyContentValue}>
                     <Image w={widthLogo} height={heightLogo} src="/assets/images/logo_citiverse.png" alt="icon_city" />
-                    {/* <Flex gap="40px" display={{ base: "none", sm: "flex" }}>
-                        {menuItems.map(item => (
-                            <Text key={item} cursor="pointer" _hover={{color:"#EC796B"}} fontWeight={400} fontSize="16px" lineHeight="24px" >
-                                {item}
-                            </Text>
-                        ))}
-                    </Flex> */}
                 </Flex>
             </Box>
         </Flex>

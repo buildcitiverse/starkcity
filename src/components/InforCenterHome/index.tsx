@@ -2,12 +2,9 @@ import { Flex, Image, useBreakpointValue } from "@chakra-ui/react";
 import {
   useAccount,
   useConnect,
-  useContract,
-  useContractWrite,
 } from "@starknet-react/core";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect } from "react";
 import { useRouter } from "next/router";
-import abi from "../../config/abi/abi.json";
 
 interface InfoCenterHomeProps {
   onCheckInstallStarknet: () => void;
@@ -23,14 +20,8 @@ const InforCenterHome: React.FC<InfoCenterHomeProps> = ({
   const isSmallScreen = useBreakpointValue({ base: true, sm: false });
   const isSmallScreen2 = useBreakpointValue({ base: true, lg: false });
 
-  const { connect, connectors } = useConnect();
-  const [callContract, setCallContract] = useState(true);
   const router = useRouter();
-  const { isConnected, chainId, address } = useAccount();
-
-  const argentConnector = connectors.find(
-    (connector) => connector.id === "argentX"
-  );
+  const { isConnected,  address } = useAccount();
 
   const handleClickExplore = async () => {
     onCheckInstallStarknet();
@@ -53,45 +44,6 @@ const InforCenterHome: React.FC<InfoCenterHomeProps> = ({
     };
     switchChain();
   }, [isConnected, address]);
-
-  // const { contract } = useContract({
-  //   abi: abi,
-  //   address:
-  //     "0x06C1e915560589703C87ED758866aDadcd9acD324193e7F4C300C7357c9ffc3b",
-  // });
-
-  // const calls = useMemo(() => {
-  //   if (!address || !contract) return [];
-  //   return contract.populateTransaction["init_mint"]!(address, {
-  //     low: 1,
-  //     high: 0,
-  //   });
-  // }, [contract, address]);
-
-  // const { writeAsync, data: dataVerify } = useContractWrite({
-  //   calls,
-  // });
-
-  // useEffect(() => {
-  //   const redirectToExplorer = async () => {
-  //     if (isConnected && chainId === BigInt("393402133025997798000961")) {
-  //       setTimeout(() => {
-  //         writeAsync()
-  //           .then(() => {
-  //             router.push("/explorer");
-  //             console.log('ok')
-  //           })
-  //           .catch((error: any) => {
-  //             console.error("Error verify code:", error);
-  //           });
-  //       }, 1000);
-  //     }
-  //     if (address) {
-  //       localStorage.setItem("userAddress", address);
-  //     }
-  //   };
-  //   redirectToExplorer();
-  // }, [isConnected, router, chainId]);
 
   return (
     <Flex
