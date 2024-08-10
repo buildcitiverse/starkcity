@@ -135,7 +135,7 @@ const Index = () => {
       isConnected &&
       actionConnect &&
       chainId === BigInt("393402133025997798000961") &&
-      dataMinted
+      dataMinted === true
     ) {
       const timer = setTimeout(() => {
         router.push("/explorer");
@@ -215,6 +215,12 @@ const Index = () => {
       localStorage.removeItem("hasReloaded");
     };
   }, []);
+
+  console.log(dataMinted,'dataMinted')  
+  console.log(address,'address')
+  console.log(chainId,'chainID')
+  console.log(isConnected,'isConnected')
+  console.log(actionConnect,'actionConnect')
 
   return (
     <>
